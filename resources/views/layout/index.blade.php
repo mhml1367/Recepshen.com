@@ -11,6 +11,7 @@
       <link href="asset/css/elements.css" rel="stylesheet">
       <link href="style.css" rel="stylesheet">
       <link href="responsive.css" rel="stylesheet">
+      <link rel="stylesheet" href="/asset/css/persian-datepicker.css" />
       <meta name="_token" content="{{ csrf_token() }}">
 
       <style>
@@ -62,49 +63,15 @@
       @yield ("content")
 
       @include('layout.footer')
-      <!--FOOTER AREA  END-->
       <script src="asset/js/jquery.min.js"></script>
       <script src="asset/js/bootstrap.min.js"></script>
       <script src="asset/js/jquery.mCustomScrollbar.concat.min.js"></script>
       <script src="asset/js/swiper.js"></script>
       <script src="asset/js/plugins.js"></script>
-      <script src="asset/js/ajax-mail.js"></script>
-      <script src="asset/js/ajax-subscribe.js"></script>
       <script src="asset/js/main.js"></script>
+      <script src="/asset/js/persian-date.js"></script>
+      <script src="/asset/js/persian-datepicker.js"></script>
       @yield ("js")
 
- <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper('.blog-slider', {
-            spaceBetween: 30,
-            effect: 'fade',
-            loop: true,
-            mousewheel: {
-                invert: false,
-            },
-            // autoHeight: true,
-            pagination: {
-                el: '.blog-slider__pagination',
-                clickable: true,
-            }
-        });
-
-        $('.tab-links li').on('click', function () {
-            var swiper = new Swiper('.blog-slider', {
-                spaceBetween: 30,
-                effect: 'fade',
-                loop: true,
-                mousewheel: {
-                    invert: false,
-                },
-                // autoHeight: true,
-                pagination: {
-                    el: '.blog-slider__pagination',
-                    clickable: true,
-                }
-            });
-
-        });
-    </script>
    </body>
 </html>

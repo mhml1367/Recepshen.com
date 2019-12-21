@@ -12,5 +12,6 @@
 */
 
 Route::get ('/'   , 'indexController@index')->name('index'); 
+// Route::POST('/'   , 'indexController@index')->name('index'); 
 
-Route::get ('/Hotels'   , 'hotelsController@index')->name('index.hotels'); 
+Route::get ('/hotels'   , 'hotelsController@index')->name('index.hotels'); 

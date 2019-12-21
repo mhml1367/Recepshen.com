@@ -9,12 +9,12 @@
                    <div class="col-xl-12 col-lg-7 col-md-12 col-12">
                        <div class="cover">
                            <h2>جستجو هتل</h2>
-                           <form class="flex-form ">
-                               <select class="" name="option">
+                           <div class="flex-form ">
+                               <select name="option">
                                    <option value="1">هتل آپارتان گل نرگس</option>
                                </select>
-                               <input type="date" class="domain-input" placeholder="تاریخ ورود">
-                               <select class="" name="option">
+                               <input id="date" placeholder="تاریخ ورود">
+                               <select name="option">
                                    <option value="1">یک شب</option>
                                    <option value="2">دو شب</option>
                                    <option value="3">سه شب</option>
@@ -30,7 +30,7 @@
                                        جستجو
                                    </button>
                                </div>
-                           </form>
+                           </div>
                        </div>
                    </div>
                </div>
@@ -83,4 +83,17 @@
       </div>
    </div>
 </section>
+@endsection
+
+
+
+@section('js')
+<script>
+$('#date').persianDatepicker({
+    initialValue: true,
+    initialValueType: 'persian',
+    format: "YYYY/MM/DD",
+    autoClose: true
+ });
+ </script>
 @endsection

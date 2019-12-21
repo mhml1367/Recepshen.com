@@ -9,12 +9,12 @@
                    <div class="col-xl-12 col-lg-7 col-md-12 col-12">
                        <div class="cover">
                            <h2>جستجو هتل</h2>
-                           <form class="flex-form ">
-                               <select class="" name="option">
+                           <div class="flex-form ">
+                               <select id="city" name="option">
                                    <option value="1">هتل آپارتان گل نرگس</option>
                                </select>
-                               <input type="date" class="domain-input" placeholder="تاریخ ورود">
-                               <select class="" name="option">
+                               <input id="date" class="domain-input">
+                               <select id="date1" name="option">
                                    <option value="1">یک شب</option>
                                    <option value="2">دو شب</option>
                                    <option value="3">سه شب</option>
@@ -25,12 +25,12 @@
                                    <option value="8">هشت شب</option>
                                </select>
                                <div class="domain-checkup-right">
-                                   <button>
+                                   <button id="sub">
                                        <img src="asset/img/icons/search-icon.png" alt="Search icon">
                                        جستجو
                                    </button>
                                </div>
-                           </form>
+                           </div>
                        </div>
                    </div>
                </div>
@@ -160,3 +160,49 @@
          </div>
       </section>
       @endsection
+
+@section('js')
+<script>
+$('#date').persianDatepicker({
+    initialValue: true,
+    initialValueType: 'persian',
+    format: "YYYY/MM/DD",
+    autoClose: true
+});
+
+$(document).ready(function () {
+    $.ajax({
+        type: 'POST',
+        url: 'http://recepshen.ir/api/cities',
+        data: {
+            token: "mzoc1CEq401565108119FTd7QvbGea",
+        },
+        success: function (opdata) {
+
+            $.each(opdata, function (key, value) {
+                $('#city').append('<option value=' + value.id + '>' + value.name + '</option>');
+            });
+                $('#city').niceSelect('update'); 
+        }
+    });
+});
+
+$("#sub").click(function () {
+    $.ajax({
+        type: 'POST',
+        url: 'http://recepshen.ir/api/fetchHotels',
+        data: {
+            token: "mzoc1CEq401565108119FTd7QvbGea",
+            adults: "2",
+            childs: "0",
+            from: new persianDate($("#date").val()).toLocale('en').format('YYYY-MM-DD'),
+            to: new persianDate().add('days', $("#date1").val()).toLocale('en').format("YYYY-MM-DD"),
+            city_id: $("#city").val(),
+        },
+        success: function (msg) {
+            alert('wow' + msg);
+        }
+    });
+});
+ </script>
+@endsection

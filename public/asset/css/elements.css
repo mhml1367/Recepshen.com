@@ -6320,7 +6320,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     outline: none;
     padding-left: 18px;
     padding-right: 29px;
-    text-align: left;
+    text-align: right;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
     .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
