@@ -11,7 +11,6 @@
                            <h2>جستجو هتل</h2>
                            <div class="flex-form ">
                                <select id="city" name="option">
-                                   <option value="1">هتل آپارتان گل نرگس</option>
                                </select>
                                <input id="date" class="domain-input">
                                <select id="date1" name="option">
@@ -69,6 +68,7 @@
                         </div>
                      </div>
                   </div>
+                  
                   <div class="col-lg-8 col-md-12 col-xs-12">
                      <div class="row">
                       <div class="col-lg-12 col-md-12 col-xs-12">
@@ -77,6 +77,11 @@
                               <h2>هتل آپارتمان گل نرگس <i class="fa fa-star" style="color: yellow;"></i><i
                                       class="fa fa-star" style="color: yellow;"></i><i class="fa fa-star"
                                       style="color: yellow;"></i></h2>
+
+                                      {{-- <div class="lds-ellipsis">
+                                            <div></div><div></div><div></div><div></div>
+                                        </div> --}}
+
                               <div class="row no-gutters">
                                   <div class="col-lg-4 col-md-12 col-xs-12">
                                       <img src="image/small_IMG_3638.jpg" alt="pricing-icon">
