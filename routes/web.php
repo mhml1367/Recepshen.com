@@ -15,3 +15,13 @@ Route::get ('/'   , 'indexController@index')->name('index');
 // Route::POST('/'   , 'indexController@index')->name('index'); 
 
 Route::get ('/hotels'   , 'hotelsController@index')->name('index.hotels'); 
+
+
+
+
+Route::get('/clear', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('view:clear');
+    Artisan::call('cache:clear');
+    return '<h1>Cache facade value cleared</h1>';
+});

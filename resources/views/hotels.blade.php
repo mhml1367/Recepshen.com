@@ -11,6 +11,9 @@
                            <h2>جستجو هتل</h2>
                            <div class="flex-form ">
                                <select id="city" name="option">
+                                    @foreach ($city as $item)
+                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                    @endforeach
                                </select>
                                <input id="date" class="domain-input">
                                <select id="date1" name="option">
@@ -52,10 +55,24 @@
                   </div>
                </div>
                <div class="row">
-                  <div class="col-lg-4 col-md-12 col-xs-12">
+                  <div class="col-lg-3 col-md-12 col-xs-12">
+                        <div class="blog-detail blog-categories-right">
+                                <h2>نوع هتل</h2>
+                                <div class="categories-right-list">
+                                    <ul>
+                                        @foreach ($hotelTypes as $item)
+                                            <li><input type="checkbox" value="{{$item->id}}"> <a>{{$item->name}} </a></li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+
+
                      <div class="single-pricing-table">
-                        <h2>Personal</h2>
-                        <img src="asset/img/pricing-icon/pricing-icon.png" alt="pricing-icon">
+                        <h2>نوع هتل</h2>
+                        @foreach ($hotelTypes as $item)
+                            <div><p class="pull-right"><input type="checkbox" value="{{$item->id}}"></p>{{$item->name}}</div>
+                        @endforeach
                         <div class="pricing-content">
                            <ul>
                               <li>10GB Space</li>
@@ -175,22 +192,22 @@ $('#date').persianDatepicker({
     autoClose: true
 });
 
-$(document).ready(function () {
-    $.ajax({
-        type: 'POST',
-        url: 'http://recepshen.ir/api/cities',
-        data: {
-            token: "mzoc1CEq401565108119FTd7QvbGea",
-        },
-        success: function (opdata) {
+// $(document).ready(function () {
+//     $.ajax({
+//         type: 'POST',
+//         url: 'http://recepshen.ir/api/cities',
+//         data: {
+//             token: "mzoc1CEq401565108119FTd7QvbGea",
+//         },
+//         success: function (opdata) {
 
-            $.each(opdata, function (key, value) {
-                $('#city').append('<option value=' + value.id + '>' + value.name + '</option>');
-            });
-                $('#city').niceSelect('update'); 
-        }
-    });
-});
+//             $.each(opdata, function (key, value) {
+//                 $('#city').append('<option value=' + value.id + '>' + value.name + '</option>');
+//             });
+//                 $('#city').niceSelect('update'); 
+//         }
+//     });
+// });
 
 $("#sub").click(function () {
     $.ajax({

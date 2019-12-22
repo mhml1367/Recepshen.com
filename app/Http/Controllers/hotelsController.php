@@ -9,7 +9,9 @@ class hotelsController extends Controller
     public function index()
     {
 
-
-        return view('/hotels');
+        
+        $city = city();
+        $hotelTypes = hotelTypes();
+        return view('hotels')->with(compact('city','hotelTypes'));
     }
 }

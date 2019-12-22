@@ -7069,6 +7069,7 @@ padding: 30px 0px;
     padding: 30px 0px 30px 30px;
     background: #f8f9ff;
     position: relative;
+    padding-right: 15px;
 }
 .blog-recent-post h3:after {
     position: absolute;
@@ -7084,7 +7085,7 @@ padding: 30px 0px;
     position: absolute;
     top: auto;
     bottom: 0;
-    left: 30px;
+    right: 30px;
     width: 50px;
     height: 4px;
     content: "";
@@ -7107,11 +7108,9 @@ padding: 30px 0px;
 .categories-right-list a {
     font-size: 14px;
     color: #3a4368 ;
-    display: block;
     text-decoration: none;
     -webkit-transition: .3s;
     transition: .3s;
-    float: left;
 }
 .categories-right-list a:hover{
     padding-left: 10px;
