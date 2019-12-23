@@ -1,5 +1,9 @@
 @extends('layout.index')
 
+@section('css')
+    <link rel="stylesheet" href="/asset/bootstrap-slider/slider.css">
+@endsection
+
 @section('search')
 <section class="slider-1-bg">
    <div class="homepage-slider-1">
@@ -57,33 +61,49 @@
                <div class="row">
                   <div class="col-lg-3 col-md-12 col-xs-12">
                         <div class="blog-detail blog-categories-right">
-                                <h2>نوع هتل</h2>
-                                <div class="categories-right-list">
-                                    <ul>
-                                        @foreach ($hotelTypes as $item)
-                                            <li><input type="checkbox" value="{{$item->id}}"> <a>{{$item->name}} </a></li>
-                                        @endforeach
-                                    </ul>
+                            <h2>بازه قیمت </h2>
+                            <div class="categories-right-list">
+                                <div class="form-group" style="direction: rtl;">
+                                    <label>بازه قیمت<span id="ex3SliderVal"></span><br> به ازای هرشب</label>
+                                    <div style="padding: 18px"><input type="text" id="pricerange" value="" class="slider form-control" data-slider-min="0"
+                                        data-slider-max="5000000" data-slider-step="1" data-slider-value="[0,5000000]"
+                                        data-slider-orientation="horizontal" data-slider-selection="before"
+                                        data-slider-tooltip="hide" data-slider-id="blue" ></div>
                                 </div>
                             </div>
-
-
-                     <div class="single-pricing-table">
-                        <h2>نوع هتل</h2>
-                        @foreach ($hotelTypes as $item)
-                            <div><p class="pull-right"><input type="checkbox" value="{{$item->id}}"></p>{{$item->name}}</div>
-                        @endforeach
-                        <div class="pricing-content">
-                           <ul>
-                              <li>10GB Space</li>
-                              <li>1 Free Domain</li>
-                              <li>300GB SSD Disk</li>
-                              <li>Special Offers</li>
-                              <li>Unlimited Support</li>
-                           </ul>
-                           <a class="pricing-btn blue-btn" href="#">Select Plan</a>
                         </div>
-                     </div>
+                        <div class="blog-detail blog-categories-right">
+                            <h2>نوع هتل</h2>
+                            <div class="categories-right-list">
+                                <ul>
+                                    @foreach ($hotelTypes as $item)
+                                        <li><input type="checkbox" value="{{$item->id}}"> <a>{{$item->name}} </a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="blog-detail blog-categories-right">
+                            <h2>درجه هتل</h2>
+                            <div class="categories-right-list">
+                                <ul>
+                                    <li><input type="checkbox" value="1"><a><i class="fa fa-star" style="color: #ffa726;"></i></a></li>
+                                    <li><input type="checkbox" value="2"><a><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i></a></li>
+                                    <li><input type="checkbox" value="3"><a><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i></a></li>
+                                    <li><input type="checkbox" value="4"><a><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i></a></li>
+                                    <li><input type="checkbox" value="5"><a><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="blog-detail blog-categories-right">
+                            <h2>امکانات هتل</h2>
+                            <div class="categories-right-list">
+                                <ul>
+                                    @foreach ($hotelSpecifications as $item)
+                                        <li><input type="checkbox" value="{{$item->id}}"> <a>{{$item->name}} </a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
                   </div>
                   
                   <div class="col-lg-8 col-md-12 col-xs-12">
@@ -158,22 +178,7 @@
                               </div>
                           </div>
                       </div>
-                      <div class="col-lg-12 col-md-12 col-xs-12 ">
-                           <div class="single-pricing-table">
-                              <h2>Enterprice</h2>
-                              <img src="asset/img/pricing-icon/pricing-icon-4.png" alt="pricing-icon">
-                              <div class="pricing-content">
-                                 <ul>
-                                    <li>10GB Space</li>
-                                    <li>1 Free Domain</li>
-                                    <li>300GB SSD Disk</li>
-                                    <li>Special Offers</li>
-                                    <li>Unlimited Support</li>
-                                 </ul>
-                                 <a class="pricing-btn blue-btn" href="#">Select Plan</a>
-                              </div>
-                           </div>
-                        </div>
+
                      </div>
                   </div>
                   </div>
@@ -184,6 +189,8 @@
       @endsection
 
 @section('js')
+<script src="/asset/bootstrap-slider/bootstrap-slider.js"></script>
+
 <script>
 $('#date').persianDatepicker({
     initialValue: true,
@@ -192,22 +199,17 @@ $('#date').persianDatepicker({
     autoClose: true
 });
 
-// $(document).ready(function () {
-//     $.ajax({
-//         type: 'POST',
-//         url: 'http://recepshen.ir/api/cities',
-//         data: {
-//             token: "mzoc1CEq401565108119FTd7QvbGea",
-//         },
-//         success: function (opdata) {
-
-//             $.each(opdata, function (key, value) {
-//                 $('#city').append('<option value=' + value.id + '>' + value.name + '</option>');
-//             });
-//                 $('#city').niceSelect('update'); 
-//         }
-//     });
-// });
+$(function () {
+    /* BOOTSTRAP SLIDER */
+    $('.slider').slider(); 
+    txt=[0,5000000];
+    $('#pricerange').slider('setValue', txt);
+    $("#ex3SliderVal").text(" ( "+txt[0]+" الی "+txt[1]+" ) ");
+    $("#pricerange").on("slide", function(slideEvt) {
+        var txt=slideEvt.value;
+	$("#ex3SliderVal").text(" ( "+txt[0]+" الی "+txt[1]+" ) ");
+});
+})
 
 $("#sub").click(function () {
     $.ajax({

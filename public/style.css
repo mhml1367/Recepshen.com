@@ -7053,7 +7053,6 @@ p.blog-meta i.fa {
     color: #454545;
 }
 .blog-categories-right {
-    margin-top: 60px;
     border: 1px solid#ced4da;
     border-radius: 5px;
 }
@@ -7111,9 +7110,10 @@ padding: 30px 0px;
     text-decoration: none;
     -webkit-transition: .3s;
     transition: .3s;
+    padding-right: 5px;
 }
 .categories-right-list a:hover{
-    padding-left: 10px;
+    padding-right: 10px;
     color: #3464e0;
 }
 .blog-details .single-blog-box img {

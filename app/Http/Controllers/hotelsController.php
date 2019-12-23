@@ -12,6 +12,7 @@ class hotelsController extends Controller
         
         $city = city();
         $hotelTypes = hotelTypes();
-        return view('hotels')->with(compact('city','hotelTypes'));
+        $hotelSpecifications = hotelSpecifications();
+        return view('hotels')->with(compact('city','hotelTypes','hotelSpecifications'));
     }
 }
