@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>@yield ("title","رسپشن - فروش بلیط و رزرو اتاق")</title>
       <link rel="apple-touch-icon" href="asset/img/favicon/apple-touch-icon.png">
-      <link rel="icon" href="asset/img/favicon/favicon.ico">
+      <link rel="icon" href="asset/img/favicon/favicon.png">
       <link href="asset/css/bootstrap.min.css" rel="stylesheet">
       <link href="asset/css/jquery.mCustomScrollbar.min.css" rel="stylesheet">
       <link href="asset/css/elements.css" rel="stylesheet">
