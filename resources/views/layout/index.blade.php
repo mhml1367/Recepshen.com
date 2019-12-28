@@ -4,13 +4,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>@yield ("title","رسپشن - فروش بلیط و رزرو اتاق")</title>
-      <link rel="apple-touch-icon" href="asset/img/favicon/apple-touch-icon.png">
-      <link rel="icon" href="asset/img/favicon/favicon.png">
-      <link href="asset/css/bootstrap.min.css" rel="stylesheet">
-      <link href="asset/css/jquery.mCustomScrollbar.min.css" rel="stylesheet">
-      <link href="asset/css/elements.css" rel="stylesheet">
-      <link href="style.css" rel="stylesheet">
-      <link href="responsive.css" rel="stylesheet">
+      <link rel="apple-touch-icon" href="/asset/img/favicon/apple-touch-icon.png">
+      <link rel="icon" href="/asset/img/favicon/favicon.png">
+      <link href="/asset/css/bootstrap.min.css" rel="stylesheet">
+      <link href="/asset/css/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+      <link href="/asset/css/elements.css" rel="stylesheet">
+      <link href="/style.css" rel="stylesheet">
+      <link href="/responsive.css" rel="stylesheet">
       <link rel="stylesheet" href="/asset/css/persian-datepicker.css" />
       <meta name="_token" content="{{ csrf_token() }}">
 
@@ -124,12 +124,12 @@
       @yield ("content")
 
       @include('layout.footer')
-      <script src="asset/js/jquery.min.js"></script>
-      <script src="asset/js/bootstrap.min.js"></script>
-      <script src="asset/js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="asset/js/swiper.js"></script>
-      <script src="asset/js/plugins.js"></script>
-      <script src="asset/js/main.js"></script>
+      <script src="/asset/js/jquery.min.js"></script>
+      <script src="/asset/js/bootstrap.min.js"></script>
+      <script src="/asset/js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="/asset/js/swiper.js"></script>
+      <script src="/asset/js/plugins.js"></script>
+      <script src="/asset/js/main.js"></script>
       <script src="/asset/js/persian-date.js"></script>
       <script src="/asset/js/persian-datepicker.js"></script>
       @yield ("js")

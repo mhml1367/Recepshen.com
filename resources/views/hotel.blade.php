@@ -32,7 +32,7 @@
                                </select>
                                <div class="domain-checkup-right">
                                    <button id="sub">
-                                       <img src="asset/img/icons/search-icon.png" alt="Search icon">
+                                       <img src="/asset/img/icons/search-icon.png" alt="Search icon">
                                        جستجو
                                    </button>
                                </div>
@@ -54,7 +54,7 @@
                   <div class="col-md-12">
                      <div class="section-title">
                         <h2><span>Slake</span> Give you Best Price </h2>
-                        <img src="asset/img/section-shape.png" alt="section-shape">
+                        <img src="/asset/img/section-shape.png" alt="section-shape">
                      </div>
                   </div>
                </div>
@@ -140,56 +140,20 @@ $(function () {
 })
 var FIELD= "";
 
-$("#sub").click(function () {
+$(function () {
     var DateFrom= new persianDate($("#date").val()).toLocale('en').format('YYYY-MM-DD');
     var DateEnd= new persianDate().add('days', $("#date1").val()).toLocale('en').format("YYYY-MM-DD");
 
     $.ajax({
         type: 'POST',
-        url: 'http://recepshen.ir/api/fetchHotels',
+        url: 'http://recepshen.ir/api/fetchRooms',
         data: {
             token: "mzoc1CEq401565108119FTd7QvbGea",
-            adults: "2",
-            childs: "0",
-            from: DateFrom,
-            to: DateEnd,
-            city_id: $("#city").val(),
+            hotel_id: {{$IDHotel}},
+            from: {{request()->input('DateFrom')}},
+            to: {{request()->input('DateEnd')}},
         },
-        success: function (D) {
-            for (i = 0; i < D["data"].length; i++) {
-
-                FIELD += "<div class=\"col-lg-12 col-md-12 col-xs-12\">";
-                FIELD += "<div class=\"single-pricing-table active\">";
-                FIELD += "<span class=\"table-highlight\">"+ D["data"][i]["discount"] +"</span>";
-                FIELD += "<h2>"+ D["data"][i]["type"] +" "+ D["data"][i]["name"];
-
-                    for (b = 0; b < D["data"][i]["stars"]; b++) {
-                        FIELD += "<i class=\"fa fa-star\" style=\"color: yellow;\"></i>";
-                    }
-
-                FIELD += "</h2>";                
-                FIELD += "<div class=\"row no-gutters\">";
-                FIELD += "<div class=\"col-lg-4 col-md-12 col-xs-12\">";
-                FIELD += "<img src="+ D["data"][i]["image"] +" alt=\"pricing-icon\">";
-                FIELD += "</div>";
-                FIELD += "<div class=\"col-lg-8 col-md-12 col-xs-12\">";
-                FIELD += "<div class=\"row no-gutters\">";
-                FIELD += "<div class=\"col-lg-10 col-md-12 col-xs-12\">";
-                FIELD += "<p class=\"text-right\">";
-                FIELD += "<i class=\"fa fa-map-marker\" style=\"color:darkgray;\"></i>"+ D["data"][i]["address"];
-                FIELD += "</p>";
-                FIELD += "<div class=\"col-lg-10 col-md-12 col-xs-12\">";
-                FIELD += "<a class=\"pricing-btn blue-btn pull-left\" href=/hotels/" + D["data"][i]["name_en"] + "?DateFrom=" + DateFrom + "&DateEnd=" + DateEnd + ">رزرو هتل</a>";
-                FIELD += "</div>";
-                FIELD += "</div>";
-                FIELD += "</div>";
-                FIELD += "</div>";
-                FIELD += "";
-                FIELD += "</div>";
-                FIELD += "</div>";
-
-            }
-            document.getElementById("HOTELS").innerHTML = FIELD;
+        success: function (Data) {
         }
     });
 });

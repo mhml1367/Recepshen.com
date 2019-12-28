@@ -179,7 +179,7 @@ $("#sub").click(function () {
                 FIELD += "<i class=\"fa fa-map-marker\" style=\"color:darkgray;\"></i>"+ D["data"][i]["address"];
                 FIELD += "</p>";
                 FIELD += "<div class=\"col-lg-10 col-md-12 col-xs-12\">";
-                FIELD += "<a class=\"pricing-btn blue-btn pull-left\" href=/hotels/" + D["data"][i]["name_en"] + "?DateFrom=" + DateFrom + "&DateEnd=" + DateEnd + ">رزرو هتل</a>";
+                FIELD += "<a class=\"pricing-btn blue-btn pull-left\" href=/hotels/" + D["data"][i]["name_en"] + "/" + D["data"][i]["id"] + "?DateFrom=" + DateFrom + "&DateEnd=" + DateEnd + ">رزرو هتل</a>";
                 FIELD += "</div>";
                 FIELD += "</div>";
                 FIELD += "</div>";
