@@ -149,8 +149,6 @@ $("#sub").click(function () {
         url: 'http://recepshen.ir/api/fetchHotels',
         data: {
             token: "mzoc1CEq401565108119FTd7QvbGea",
-            adults: "2",
-            childs: "0",
             from: DateFrom,
             to: DateEnd,
             city_id: $("#city").val(),

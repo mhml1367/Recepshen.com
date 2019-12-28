@@ -9,8 +9,6 @@ class hotelsController extends Controller
 {
     public function index()
     {
-
-        
         $city = city();
         $hotelTypes = hotelTypes();
         $hotelSpecifications = hotelSpecifications();

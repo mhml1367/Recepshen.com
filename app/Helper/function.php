@@ -27,7 +27,7 @@ function city() {
 	$response = json_decode(curl_exec($ch));
 
 	if ($response) {
-		Cache::store('file')->put($key, $response, env('CacheTime'));
+		Cache::store('file')->put($key, $response->data, env('CacheTime'));
 	}
 
 	return $response->data;
@@ -59,7 +59,7 @@ function hotelTypes() {
 	$response = json_decode(curl_exec($ch));
 
 	if ($response) {
-		Cache::store('file')->put($key, $response, env('CacheTime'));
+		Cache::store('file')->put($key, $response->data, env('CacheTime'));
 	}
 	return $response->data;
 	
@@ -92,7 +92,7 @@ function hotelSpecifications() {
 	$response = json_decode(curl_exec($ch));
 
 	if ($response) {
-		Cache::store('file')->put($key, $response, env('CacheTime'));
+		Cache::store('file')->put($key, $response->data, env('CacheTime'));
 	}
 	return $response->data;
 	

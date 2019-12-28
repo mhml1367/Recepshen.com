@@ -47,6 +47,19 @@
 @endsection
 
 @section('content')
+<section class="welcome-area">
+    <div class="container">
+       <div class="row" style="direction: ltr;">
+           <div class="col-xl-7 col-lg-7 col-md-12" id="diHotel">
+
+           </div>
+           <div class="col-xl-5 col-lg-5 col-md-12" id="biHotel">
+
+           </div>
+       </div>
+    </div>
+ </section>
+
       <section class="blog-1-area about-blog">
          <div class="container">
             <div class="homepage-2 homepage-4 pricing-table-area">
@@ -154,8 +167,44 @@ $(function () {
             to: {{request()->input('DateEnd')}},
         },
         success: function (Data) {
+            hotel(Data["data"])
         }
     });
 });
+
+
+
+function hotel(Data) {
+    diHotel += "<div class=\"welcome-right\">";
+    diHotel += "<h5 class=\"heading-title\">"+Data["type"]+"</h5>";
+    diHotel += "<h2 class=\"heading-title-default\">"+Data["name"]+"</h2";
+    diHotel += "<div class=\"heading-text clearfix\">";
+    diHotel += "<p>"+Data["address"]+"</p>";
+    diHotel += "<p>آدرس هتل</p>";
+    diHotel += "</div>";
+
+    biHotel += "<div class=\"about-slider-wrapper\">";
+    biHotel += "<div class=\"about-slider slick-initialized slick-slider\"><button class=\"slick-prev slick-arrow\" aria-label=\"Previous\" type=\"button\" >Previous</button>";
+    biHotel += "<div class=\"about-slider-wrapper\">";
+    biHotel += "<div class=\"slick-track\" style=\"opacity: 1; width: 1335px;\">";
+    biHotel += "<div class=\"slider-item slick-slide slick-current slick-active\" data-slick-index=\"0\" aria-hidden=\"false\" tabindex=\"0\" style=\"width: 445px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;\">";
+    biHotel += "<img src=\"asset/img/slider-img/about-imag2.jpg\">";
+    biHotel += "</div>";
+    biHotel += "</div>";
+    biHotel += "</div>";
+    biHotel += "<button class=\"slick-next slick-arrow\" aria-label=\"Next\" type=\"button\" >Next</button>";
+    biHotel += "</div>";
+    biHotel += "<div class=\"bg-shadow-img\">";
+    biHotel += "<img src=\"asset/img/slider-img/about-slider-bg-img.jpg\" >";
+    biHotel += "</div>";
+    biHotel += "</div>";
+
+
+
+    document.getElementById("diHotel").innerHTML = diHotel;
+    document.getElementById("biHotel").innerHTML = biHotel;
+
+};
+
  </script>
 @endsection
