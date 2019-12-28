@@ -1407,6 +1407,11 @@ a.pricing-btn.blue-btn.homepage-one-all-features-btn.action-btn.slider-links-2 {
 }
 
 
+.Hotels {
+    background-image: url(/image/Hotels.jpg);
+    /* background-size: cover; */
+    background-position: center;
+}
 #homepage-3 .full-slider {
     background-image: url(asset/img/bg/homepage-3-bg.png);
     /* background-size: cover; */

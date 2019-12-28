@@ -116,7 +116,7 @@
     </div>
   </div>
 
-      <div class="full-slider">
+      <div class="Hotels">
       @include("layout.header")
       @yield ("search")
       </div>
