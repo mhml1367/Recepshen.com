@@ -24,13 +24,13 @@ function city() {
 		'Content-Type: application/json',
 	]);
 
-	$response = curl_exec($ch);
+	$response = json_decode(curl_exec($ch));
 
 	if ($response) {
 		Cache::store('file')->put($key, $response, env('CacheTime'));
 	}
 
-	return json_decode($response);
+	return $response->data;
 	
 }
 function hotelTypes() {

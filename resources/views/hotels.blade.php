@@ -104,83 +104,11 @@
                                 </ul>
                             </div>
                         </div>
-                  </div>
-                  
-                  <div class="col-lg-8 col-md-12 col-xs-12">
-                     <div class="row">
-                      <div class="col-lg-12 col-md-12 col-xs-12">
-                          <div class="single-pricing-table active">
-                              <span class="table-highlight">تخفیف 20%</span>
-                              <h2>هتل آپارتمان گل نرگس <i class="fa fa-star" style="color: yellow;"></i><i
-                                      class="fa fa-star" style="color: yellow;"></i><i class="fa fa-star"
-                                      style="color: yellow;"></i></h2>
-
-                                      {{-- <div class="lds-ellipsis">
-                                            <div></div><div></div><div></div><div></div>
-                                        </div> --}}
-
-                              <div class="row no-gutters">
-                                  <div class="col-lg-4 col-md-12 col-xs-12">
-                                      <img src="image/small_IMG_3638.jpg" alt="pricing-icon">
-                                  </div>
-                                  <div class="col-lg-8 col-md-12 col-xs-12">
-
-                                      <div class="row no-gutters">
-                                          <div class="col-lg-10 col-md-12 col-xs-12">
-                                              <p class="text-right">
-                                                  <i class="fa fa-map-marker" style="color:darkgray;"></i>مشهد ، خیابان
-                                                  امام خمینی بین چهارراه لشکر و میدان ده دی _ امام خمینی 39
-                                              </p>
-                                          </div>
-                                          <div class="col-lg-10 col-md-12 col-xs-12">
-                                              <a class="pricing-btn blue-btn pull-left" href="#">Select Plan</a>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="row no-gutters">
-                                  <div class="col">
-                                      <div class="single-hosting-price">
-                                          <ul>
-                                              <li>نام اتاق</li>
-                                              <li> $85</li>
-                                              <li> $135</li>
-                                          </ul>
-                                      </div>
-                                  </div>
-                                  <div class="col">
-                                      <div class="single-hosting-price">
-                                          <ul>
-                                              <li>تعداد</li>
-                                              <li> $185</li>
-                                              <li> $235</li>
-                                          </ul>
-                                      </div>
-                                  </div>
-                                  <div class="col">
-                                      <div class="single-hosting-price">
-                                          <ul>
-                                              <li>قیمت برای یک شب</li>
-                                              <li> $135</li>
-                                              <li> $235</li>
-                                          </ul>
-                                      </div>
-                                  </div>
-                                  <div class="col">
-                                      <div class="single-hosting-price">
-                                          <ul>
-                                              <li>نوع اقامت</li>
-                                              <li> $185</li>
-                                              <li> $235</li>
-                                          </ul>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-
-                     </div>
-                  </div>
+                    </div>
+                    <div class="col-lg-8 col-md-12 col-xs-12">
+                        <div class="row" id="HOTELS">
+                        </div>
+                    </div>
                   </div>
                </div>
             </div>
@@ -210,6 +138,7 @@ $(function () {
 	$("#ex3SliderVal").text(" ( "+txt[0]+" الی "+txt[1]+" ) ");
 });
 })
+var FIELD= "";
 
 $("#sub").click(function () {
     $.ajax({
@@ -223,8 +152,41 @@ $("#sub").click(function () {
             to: new persianDate().add('days', $("#date1").val()).toLocale('en').format("YYYY-MM-DD"),
             city_id: $("#city").val(),
         },
-        success: function (msg) {
-            alert('wow' + msg);
+        success: function (D) {
+            for (i = 0; i < D["data"].length; i++) {
+
+                FIELD += "<div class=\"col-lg-12 col-md-12 col-xs-12\">";
+                FIELD += "<div class=\"single-pricing-table active\">";
+                FIELD += "<span class=\"table-highlight\">"+ D["data"][i]["discount"] +"</span>";
+                FIELD += "<h2>"+ D["data"][i]["type"] +" "+ D["data"][i]["name"];
+
+                    for (b = 0; b < D["data"][i]["stars"]; b++) {
+                        FIELD += "<i class=\"fa fa-star\" style=\"color: yellow;\"></i>";
+                    }
+
+                FIELD += "</h2>";                
+                FIELD += "<div class=\"row no-gutters\">";
+                FIELD += "<div class=\"col-lg-4 col-md-12 col-xs-12\">";
+                FIELD += "<img src="+ D["data"][i]["image"] +" alt=\"pricing-icon\">";
+                FIELD += "</div>";
+                FIELD += "<div class=\"col-lg-8 col-md-12 col-xs-12\">";
+                FIELD += "<div class=\"row no-gutters\">";
+                FIELD += "<div class=\"col-lg-10 col-md-12 col-xs-12\">";
+                FIELD += "<p class=\"text-right\">";
+                FIELD += "<i class=\"fa fa-map-marker\" style=\"color:darkgray;\"></i>"+ D["data"][i]["address"];
+                FIELD += "</p>";
+                FIELD += "<div class=\"col-lg-10 col-md-12 col-xs-12\">";
+                FIELD += "<a class=\"pricing-btn blue-btn pull-left\" href=\"#\">رزرو هتل</a>";
+                FIELD += "</div>";
+                FIELD += "</div>";
+                FIELD += "</div>";
+                FIELD += "</div>";
+                FIELD += "";
+                FIELD += "</div>";
+                FIELD += "</div>";
+
+            }
+            document.getElementById("HOTELS").innerHTML = FIELD;
         }
     });
 });
