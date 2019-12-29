@@ -172,12 +172,13 @@ $(function () {
     });
 });
 
-
+var diHotel="";
+var biHotel="";
 
 function hotel(Data) {
     diHotel += "<div class=\"welcome-right\">";
     diHotel += "<h5 class=\"heading-title\">"+Data["type"]+"</h5>";
-    diHotel += "<h2 class=\"heading-title-default\">"+Data["name"]+"</h2";
+    diHotel += "<h2 class=\"heading-title-default\">"+Data["name"]+"</h2>";
     diHotel += "<div class=\"heading-text clearfix\">";
     diHotel += "<p>"+Data["address"]+"</p>";
     diHotel += "<p>آدرس هتل</p>";
@@ -187,15 +188,19 @@ function hotel(Data) {
     biHotel += "<div class=\"about-slider slick-initialized slick-slider\"><button class=\"slick-prev slick-arrow\" aria-label=\"Previous\" type=\"button\" >Previous</button>";
     biHotel += "<div class=\"about-slider-wrapper\">";
     biHotel += "<div class=\"slick-track\" style=\"opacity: 1; width: 1335px;\">";
-    biHotel += "<div class=\"slider-item slick-slide slick-current slick-active\" data-slick-index=\"0\" aria-hidden=\"false\" tabindex=\"0\" style=\"width: 445px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;\">";
-    biHotel += "<img src=\"asset/img/slider-img/about-imag2.jpg\">";
+
+        for (b = 0; b < Data["images"].length; b++) {
+    biHotel += "<div class=\"slider-item slick-slide slick-current slick-active\" data-slick-index=\""+ b +"\" aria-hidden=\"false\" tabindex=\"0\" style=\"width: 445px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;\">";
+    biHotel += "<img src="+ Data["images"][b] +">";
     biHotel += "</div>";
+        }
+    
     biHotel += "</div>";
     biHotel += "</div>";
     biHotel += "<button class=\"slick-next slick-arrow\" aria-label=\"Next\" type=\"button\" >Next</button>";
     biHotel += "</div>";
     biHotel += "<div class=\"bg-shadow-img\">";
-    biHotel += "<img src=\"asset/img/slider-img/about-slider-bg-img.jpg\" >";
+    biHotel += "<img src=\"http://marveltheme.com/tf/html/slake/slake/asset/img/slider-img/about-slider-bg-img.jpg\" >";
     biHotel += "</div>";
     biHotel += "</div>";
 
