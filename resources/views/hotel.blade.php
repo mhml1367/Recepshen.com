@@ -21,20 +21,22 @@
 @endsection
 
 @section('content')
+<section class="brand-area" style="direction: ltr;" id="biHotel">
+</section>
 <section class="welcome-area">
     <div class="container">
        <div class="row" style="direction: ltr;">
            <div class="col-xl-7 col-lg-7 col-md-12" id="diHotel">
 
            </div>
-           <div class="col-xl-5 col-lg-5 col-md-12" id="biHotel">
+           <div class="col-xl-5 col-lg-5 col-md-12">
 
            </div>
        </div>
     </div>
  </section>
 
-      <section class="blog-1-area about-blog">
+       <section class="blog-1-area about-blog">
          <div class="container">
             <div class="homepage-2 homepage-4 pricing-table-area">
                <div class="row">
@@ -94,38 +96,32 @@ function hotel(Data) {
     diHotel += "<p>آدرس هتل</p>";
     diHotel += "</div>";
 
-    biHotel += "<div class=\"about-slider-wrapper\">";
-    biHotel += "<div class=\"about-slider slick-initialized slick-slider\"><button class=\"slick-prev slick-arrow\" aria-label=\"Previous\" type=\"button\" >Previous</button>";
-    biHotel += "<div class=\"about-slider-wrapper\">";
-    biHotel += "<div class=\"slick-track\" style=\"opacity: 1; width: 1335px;\">";
+            biHotel += "<div class=\"container\">";
+            biHotel += "<div class=\"row\">";
+            biHotel += "<div class=\"col-lg-12\">";
+            biHotel += "<div class=\"brand-inner\">";
+            biHotel += "<div class=\"owl-carousel all-brand-carsouel owl-loaded owl-drag\">";
+            biHotel += "<div class=\"owl-stage-outer\">";
+            biHotel += "<div class=\"owl-stage\" style=\"transform: translate3d(-1554px, 0px, 0px); transition: all 0.6s ease 0s; width: 3552px;\">";
 
-    for (b = 0; b < Data["images"].length; b++) {
-        if (b == 0) {
-            classActiv = "slider-item slick-slide slick-current slick-active";
-            hidden = "false";
-            tabindex = "0";
-            opacity = "1";
-            left = "0";
-        }else{
-            classActiv="slider-item slick-slide";
-            hidden = "true";
-            tabindex = "-1";
-            opacity = "0";
-            left = -445*b;
-        }
-            biHotel += "<div class=\""+ classActiv +"\" data-slick-index=\""+ b +"\" aria-hidden=\""+hidden+"\" tabindex=\""+tabindex+"\" style=\"width: 445px; position: relative; left: "+left+"px; top: 0px; z-index: 999; opacity: "+opacity+";\">";
-            biHotel += "<img src="+ Data["images"][b] +">";
+            for (b = 0; b < Data["images"].length; b++) {
+                biHotel += "<div class=\"owl-item cloned\" style=\"width: 222px;\">";
+                biHotel += "<div class=\"brand-single-item\">";
+                biHotel += "<div class=\"brand-single-item-cell\">";
+                biHotel += "<img src=\""+ Data["images"][b] +"\" alt=\"brand-icon\">";
+                biHotel += "</div>";
+                biHotel += "</div>";
+                biHotel += "</div>";
+            }
+
             biHotel += "</div>";
-    }
+            biHotel += "</div>";
+            biHotel += "</div>";
+            biHotel += "</div>";
+            biHotel += "</div>";
+            biHotel += "</div>";
+            biHotel += "</div>";
     
-    biHotel += "</div>";
-    biHotel += "</div>";
-    biHotel += "<button class=\"slick-next slick-arrow\" aria-label=\"Next\" type=\"button\" >Next</button>";
-    biHotel += "</div>";
-    biHotel += "<div class=\"bg-shadow-img\">";
-    biHotel += "<img src=\"http://marveltheme.com/tf/html/slake/slake/asset/img/slider-img/about-slider-bg-img.jpg\" >";
-    biHotel += "</div>";
-    biHotel += "</div>";
 
 
     for (i = 0; i < Data["rooms"].length; i++) {
