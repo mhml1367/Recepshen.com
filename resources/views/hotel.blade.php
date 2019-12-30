@@ -11,33 +11,7 @@
            <div class="container">
                <div class="row slider-content-area">
                    <div class="col-xl-12 col-lg-7 col-md-12 col-12">
-                       <div class="cover">
-                           <h2>جستجو هتل</h2>
-                           <div class="flex-form ">
-                               <select id="city" name="option">
-                                    @foreach ($city as $item)
-                                    <option value="{{$item->id}}">{{$item->name}}</option>
-                                    @endforeach
-                               </select>
-                               <input id="date" class="domain-input">
-                               <select id="date1" name="option">
-                                   <option value="1">یک شب</option>
-                                   <option value="2">دو شب</option>
-                                   <option value="3">سه شب</option>
-                                   <option value="4">چهار شب</option>
-                                   <option value="5">پنج شب</option>
-                                   <option value="6">شش شب</option>
-                                   <option value="7">هفت شب</option>
-                                   <option value="8">هشت شب</option>
-                               </select>
-                               <div class="domain-checkup-right">
-                                   <button id="sub">
-                                       <img src="/asset/img/icons/search-icon.png" alt="Search icon">
-                                       جستجو
-                                   </button>
-                               </div>
-                           </div>
-                       </div>
+                      
                    </div>
                </div>
            </div>
@@ -87,29 +61,7 @@
 <script src="/asset/bootstrap-slider/bootstrap-slider.js"></script>
 
 <script>
-$('#date').persianDatepicker({
-    initialValue: true,
-    initialValueType: 'persian',
-    format: "YYYY/MM/DD",
-    autoClose: true
-});
-
 $(function () {
-    /* BOOTSTRAP SLIDER */
-    $('.slider').slider(); 
-    txt=[0,5000000];
-    $('#pricerange').slider('setValue', txt);
-    $("#ex3SliderVal").text(" ( "+txt[0]+" الی "+txt[1]+" ) ");
-    $("#pricerange").on("slide", function(slideEvt) {
-        var txt=slideEvt.value;
-	$("#ex3SliderVal").text(" ( "+txt[0]+" الی "+txt[1]+" ) ");
-});
-})
-
-$(function () {
-    var DateFrom= new persianDate($("#date").val()).toLocale('en').format('YYYY-MM-DD');
-    var DateEnd= new persianDate().add('days', $("#date1").val()).toLocale('en').format("YYYY-MM-DD");
-
     $.ajax({
         type: 'POST',
         url: 'http://recepshen.ir/api/fetchRooms',
@@ -131,7 +83,11 @@ var Rooms="";
 
 function hotel(Data) {
     diHotel += "<div class=\"welcome-right\">";
-    diHotel += "<h5 class=\"heading-title\">"+Data["type"]+"</h5>";
+    diHotel += "<h5 class=\"heading-title\">"
+    for (b = 0; b < Data["stars"]; b++) {
+        diHotel += "<i class=\"fa fa-star\" style=\"color: yellow;\"></i>";
+    }
+    diHotel +=" "+Data["type"] +"</h5>";
     diHotel += "<h2 class=\"heading-title-default\">"+Data["name"]+"</h2>";
     diHotel += "<div class=\"heading-text clearfix\">";
     diHotel += "<p>"+Data["address"]+"</p>";
