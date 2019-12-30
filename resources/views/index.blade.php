@@ -26,7 +26,7 @@
                                </select>
                                <div class="domain-checkup-right">
                                    <button>
-                                       <img src="asset/img/icons/search-icon.png" alt="Search icon">
+                                       <img src="/asset/img/icons/search-icon.png" alt="Search icon">
                                        جستجو
                                    </button>
                                </div>
@@ -49,32 +49,32 @@
                  <div class="owl-carousel all-brand-carsouel">
                     <div class="brand-single-item">
                       <div class="brand-single-item-cell">
-                         <img src="asset/img/brand-logo/brand-icon.png" alt="brand-icon">
+                         <img src="/asset/img/brand-logo/brand-icon.png" alt="brand-icon">
                       </div>
                     </div>
                     <div class="brand-single-item">
                       <div class="brand-single-item-cell">
-                       <img src="asset/img/brand-logo/brand-icon-2.png" alt="brand-icon">
+                       <img src="/asset/img/brand-logo/brand-icon-2.png" alt="brand-icon">
                     </div>
                     </div>
                     <div class="brand-single-item">
                       <div class="brand-single-item-cell">
-                       <img src="asset/img/brand-logo/brand-icon-3.png" alt="brand-icon">
+                       <img src="/asset/img/brand-logo/brand-icon-3.png" alt="brand-icon">
                     </div>
                     </div>
                     <div class="brand-single-item">
                       <div class="brand-single-item-cell">
-                       <img src="asset/img/brand-logo/brand-icon-4.png" alt="brand-icon">
+                       <img src="/asset/img/brand-logo/brand-icon-4.png" alt="brand-icon">
                     </div>
                     </div>
                     <div class="brand-single-item">
                       <div class="brand-single-item-cell">
-                       <img src="asset/img/brand-logo/brand-icon-5.png" alt="brand-icon">
+                       <img src="/asset/img/brand-logo/brand-icon-5.png" alt="brand-icon">
                     </div>
                     </div>
                     <div class="brand-single-item">
                       <div class="brand-single-item-cell">
-                       <img src="asset/img/brand-logo/brand-icon-3.png" alt="brand-icon">
+                       <img src="/asset/img/brand-logo/brand-icon-3.png" alt="brand-icon">
                     </div>
                     </div>
                  </div>

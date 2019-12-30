@@ -66,60 +66,14 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="section-title">
-                        <h2><span>Slake</span> Give you Best Price </h2>
+                        <h2><span>اتاق ها</span> لیست اتاق های موجود </h2>
                         <img src="/asset/img/section-shape.png" alt="section-shape">
                      </div>
                   </div>
                </div>
                <div class="row">
-                  <div class="col-lg-3 col-md-12 col-xs-12">
-                        <div class="blog-detail blog-categories-right">
-                            <h2>بازه قیمت </h2>
-                            <div class="categories-right-list">
-                                <div class="form-group" style="direction: rtl;">
-                                    <label>بازه قیمت<span id="ex3SliderVal"></span><br> به ازای هرشب</label>
-                                    <div style="padding: 18px"><input type="text" id="pricerange" value="" class="slider form-control" data-slider-min="0"
-                                        data-slider-max="5000000" data-slider-step="1" data-slider-value="[0,5000000]"
-                                        data-slider-orientation="horizontal" data-slider-selection="before"
-                                        data-slider-tooltip="hide" data-slider-id="blue" ></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog-detail blog-categories-right">
-                            <h2>نوع هتل</h2>
-                            <div class="categories-right-list">
-                                <ul>
-                                    @foreach ($hotelTypes as $item)
-                                        <li><input type="checkbox" value="{{$item->id}}"> <a>{{$item->name}} </a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="blog-detail blog-categories-right">
-                            <h2>درجه هتل</h2>
-                            <div class="categories-right-list">
-                                <ul>
-                                    <li><input type="checkbox" value="1"><a><i class="fa fa-star" style="color: #ffa726;"></i></a></li>
-                                    <li><input type="checkbox" value="2"><a><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i></a></li>
-                                    <li><input type="checkbox" value="3"><a><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i></a></li>
-                                    <li><input type="checkbox" value="4"><a><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i></a></li>
-                                    <li><input type="checkbox" value="5"><a><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="blog-detail blog-categories-right">
-                            <h2>امکانات هتل</h2>
-                            <div class="categories-right-list">
-                                <ul>
-                                    @foreach ($hotelSpecifications as $item)
-                                        <li><input type="checkbox" value="{{$item->id}}"> <a>{{$item->name}} </a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-12 col-xs-12">
-                        <div class="row" id="HOTELS">
+                    <div class="col-lg-12 col-md-12 col-xs-12">
+                        <div class="row" id="ROOMS">
                         </div>
                     </div>
                   </div>
@@ -151,7 +105,6 @@ $(function () {
 	$("#ex3SliderVal").text(" ( "+txt[0]+" الی "+txt[1]+" ) ");
 });
 })
-var FIELD= "";
 
 $(function () {
     var DateFrom= new persianDate($("#date").val()).toLocale('en').format('YYYY-MM-DD');
@@ -163,8 +116,8 @@ $(function () {
         data: {
             token: "mzoc1CEq401565108119FTd7QvbGea",
             hotel_id: {{$IDHotel}},
-            from: {{request()->input('DateFrom')}},
-            to: {{request()->input('DateEnd')}},
+            from: "{{$from}}",
+            to: "{{$to}}",
         },
         success: function (Data) {
             hotel(Data["data"])
@@ -174,6 +127,7 @@ $(function () {
 
 var diHotel="";
 var biHotel="";
+var Rooms="";
 
 function hotel(Data) {
     diHotel += "<div class=\"welcome-right\">";
@@ -189,11 +143,24 @@ function hotel(Data) {
     biHotel += "<div class=\"about-slider-wrapper\">";
     biHotel += "<div class=\"slick-track\" style=\"opacity: 1; width: 1335px;\">";
 
-        for (b = 0; b < Data["images"].length; b++) {
-    biHotel += "<div class=\"slider-item slick-slide slick-current slick-active\" data-slick-index=\""+ b +"\" aria-hidden=\"false\" tabindex=\"0\" style=\"width: 445px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;\">";
-    biHotel += "<img src="+ Data["images"][b] +">";
-    biHotel += "</div>";
+    for (b = 0; b < Data["images"].length; b++) {
+        if (b == 0) {
+            classActiv = "slider-item slick-slide slick-current slick-active";
+            hidden = "false";
+            tabindex = "0";
+            opacity = "1";
+            left = "0";
+        }else{
+            classActiv="slider-item slick-slide";
+            hidden = "true";
+            tabindex = "-1";
+            opacity = "0";
+            left = -445*b;
         }
+            biHotel += "<div class=\""+ classActiv +"\" data-slick-index=\""+ b +"\" aria-hidden=\""+hidden+"\" tabindex=\""+tabindex+"\" style=\"width: 445px; position: relative; left: "+left+"px; top: 0px; z-index: 999; opacity: "+opacity+";\">";
+            biHotel += "<img src="+ Data["images"][b] +">";
+            biHotel += "</div>";
+    }
     
     biHotel += "</div>";
     biHotel += "</div>";
@@ -205,7 +172,32 @@ function hotel(Data) {
     biHotel += "</div>";
 
 
+    for (i = 0; i < Data["rooms"].length; i++) {
 
+        Rooms += "<div class=\"col-lg-12 col-md-12 col-xs-12\">";
+        Rooms += "<div class=\"single-pricing-table active\">";
+        Rooms += "<span class=\"table-highlight\">"+ Data["rooms"][i]["beds"] +"</span>";
+        Rooms += "<div class=\"row no-gutters\">";
+        Rooms += "<div class=\"col-lg-4 col-md-12 col-xs-12\">";
+        Rooms += "<img src=\""+ Data["rooms"][i]["images"]["0"] +"\" alt=\"pricing-icon\">";
+        Rooms += "</div>";
+        Rooms += "<div class=\"col-lg-8 col-md-12 col-xs-12\">";
+        Rooms += "<div class=\"row no-gutters\">";
+        Rooms += "<div class=\"col-lg-10 col-md-12 col-xs-12 text-right\">";
+        Rooms += "<h2>"+ Data["rooms"][i]["name"]+"</h2>";
+        Rooms += "<i class=\"fa fa-map-marker\" style=\"color:darkgray;\"></i>"+ Data["rooms"][i]["id"];
+        Rooms += "<div class=\"col-lg-10 col-md-12 col-xs-12\">";
+        Rooms += "<a class=\"pricing-btn blue-btn pull-left\" href=/hotels/" + Data["rooms"][i]["id"] + ">رزرو اتاق</a>";
+        Rooms += "</div>";
+        Rooms += "</div>";
+        Rooms += "</div>";
+        Rooms += "</div>";
+        Rooms += "";
+        Rooms += "</div>";
+        Rooms += "</div>";
+
+    }
+    document.getElementById("ROOMS").innerHTML = Rooms;
     document.getElementById("diHotel").innerHTML = diHotel;
     document.getElementById("biHotel").innerHTML = biHotel;
 

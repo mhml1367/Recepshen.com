@@ -37,7 +37,7 @@
              <div class="col-lg-3 col-md-12 col-12">
                 <div class="footer-single-item">
                    <div class="logo">
-                      <a href="index.html"><img src="asset/img/logo/footer-logo.png" alt="logo"></a>
+                      <a href="index.html"><img src="/asset/img/logo/footer-logo.png" alt="logo"></a>
                    </div>
                    <p>سیستم مدیریت رسپشن</p>
                    <p class="contact-info"><a href="tel:+8801711991383">0098 915658020</a><span>موبایل</span></p>
@@ -101,7 +101,7 @@
              </div>
              <div class="col-md-6 col-sm-6 col-xs-12 ">
                 <div class="payment-getway text-right">
-                   <img src="asset/img/bg/footer-bottom.png" alt="payment-icon">
+                   <img src="/asset/img/bg/footer-bottom.png" alt="payment-icon">
                 </div>
              </div>
           </div>

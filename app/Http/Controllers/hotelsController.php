@@ -17,9 +17,17 @@ class hotelsController extends Controller
     
     public function Hotel($Hotels,$IDHotel)
     {
+        if (request()->input('DateFrom') == null) {
+            $from = "";
+            $to = "";
+        }else{
+            $from = request()->input('DateFrom');
+            $to = request()->input('DateEnd');
+        }
+        // dd($from);
         $city = city();
         $hotelTypes = hotelTypes();
         $hotelSpecifications = hotelSpecifications();
-        return view('hotel')->with(compact('IDHotel','city','hotelTypes','hotelSpecifications'));
+        return view('hotel')->with(compact('to','from','IDHotel','city','hotelTypes','hotelSpecifications'));
     }
 }

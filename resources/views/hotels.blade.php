@@ -32,7 +32,7 @@
                                </select>
                                <div class="domain-checkup-right">
                                    <button id="sub">
-                                       <img src="asset/img/icons/search-icon.png" alt="Search icon">
+                                       <img src="/asset/img/icons/search-icon.png" alt="Search icon">
                                        جستجو
                                    </button>
                                </div>
@@ -54,7 +54,7 @@
                   <div class="col-md-12">
                      <div class="section-title">
                         <h2><span>Slake</span> Give you Best Price </h2>
-                        <img src="asset/img/section-shape.png" alt="section-shape">
+                        <img src="/asset/img/section-shape.png" alt="section-shape">
                      </div>
                   </div>
                </div>
