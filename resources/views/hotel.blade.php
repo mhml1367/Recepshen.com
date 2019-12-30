@@ -21,8 +21,7 @@
 @endsection
 
 @section('content')
-<section class="brand-area" style="direction: ltr;" id="biHotel">
-</section>
+
 <section class="welcome-area">
     <div class="container">
        <div class="row" style="direction: ltr;">
@@ -33,6 +32,53 @@
 
            </div>
        </div>
+    </div>
+    <div class="row data-center-area">
+        <div class="col-md-2">
+            <div class="data-wedged">
+                <div class="data-single-wedged">
+                    <span>ساعت ورود</span>
+                    <h4>14:00</h4>
+                    <p>هتل آپارتمان</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="data-wedged">
+                <div class="data-single-wedged">
+                    <span>ساعت خروج</span>
+                    <h4>14:00</h4>
+                    <p>هتل آپارتمان</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="data-wedged">
+                <div class="data-single-wedged">
+                    <span>تعداد طبقات</span>
+                    <h4>14:00</h4>
+                    <p>هتل آپارتمان</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="data-wedged">
+                <div class="data-single-wedged">
+                    <span>تعداد تخت ها</span>
+                    <h4>14:00</h4>
+                    <p>هتل آپارتمان</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="data-wedged">
+                <div class="data-single-wedged">
+                    <span>سال ساخت</span>
+                    <h4>14:00</h4>
+                    <p>28 Green Tower</p>
+                </div>
+            </div>
+        </div>
     </div>
  </section>
 
@@ -54,8 +100,17 @@
                     </div>
                   </div>
                </div>
+
             </div>
          </div>
+      </section>
+      <section class="homepage-2 blog-2-area">
+        <div class="row">
+            <div class="container">
+                <div class="row" id="biHotel">
+                </div>
+            </div>
+        </div>
       </section>
       @endsection
 
@@ -96,31 +151,16 @@ function hotel(Data) {
     diHotel += "<p>آدرس هتل</p>";
     diHotel += "</div>";
 
-            biHotel += "<div class=\"container\">";
-            biHotel += "<div class=\"row\">";
-            biHotel += "<div class=\"col-lg-12\">";
-            biHotel += "<div class=\"brand-inner\">";
-            biHotel += "<div class=\"owl-carousel all-brand-carsouel owl-loaded owl-drag\">";
-            biHotel += "<div class=\"owl-stage-outer\">";
-            biHotel += "<div class=\"owl-stage\" style=\"transform: translate3d(-1554px, 0px, 0px); transition: all 0.6s ease 0s; width: 3552px;\">";
 
             for (b = 0; b < Data["images"].length; b++) {
-                biHotel += "<div class=\"owl-item cloned\" style=\"width: 222px;\">";
-                biHotel += "<div class=\"brand-single-item\">";
-                biHotel += "<div class=\"brand-single-item-cell\">";
+                biHotel += "<div class=\"col-lg-4 col-md-6 col-12\">";
+                biHotel += "<div class=\"single-blog-1\">";
                 biHotel += "<img src=\""+ Data["images"][b] +"\" alt=\"brand-icon\">";
                 biHotel += "</div>";
                 biHotel += "</div>";
                 biHotel += "</div>";
             }
 
-            biHotel += "</div>";
-            biHotel += "</div>";
-            biHotel += "</div>";
-            biHotel += "</div>";
-            biHotel += "</div>";
-            biHotel += "</div>";
-            biHotel += "</div>";
     
 
 
