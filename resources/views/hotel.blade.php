@@ -32,56 +32,93 @@
 
            </div>
        </div>
-    </div>
-    <div class="row data-center-area">
-        <div class="col-md-2">
-            <div class="data-wedged">
-                <div class="data-single-wedged">
-                    <span>ساعت ورود</span>
-                    <h4>14:00</h4>
-                    <p>هتل آپارتمان</p>
+        <div class="row">
+                <div class="col">
+                    <div class="data-wedged">
+                        <div class="data-single-wedged">
+                            <span>ساعت ورود</span>
+                            <h4 id="in_time">14</h4>
+                            <p>هتل آپارتمان</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="data-wedged">
+                        <div class="data-single-wedged">
+                            <span>ساعت خروج</span>
+                            <h4 id="out_time">14</h4>
+                            <p>هتل آپارتمان</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="data-wedged">
+                        <div class="data-single-wedged">
+                            <span>تعداد طبقات</span>
+                            <h4 id="floors">0</h4>
+                            <p>هتل آپارتمان</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="data-wedged">
+                        <div class="data-single-wedged">
+                            <span>تعداد اتاق ها</span>
+                            <h4 id="roomsCount">0</h4>
+                            <p>هتل آپارتمان</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="data-wedged">
+                        <div class="data-single-wedged">
+                            <span>تعداد تخت ها</span>
+                            <h4 id="beds">14:00</h4>
+                            <p>هتل آپارتمان</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="data-wedged">
+                        <div class="data-single-wedged">
+                            <span>سال ساخت</span>
+                            <h4 id="construct_year">14:00</h4>
+                            <p>هتل آپارتمان</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-2">
-            <div class="data-wedged">
-                <div class="data-single-wedged">
-                    <span>ساعت خروج</span>
-                    <h4>14:00</h4>
-                    <p>هتل آپارتمان</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="data-wedged">
-                <div class="data-single-wedged">
-                    <span>تعداد طبقات</span>
-                    <h4>14:00</h4>
-                    <p>هتل آپارتمان</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="data-wedged">
-                <div class="data-single-wedged">
-                    <span>تعداد تخت ها</span>
-                    <h4>14:00</h4>
-                    <p>هتل آپارتمان</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="data-wedged">
-                <div class="data-single-wedged">
-                    <span>سال ساخت</span>
-                    <h4>14:00</h4>
-                    <p>28 Green Tower</p>
-                </div>
-            </div>
-        </div>
     </div>
  </section>
 
+ <section class="about-blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-12 ">
+                <div class="single-blog-1">
+                    <img src="/image/Animal.png" alt="section-icon">
+                    <h2>قوانین ورود حیوانات</h2>
+                    <p id="AnimalRule"></p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-12 ">
+                <div class="single-blog-1">
+                    <img src="/image/cash_back.png" alt="section-icon">
+                    <h2>قوانین استرداد رزرو</h2>
+                    <p id="refundRule">
+                    </p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-12 ">
+                <div class="single-blog-1">
+                    <img src="/image/Child.png" alt="section-icon">
+                    <h2>قوانین کودک</h2>
+                    <p id="childRule"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
        <section class="blog-1-area about-blog">
          <div class="container">
             <div class="homepage-2 homepage-4 pricing-table-area">
@@ -148,14 +185,14 @@ function hotel(Data) {
     diHotel += "<h2 class=\"heading-title-default\">"+Data["name"]+"</h2>";
     diHotel += "<div class=\"heading-text clearfix\">";
     diHotel += "<p>"+Data["address"]+"</p>";
-    diHotel += "<p>آدرس هتل</p>";
+    diHotel += "<p>"+Data["description"]+"</p>";
     diHotel += "</div>";
 
 
-            for (b = 0; b < Data["images"].length; b++) {
+            for (b = 0; b < Data["images_sm"].length; b++) {
                 biHotel += "<div class=\"col-lg-4 col-md-6 col-12\">";
                 biHotel += "<div class=\"single-blog-1\">";
-                biHotel += "<img src=\""+ Data["images"][b] +"\" alt=\"brand-icon\">";
+                biHotel += "<img src=\""+ Data["images_sm"][b] +"\" alt=\"brand-icon\">";
                 biHotel += "</div>";
                 biHotel += "</div>";
                 biHotel += "</div>";
@@ -192,6 +229,16 @@ function hotel(Data) {
     document.getElementById("ROOMS").innerHTML = Rooms;
     document.getElementById("diHotel").innerHTML = diHotel;
     document.getElementById("biHotel").innerHTML = biHotel;
+    document.getElementById("childRule").innerHTML = Data["childRule"];
+    document.getElementById("AnimalRule").innerHTML = Data["AnimalRule"];
+    document.getElementById("refundRule").innerHTML = Data["refundRule"];
+    document.getElementById("in_time").innerHTML = Data["in_time"];
+    document.getElementById("out_time").innerHTML = Data["out_time"];
+    document.getElementById("beds").innerHTML = Data["beds"];
+    document.getElementById("construct_year").innerHTML = Data["construct_year"];
+    document.getElementById("roomsCount").innerHTML = Data["roomsCount"];
+    document.getElementById("floors").innerHTML = Data["floors"];
+    // document.getElementById('#Hotels').style.background-image = "url("+Data["images"]["0"]+")";
 
 };
 

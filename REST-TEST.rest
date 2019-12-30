@@ -1,0 +1,5 @@
+POST http://recepshen.ir/api/fetchHotels?
+{
+    "token": "mzoc1CEq401565108119FTd7QvbGea",
+    "city_id": "12"
+}
