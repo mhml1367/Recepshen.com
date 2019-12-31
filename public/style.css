@@ -2972,6 +2972,7 @@ h3.domain-head {
     padding: 55px 40px 40px 40px;
     box-shadow: 0px 5px 25px 0px rgba(0, 56, 160, 0.15);
     background-color: #ffffff;
+    height: 100%;
 }
 .single-blog-1 img {
     min-height: 76px;
@@ -3050,6 +3051,14 @@ h3.domain-head {
     margin: 0px 0px 30px 0px;
     padding: 20px;
     background-color: #ffffff;
+}
+.homepage-2.blog-2-area .single-blog-2 {
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    margin: 0px 0px 30px 0px;
+    padding: 20px;
+    background-color: #ffffff;
+    height: 220px;
 }
 .homepage-2.blog-2-area {
     background-image: url(asset/img/bg/blog-area-2-bg.png);
@@ -3990,7 +3999,7 @@ a.pricing-btn.blue-btn.homepage-one-all-features-btn.register-btn:hover {
     position: relative;
 }
 .testimonial-area {
-    padding: 113px 0px 90px 0px;
+    padding: 53px 0px 90px 0px;
     background-color: #f8f9fb;
     transition: all .3s ease-in-out;
 }
@@ -4350,7 +4359,6 @@ p.contact-info {
 p.contact-info span {
     position: absolute;
     top: 0px;
-    left: 0;
     color: #ffffff;
     font-size: 14px;
     font-weight: 500;
@@ -4362,6 +4370,7 @@ p.contact-info a {
     transition: .3s;
     font-weight: 400;
     font-size: 14px;
+    padding-right: 52px;
 }
 .single-footer h2 {
     margin-bottom: 40px;
@@ -4380,22 +4389,9 @@ p.contact-info a {
 .footer-links ul {
     margin: 0;
     padding: 0;
-    list-style: none;
 }
 .footer-links a {
     position: relative;
-}
-
-.footer-links a:before {
-    position: absolute;
-    top: 9px;
-    left: -12px;
-    width: 3px;
-    height: 3px;
-    background: #3464e0;
-    content: "";
-    -webkit-transition: .3s;
-    transition: .3s;
 }
 
 
@@ -5342,7 +5338,7 @@ ul.nav.nav-tabs li.active a:after {
 
 
 .welcome-area {
-    padding: 120px 0px 180px 0px;
+    padding: 120px 0px 80px 0px;
 }
 .welcome-area .container {
     position: relative;
@@ -6117,7 +6113,7 @@ dedication-hosting.html STYLE
 }
 
 .about-page .about-blog {
-    padding: 120px 0;
+    padding: 80px 0;
     padding-top: 0;
 }
 .dedication-hosting-area:after {

@@ -12,7 +12,7 @@ class indexController extends Controller
 
         $city = city();
 
-        return view('/index')->with(compact('$city'));
+        return view('/index')->with(compact('city'));
 
     }
 }

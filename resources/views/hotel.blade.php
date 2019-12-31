@@ -1,7 +1,8 @@
 @extends('layout.index')
 
 @section('css')
-    <link rel="stylesheet" href="/asset/bootstrap-slider/slider.css">
+<link rel="stylesheet" href="/asset/bootstrap-slider/slider.css">
+<link rel="stylesheet" href="/asset/leaflet.css">
 @endsection
 
 @section('search')
@@ -91,6 +92,38 @@
     </div>
  </section>
 
+ <section class="homepage-2 blog-2-area">
+     <div class="row">
+         <div class="container">
+                <h2 class="section-title" id="Hotelspecifications"> </h2>
+                <div class="row" id="specifications">
+        
+             </div>
+         </div>
+     </div>
+ </section>
+
+
+
+
+ <section class="domain-area homepage-2 ">
+    <div class="clouds">
+       <img src="asset/img/cloud/cloud-6.png" alt="cloud" class="cloud1">
+       <img src="asset/img/cloud/cloud-2.png" alt="cloud" class="cloud3">
+       <img src="asset/img/cloud/cloud-3.png" alt="cloud" class="cloud4">
+       <img src="asset/img/cloud/cloud-4.png" alt="cloud" class="cloud5">
+       <img src="asset/img/cloud/cloud-5.png" alt="cloud" class="cloud2">
+       <img src="asset/img/cloud/cloud-6.png" alt="cloud" class="cloud6">
+    </div>
+   <div class="container domain-inner">
+       <div class="row domain-checkup">
+            <div class="domain-checkup-left" >
+                <div id="mapid" style="width: 600px; height: 400px;"></div>
+            </div>
+       </div>
+   </div>
+</section>
+
  <section class="about-blog">
     <div class="container">
         <div class="row">
@@ -149,11 +182,37 @@
             </div>
         </div>
       </section>
-      @endsection
+
+
+    <section class="testimonial-area">
+        <div class="container">
+            <div class="testimonial-carousel slick-initialized slick-slider" style="direction: ltr;">
+                <div class="slick-list draggable">
+                    <div class="slick-track">
+                        <div class="single-item slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true"
+                            tabindex="-1" style="width: 555px;">
+                            <div class="item-inner">
+                                <img src="/image/parking.png" alt="testimonial quote" class="quote-img">
+                                <p class="review" id="parking"></p>
+                            </div>
+                        </div>
+                        <div class="single-item slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true"
+                            tabindex="-1" style="width: 555px;">
+                            <div class="item-inner">
+                                <img src="/image/Restoran.png" alt="testimonial quote" class="quote-img">
+                                <p id="foods" class="review"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection
 
 @section('js')
 <script src="/asset/bootstrap-slider/bootstrap-slider.js"></script>
-
+<script src="/asset/leaflet.js"></script>
 <script>
 $(function () {
     $.ajax({
@@ -174,6 +233,7 @@ $(function () {
 var diHotel="";
 var biHotel="";
 var Rooms="";
+var specifications="";
 
 function hotel(Data) {
     diHotel += "<div class=\"welcome-right\">";
@@ -196,6 +256,16 @@ function hotel(Data) {
                 biHotel += "</div>";
                 biHotel += "</div>";
                 biHotel += "</div>";
+            }
+
+            for (c = 0; c < Data["specifications"].length; c++) {
+                specifications += "<div class=\"col-lg-2 col-md-2 col-12\">";
+                specifications += "<div class=\"single-blog-1\">";
+                specifications += "<img src=\""+ Data["specifications"][c]["icon"] +"\" alt=\"brand-icon\">";
+                specifications += "<h2>"+ Data["specifications"][c]["name"] +"</h2>";
+                specifications += "</div>";
+                specifications += "</div>";
+                specifications += "</div>";
             }
 
     
@@ -226,9 +296,36 @@ function hotel(Data) {
         Rooms += "</div>";
 
     }
+
+    // for (i = 0; i < Data["specifications"].length; i++) {
+
+    //     Rooms1 += "<div>"+Data["nameicon"];
+    // }
+
+
+
+	var mymap = L.map('mapid').setView([Data["location"]], 13);
+
+	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox/streets-v11'
+	}).addTo(mymap);
+
+	L.marker([51.5, -0.09]).addTo(mymap)
+		.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+
+
+	var popup = L.popup();
+
+
+
     document.getElementById("ROOMS").innerHTML = Rooms;
     document.getElementById("diHotel").innerHTML = diHotel;
     document.getElementById("biHotel").innerHTML = biHotel;
+    document.getElementById("specifications").innerHTML = specifications;
     document.getElementById("childRule").innerHTML = Data["childRule"];
     document.getElementById("AnimalRule").innerHTML = Data["AnimalRule"];
     document.getElementById("refundRule").innerHTML = Data["refundRule"];
@@ -238,6 +335,9 @@ function hotel(Data) {
     document.getElementById("construct_year").innerHTML = Data["construct_year"];
     document.getElementById("roomsCount").innerHTML = Data["roomsCount"];
     document.getElementById("floors").innerHTML = Data["floors"];
+    document.getElementById("foods").innerHTML = Data["foods"];
+    document.getElementById("parking").innerHTML = Data["parking"];
+    document.getElementById("Hotelspecifications").innerHTML = "امکانات "+Data["type"];
     // document.getElementById('#Hotels').style.background-image = "url("+Data["images"]["0"]+")";
 
 };

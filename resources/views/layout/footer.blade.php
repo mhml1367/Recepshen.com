@@ -37,12 +37,12 @@
              <div class="col-lg-3 col-md-12 col-12">
                 <div class="footer-single-item">
                    <div class="logo">
-                      <a href="index.html"><img src="/asset/img/logo/footer-logo.png" alt="logo"></a>
+                      <a href="index.html"><img src="/asset/img/logo/logo.png" alt="logo"></a>
                    </div>
                    <p>سیستم مدیریت رسپشن</p>
-                   <p class="contact-info"><a href="tel:+8801711991383">0098 915658020</a><span>موبایل</span></p>
-                   <p class="contact-info"><span>Email:</span><a href="mailto:hasan.nazmulmmc@gamil.com">www.yourwebsite.com</a> </p>
-                   <p class="contact-info"><span>Address:</span><a href="#">28 Green Tower, Street<br>New York City, USA</a></p>
+                   <p class="contact-info"><span>موبایل:</span><a href="tel:+8801711991383">0098-915658020</a></p>
+                   <p class="contact-info"><span>ایمیل:</span><a href="mailto:hasan.nazmulmmc@gamil.com">www.Recepshen.com</a> </p>
+                   <p class="contact-info"><span>آدرس:</span><a href="#">مشهد</a></p>
                 </div>
              </div>
              <div class="col-lg-3 col-md-12 col-12 ">
@@ -70,7 +70,7 @@
              </div>
              <div class="col-lg-3 col-md-12 col-12">
                 <div class="single-footer ml">
-                   <h2>پست های حدید</h2>
+                   <h2>پست های جدید</h2>
                    <div class="bpws-wrapper footer-sideber">
                       <div class="footer-single-sideber">
                          <a href="#"><span>20 Oct. 2019</span></a>
@@ -110,7 +110,7 @@
        <div class="foter-botom">
           <div class="row">
              <div class="col-md-6 col-sm-6 col-xs-12 ">
-                <p> &copy; 2020<a href="http://marveltheme.com/">رسپشن </a>تمام حقوق محفوص است</p>
+                <p> &copy; 2020<a href="http://Recepshen.com/">رسپشن </a>تمام حقوق محفوص است</p>
              </div>
              <div class="col-md-6 col-sm-6 col-xs-12 text-right ">
                 <div class="social-links">

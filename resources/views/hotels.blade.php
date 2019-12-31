@@ -53,7 +53,7 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="section-title">
-                        <h2><span>Slake</span> Give you Best Price </h2>
+                        <h2><span>رسپشن</span> لیست بهترین هتل ها </h2>
                         <img src="/asset/img/section-shape.png" alt="section-shape">
                      </div>
                   </div>
