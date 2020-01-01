@@ -116,7 +116,11 @@
     </div>
   </div>
 
-      <div class="Hotels">
+      <div class="Hotels" @isset ($rec->images[0])
+      style="background-image: url('{{$rec->images[0]}}');background-position: top;background-size: cover;";
+      @else
+          
+      @endisset >
       @include("layout.header")
       @yield ("search")
       </div>
@@ -124,6 +128,7 @@
       @yield ("content")
 
       @include('layout.footer')
+      
       <script src="/asset/js/jquery.min.js"></script>
       <script src="/asset/js/bootstrap.min.js"></script>
       <script src="/asset/js/jquery.mCustomScrollbar.concat.min.js"></script>

@@ -17,17 +17,31 @@ class hotelsController extends Controller
     
     public function Hotel($Hotels,$IDHotel)
     {
-        if (request()->input('DateFrom') == null) {
-            $from = "";
-            $to = "";
-        }else{
-            $from = request()->input('DateFrom');
-            $to = request()->input('DateEnd');
-        }
-        // dd($from);
-        $city = city();
-        $hotelTypes = hotelTypes();
-        $hotelSpecifications = hotelSpecifications();
-        return view('hotel')->with(compact('to','from','IDHotel','city','hotelTypes','hotelSpecifications'));
+    if (request()->input('DateFrom') == null) {
+        $from = "";
+        $to = "";
+    }else{
+        $from = request()->input('DateFrom');
+        $to = request()->input('DateEnd');
+    }
+
+    $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/fetchRooms");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
+            'hotel_id' => $IDHotel,
+            'from' => $from,
+            'to' => $to,
+            'token' => 'mzoc1CEq401565108119FTd7QvbGea',
+        )));
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+        ]);
+
+        $response = json_decode(curl_exec($ch));
+        $rec = $response->data;
+        return view('hotel')->with(compact('rec'));
     }
 }

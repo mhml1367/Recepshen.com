@@ -98,36 +98,36 @@
         });
 
 
-        $('.testimonial-carousel').slick({
-            infinite: true,
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            nextArrow: $('.testi-nav-right'),
-            prevArrow: $('.testi-nav-left'),
-            responsive: [
-                {
-                    breakpoint:900,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-            ]
-        });
+        // $('.testimonial-carousel').slick({
+        //     infinite: true,
+        //     slidesToShow: 2,
+        //     slidesToScroll: 1,
+        //     nextArrow: $('.testi-nav-right'),
+        //     prevArrow: $('.testi-nav-left'),
+        //     responsive: [
+        //         {
+        //             breakpoint:900,
+        //             settings: {
+        //                 slidesToShow: 1,
+        //                 slidesToScroll: 1
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 600,
+        //             settings: {
+        //                 slidesToShow: 1,
+        //                 slidesToScroll: 1
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 480,
+        //             settings: {
+        //                 slidesToShow: 1,
+        //                 slidesToScroll: 1
+        //             }
+        //         }
+        //     ]
+        // });
 
 
         $(".service-teatimonial").slick({

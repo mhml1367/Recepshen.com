@@ -26,19 +26,28 @@
 <section class="welcome-area">
     <div class="container">
        <div class="row" style="direction: ltr;">
-           <div class="col-xl-7 col-lg-7 col-md-12" id="diHotel">
+           <div class="col-xl-12 col-lg-7 col-md-12">
+            <div class="welcome-right">
+                <h5 class="heading-title">@for ($i = 0; $i < $rec->stars; $i++)
+                        <i class="fa fa-star" style="color: yellow;"></i>
+                    @endfor                {{$rec->type}}</h5>
+                <h2 class="heading-title-default">{{$rec->name}}</h2>
+                <div class="heading-text clearfix">
+                <p>{{$rec->address}} <i class="fa fa-map-marker"></i></p>
+                <p>{{$rec->description}}</p>
+                </div>
 
            </div>
-           <div class="col-xl-5 col-lg-5 col-md-12">
+           {{-- <div class="col-xl-4 col-lg-5 col-md-12">
 
-           </div>
+           </div> --}}
        </div>
         <div class="row">
                 <div class="col">
                     <div class="data-wedged">
                         <div class="data-single-wedged">
                             <span>ساعت ورود</span>
-                            <h4 id="in_time">14</h4>
+                            <h4>{{$rec->in_time}}</h4>
                             <p>هتل آپارتمان</p>
                         </div>
                     </div>
@@ -47,7 +56,7 @@
                     <div class="data-wedged">
                         <div class="data-single-wedged">
                             <span>ساعت خروج</span>
-                            <h4 id="out_time">14</h4>
+                            <h4>{{$rec->out_time}}</h4>
                             <p>هتل آپارتمان</p>
                         </div>
                     </div>
@@ -56,7 +65,7 @@
                     <div class="data-wedged">
                         <div class="data-single-wedged">
                             <span>تعداد طبقات</span>
-                            <h4 id="floors">0</h4>
+                            <h4>{{$rec->floors}}</h4>
                             <p>هتل آپارتمان</p>
                         </div>
                     </div>
@@ -65,7 +74,7 @@
                     <div class="data-wedged">
                         <div class="data-single-wedged">
                             <span>تعداد اتاق ها</span>
-                            <h4 id="roomsCount">0</h4>
+                            <h4>{{$rec->roomsCount}}</h4>
                             <p>هتل آپارتمان</p>
                         </div>
                     </div>
@@ -74,7 +83,7 @@
                     <div class="data-wedged">
                         <div class="data-single-wedged">
                             <span>تعداد تخت ها</span>
-                            <h4 id="beds">14:00</h4>
+                            <h4>{{$rec->beds}}</h4>
                             <p>هتل آپارتمان</p>
                         </div>
                     </div>
@@ -83,7 +92,7 @@
                     <div class="data-wedged">
                         <div class="data-single-wedged">
                             <span>سال ساخت</span>
-                            <h4 id="construct_year">14:00</h4>
+                            <h4>{{$rec->construct_year}}</h4>
                             <p>هتل آپارتمان</p>
                         </div>
                     </div>
@@ -96,9 +105,16 @@
      <div class="row">
          <div class="container">
                 <h2 class="section-title" id="Hotelspecifications"> </h2>
-                <div class="row" id="specifications">
-        
-             </div>
+                <div class="row">
+                    @for ($c = 0; $c < count($rec->specifications); $c++)
+                        <div class="col">
+                            <div class="single-blog-1">
+                                <img src="{{$rec->specifications[$c]->icon}}" alt="brand-icon">
+                                <h2>{{$rec->specifications[$c]->name}}</h2>
+                            </div>
+                        </div>
+                    @endfor
+                </div>
          </div>
      </div>
  </section>
@@ -118,8 +134,11 @@
    <div class="container domain-inner">
        <div class="row domain-checkup">
             <div class="domain-checkup-left" >
-                <div id="mapid" style="width: 600px; height: 400px;"></div>
+                <div id="mapid" class="" style="width: 600px; height: 400px;"></div>
             </div>
+            {{-- <div class="domain-checkup-left" >
+                <div id="mapi" class="pull-right"></div>
+            </div> --}}
        </div>
    </div>
 </section>
@@ -131,22 +150,21 @@
                 <div class="single-blog-1">
                     <img src="/image/Animal.png" alt="section-icon">
                     <h2>قوانین ورود حیوانات</h2>
-                    <p id="AnimalRule"></p>
+                    <p>{{$rec->AnimalRule}}</p>
                 </div>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-12 ">
                 <div class="single-blog-1">
                     <img src="/image/cash_back.png" alt="section-icon">
                     <h2>قوانین استرداد رزرو</h2>
-                    <p id="refundRule">
-                    </p>
+                    <p>{{$rec->refundRule}}</p>
                 </div>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-12 ">
                 <div class="single-blog-1">
                     <img src="/image/Child.png" alt="section-icon">
                     <h2>قوانین کودک</h2>
-                    <p id="childRule"></p>
+                <p>{{$rec->childRule}}</p>
                 </div>
             </div>
         </div>
@@ -158,49 +176,79 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="section-title">
-                        <h2><span>اتاق ها</span> لیست اتاق های موجود </h2>
+                        <h2>لیست<span>اتاق ها</span> موجود </h2>
                         <img src="/asset/img/section-shape.png" alt="section-shape">
                      </div>
                   </div>
                </div>
                <div class="row">
                     <div class="col-lg-12 col-md-12 col-xs-12">
-                        <div class="row" id="ROOMS">
+                        <div class="row">
+                            @for ($i = 0; $i < count($rec->rooms); $i++)
+                                <div class="col-lg-12 col-md-12 col-xs-12">
+                                    <div class="single-pricing-table active">
+                                        <span class="table-highlight\">{{$rec->rooms[$i]->beds}}</span>
+                                        <div class="row no-gutters\">
+                                            <div class="col-lg-4 col-md-12 col-xs-12">
+                                                <img src="{{$rec->rooms[$i]->images["0"]}}" alt="pricing-icon">
+                                            </div>
+                                            <div class="col-lg-8 col-md-12 col-xs-12">
+                                                <div class="row no-gutters\">
+                                                    <div class="col-lg-10 col-md-12 col-xs-12 text-right">
+                                                        <h2>{{$rec->rooms[$i]->name}}</h2>
+                                                        <i class="fa fa-map-marker"
+                                                            style="color:darkgray;"></i>{{$rec->rooms[$i]->id}}
+                                                        <div class="col-lg-10 col-md-12 col-xs-12\">
+                                                            <a class="pricing-btn blue-btn pull-left"
+                                                                href="/hotels/{{$rec->rooms[$i]->id}}">رزرو اتاق</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endfor
                         </div>
                     </div>
-                  </div>
-               </div>
-
+                </div>
             </div>
          </div>
       </section>
       <section class="homepage-2 blog-2-area">
         <div class="row">
             <div class="container">
-                <div class="row" id="biHotel">
+                <div class="row">
+                    @for ($b = 0; $b < count($rec->images_sm); $b++)
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="single-blog-1">
+                                <img src="{{$rec->images_sm[$b]}}" alt="brand-icon">
+                            </div>
+                        </div>
+                    @endfor
                 </div>
             </div>
         </div>
       </section>
 
 
-    <section class="testimonial-area">
+    <section class="testimonial-carousel testimonial-area">
         <div class="container">
-            <div class="testimonial-carousel slick-initialized slick-slider" style="direction: ltr;">
+            <div class=" slick-initialized slick-slider" style="direction: ltr;">
                 <div class="slick-list draggable">
                     <div class="slick-track">
                         <div class="single-item slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true"
                             tabindex="-1" style="width: 555px;">
                             <div class="item-inner">
                                 <img src="/image/parking.png" alt="testimonial quote" class="quote-img">
-                                <p class="review" id="parking"></p>
+                            <p class="review">{{$rec->parking}}</p>
                             </div>
                         </div>
                         <div class="single-item slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true"
                             tabindex="-1" style="width: 555px;">
                             <div class="item-inner">
                                 <img src="/image/Restoran.png" alt="testimonial quote" class="quote-img">
-                                <p id="foods" class="review"></p>
+                                <p class="review">{{$rec->foods}}</p>
                             </div>
                         </div>
                     </div>
@@ -214,27 +262,27 @@
 <script src="/asset/bootstrap-slider/bootstrap-slider.js"></script>
 <script src="/asset/leaflet.js"></script>
 <script>
-$(function () {
-    $.ajax({
-        type: 'POST',
-        url: 'http://recepshen.ir/api/fetchRooms',
-        data: {
-            token: "mzoc1CEq401565108119FTd7QvbGea",
-            hotel_id: {{$IDHotel}},
-            from: "{{$from}}",
-            to: "{{$to}}",
-        },
-        success: function (Data) {
-            hotel(Data["data"])
-        }
-    });
-});
+// $(function () {
+//     $.ajax({
+//         type: 'POST',
+//         url: 'http://recepshen.ir/api/fetchRooms',
+//         data: {
+//             token: "mzoc1CEq401565108119FTd7QvbGea",
+//             hotel_id: ,
+//             from: "",
+//             to: "",
+//         },
+//         success: function (Data) {
+//             hotel(Data["data"])
+//         }
+//     });
+// });
 
 var diHotel="";
 var biHotel="";
 var Rooms="";
 var specifications="";
-
+var loc="";
 function hotel(Data) {
     diHotel += "<div class=\"welcome-right\">";
     diHotel += "<h5 class=\"heading-title\">"
@@ -258,68 +306,11 @@ function hotel(Data) {
                 biHotel += "</div>";
             }
 
-            for (c = 0; c < Data["specifications"].length; c++) {
-                specifications += "<div class=\"col-lg-2 col-md-2 col-12\">";
-                specifications += "<div class=\"single-blog-1\">";
-                specifications += "<img src=\""+ Data["specifications"][c]["icon"] +"\" alt=\"brand-icon\">";
-                specifications += "<h2>"+ Data["specifications"][c]["name"] +"</h2>";
-                specifications += "</div>";
-                specifications += "</div>";
-                specifications += "</div>";
-            }
-
-    
-
-
-    for (i = 0; i < Data["rooms"].length; i++) {
-
-        Rooms += "<div class=\"col-lg-12 col-md-12 col-xs-12\">";
-        Rooms += "<div class=\"single-pricing-table active\">";
-        Rooms += "<span class=\"table-highlight\">"+ Data["rooms"][i]["beds"] +"</span>";
-        Rooms += "<div class=\"row no-gutters\">";
-        Rooms += "<div class=\"col-lg-4 col-md-12 col-xs-12\">";
-        Rooms += "<img src=\""+ Data["rooms"][i]["images"]["0"] +"\" alt=\"pricing-icon\">";
-        Rooms += "</div>";
-        Rooms += "<div class=\"col-lg-8 col-md-12 col-xs-12\">";
-        Rooms += "<div class=\"row no-gutters\">";
-        Rooms += "<div class=\"col-lg-10 col-md-12 col-xs-12 text-right\">";
-        Rooms += "<h2>"+ Data["rooms"][i]["name"]+"</h2>";
-        Rooms += "<i class=\"fa fa-map-marker\" style=\"color:darkgray;\"></i>"+ Data["rooms"][i]["id"];
-        Rooms += "<div class=\"col-lg-10 col-md-12 col-xs-12\">";
-        Rooms += "<a class=\"pricing-btn blue-btn pull-left\" href=/hotels/" + Data["rooms"][i]["id"] + ">رزرو اتاق</a>";
-        Rooms += "</div>";
-        Rooms += "</div>";
-        Rooms += "</div>";
-        Rooms += "</div>";
-        Rooms += "";
-        Rooms += "</div>";
-        Rooms += "</div>";
-
-    }
 
     // for (i = 0; i < Data["specifications"].length; i++) {
 
     //     Rooms1 += "<div>"+Data["nameicon"];
     // }
-
-
-
-	// var mymap = L.map('mapid').setView([Data["location"]], 13);
-
-	// L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-	// 	maxZoom: 18,
-	// 	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-	// 		'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-	// 		'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-	// 	id: 'mapbox/streets-v11'
-	// }).addTo(mymap);
-
-	// L.marker([51.5, -0.09]).addTo(mymap)
-	// 	.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
-
-
-	// var popup = L.popup();
-
 
 
     document.getElementById("ROOMS").innerHTML = Rooms;
@@ -339,8 +330,26 @@ function hotel(Data) {
     document.getElementById("parking").innerHTML = Data["parking"];
     document.getElementById("Hotelspecifications").innerHTML = "امکانات "+Data["type"];
     // document.getElementById('#Hotels').style.background-image = "url("+Data["images"]["0"]+")";
-
 };
 
+    var as = "{{$rec->location}}";
+    var loc = as.split(",");;
+    map(loc["0"],loc["1"],"{{$rec->name}}");
+
+function map(lat,lan,name)
+{
+	var map = L.map('mapid').setView([lat,lan], 13);
+
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map);
+
+
+	L.marker([lat,lan]).addTo(map)
+		.bindPopup(name).openPopup();
+
+	var popup = L.popup();
+
+}
  </script>
 @endsection
