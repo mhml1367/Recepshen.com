@@ -176,7 +176,7 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="section-title">
-                        <h2>لیست<span>اتاق ها</span> موجود </h2>
+                        <h2> لیست <span>اتاق ها</span> موجود </h2>
                         <img src="/asset/img/section-shape.png" alt="section-shape">
                      </div>
                   </div>
@@ -200,7 +200,8 @@
                                                             style="color:darkgray;"></i>{{$rec->rooms[$i]->id}}
                                                         <div class="col-lg-10 col-md-12 col-xs-12\">
                                                             <a class="pricing-btn blue-btn pull-left"
-                                                                href="/hotels/{{$rec->rooms[$i]->id}}">رزرو اتاق</a>
+                                                            data-toggle="modal" data-target="#reserve"
+                                                            onclick="Modal({{$rec->rooms[$i]->id}},{{$rec->rooms[$i]->name}})">رزرو اتاق</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -256,6 +257,36 @@
             </div>
         </div>
     </section>
+
+
+    <div class="modal fade" id="reserve" tabindex="-1" role="dialog" aria-labelledby="reserve" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="roomReserve"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Recipient:</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Message:</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">انصراف از رزرو</button>
+              <button type="button" class="btn btn-primary">درخواست رزرو</button>
+            </div>
+          </div>
+        </div>
+      </div>
 @endsection
 
 @section('js')
@@ -278,78 +309,49 @@
 //     });
 // });
 
-var diHotel="";
 var biHotel="";
-var Rooms="";
-var specifications="";
-var loc="";
-function hotel(Data) {
-    diHotel += "<div class=\"welcome-right\">";
-    diHotel += "<h5 class=\"heading-title\">"
-    for (b = 0; b < Data["stars"]; b++) {
-        diHotel += "<i class=\"fa fa-star\" style=\"color: yellow;\"></i>";
-    }
-    diHotel +=" "+Data["type"] +"</h5>";
-    diHotel += "<h2 class=\"heading-title-default\">"+Data["name"]+"</h2>";
-    diHotel += "<div class=\"heading-text clearfix\">";
-    diHotel += "<p>"+Data["address"]+"</p>";
-    diHotel += "<p>"+Data["description"]+"</p>";
-    diHotel += "</div>";
+
+function Modal(idRoom,nameRoom) {
 
 
-            for (b = 0; b < Data["images_sm"].length; b++) {
-                biHotel += "<div class=\"col-lg-4 col-md-6 col-12\">";
-                biHotel += "<div class=\"single-blog-1\">";
-                biHotel += "<img src=\""+ Data["images_sm"][b] +"\" alt=\"brand-icon\">";
-                biHotel += "</div>";
-                biHotel += "</div>";
-                biHotel += "</div>";
-            }
+
+            // for (b = 0; b < Data["images_sm"].length; b++) {
+            //     biHotel += "<div class=\"col-lg-4 col-md-6 col-12\">";
+            //     biHotel += "<div class=\"single-blog-1\">";
+            //     biHotel += "<img src=\""+ Data["images_sm"][b] +"\" alt=\"brand-icon\">";
+            //     biHotel += "</div>";
+            //     biHotel += "</div>";
+            //     biHotel += "</div>";
+            // }
 
 
-    // for (i = 0; i < Data["specifications"].length; i++) {
+   
 
-    //     Rooms1 += "<div>"+Data["nameicon"];
-    // }
-
-
-    document.getElementById("ROOMS").innerHTML = Rooms;
-    document.getElementById("diHotel").innerHTML = diHotel;
-    document.getElementById("biHotel").innerHTML = biHotel;
-    document.getElementById("specifications").innerHTML = specifications;
-    document.getElementById("childRule").innerHTML = Data["childRule"];
-    document.getElementById("AnimalRule").innerHTML = Data["AnimalRule"];
-    document.getElementById("refundRule").innerHTML = Data["refundRule"];
-    document.getElementById("in_time").innerHTML = Data["in_time"];
-    document.getElementById("out_time").innerHTML = Data["out_time"];
-    document.getElementById("beds").innerHTML = Data["beds"];
-    document.getElementById("construct_year").innerHTML = Data["construct_year"];
-    document.getElementById("roomsCount").innerHTML = Data["roomsCount"];
-    document.getElementById("floors").innerHTML = Data["floors"];
-    document.getElementById("foods").innerHTML = Data["foods"];
-    document.getElementById("parking").innerHTML = Data["parking"];
-    document.getElementById("Hotelspecifications").innerHTML = "امکانات "+Data["type"];
+    document.getElementById("roomReserve").innerHTML = "اتاق "+ nameRoom;
     // document.getElementById('#Hotels').style.background-image = "url("+Data["images"]["0"]+")";
 };
+
+
+
 
     var as = "{{$rec->location}}";
     var loc = as.split(",");;
     map(loc["0"],loc["1"],"{{$rec->name}}");
 
-function map(lat,lan,name)
-{
-	var map = L.map('mapid').setView([lat,lan], 13);
+    function map(lat,lan,name)
+    {
+        var map = L.map('mapid').setView([lat,lan], 13);
 
-	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-	}).addTo(map);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
 
 
-	L.marker([lat,lan]).addTo(map)
-		.bindPopup(name).openPopup();
+        L.marker([lat,lan]).addTo(map)
+            .bindPopup(name).openPopup();
 
-	var popup = L.popup();
+        var popup = L.popup();
 
-}
+    }
  </script>
 @endsection

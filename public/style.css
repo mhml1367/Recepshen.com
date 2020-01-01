@@ -126,6 +126,7 @@ a:focus, a:hover {
     top: 0;
     width: 100%;
     z-index: 9999999;
+    direction: ltr;
 }
 
 
