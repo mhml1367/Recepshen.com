@@ -268,18 +268,72 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+
             <div class="modal-body">
-              <form>
+                    <div class="row">
+                            <div class="col">
+                        <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">اقامت:</label>
+                          <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                            </div>
+                            <div class="col">
+
+                        <div class="form-group">
+                          <label for="message-text" class="col-form-label">اقامت با صبحانه:</label>
+                          <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        </div>
+                        <div class="col">
+
+                        <div class="form-group">
+                          <label for="message-text" class="col-form-label">فولبر:</label>
+                          <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        </div>
+                        </div>
+                <div class="row">
+                    <div class="col">
                 <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Recipient:</label>
+                  <label for="recipient-name" class="col-form-label">نام:</label>
                   <input type="text" class="form-control" id="recipient-name">
                 </div>
                 <div class="form-group">
-                  <label for="message-text" class="col-form-label">Message:</label>
-                  <textarea class="form-control" id="message-text"></textarea>
+                  <label for="message-text" class="col-form-label">موبایل:</label>
+                  <input type="text" class="form-control" id="recipient-name">
                 </div>
-              </form>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">آقا/خانم:</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+                </div>
+                <div class="col">
+                        <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">نام خانوادگی</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                              </div>
+                              <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">شهر مبدا:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                  </div>
+                                  <div class="form-group">
+                                        <label for="message-text" class="col-form-label">خارحی:</label>
+                                        <input type="text" class="form-control" id="recipient-name">
+                                      </div>
+                </div><div class="col">
+                        <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">کدملی</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                              </div>
+                              <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">قصد از مسافرت:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                  </div>
+                </div>
+                </div>
             </div>
+
+
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">انصراف از رزرو</button>
               <button type="button" class="btn btn-primary">درخواست رزرو</button>
