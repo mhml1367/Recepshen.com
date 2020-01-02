@@ -199,9 +199,11 @@
                                                         <i class="fa fa-map-marker"
                                                             style="color:darkgray;"></i>{{$rec->rooms[$i]->id}}
                                                         <div class="col-lg-10 col-md-12 col-xs-12\">
-                                                            <a class="pricing-btn blue-btn pull-left"
-                                                            data-toggle="modal" data-target="#reserve"
-                                                            onclick="Modal({{$rec->rooms[$i]->id}},{{$rec->rooms[$i]->name}})">رزرو اتاق</a>
+                                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reserve" data-whatever="@getbootstrap"
+                                                            data-idRoom="{{$rec->rooms[$i]->id}}" data-id="{{$i}}" data-nameRoom="{{$rec->rooms[$i]->name}}"
+                                                            data-from="1398-10-11"  data-to="1398-10-13" data-capacity="{{$rec->rooms[$i]->details->capacity}}"
+                                                            
+                                                            >رزرو اتاق</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -270,73 +272,56 @@
             </div>
 
             <div class="modal-body">
-                    <div class="row">
-                            <div class="col">
-                        <div class="form-group">
-                          <label for="recipient-name" class="col-form-label">اقامت:</label>
-                          <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                            </div>
-                            <div class="col">
-
-                        <div class="form-group">
-                          <label for="message-text" class="col-form-label">اقامت با صبحانه:</label>
-                          <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        </div>
-                        <div class="col">
-
-                        <div class="form-group">
-                          <label for="message-text" class="col-form-label">فولبر:</label>
-                          <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        </div>
-                        </div>
+                <div class="row" id="calc"></div>
+                <hr>
+                <div class="row" id="Titelcontracts"></div>
+                <div class="row" id="contracts"></div>
+                <hr>
                 <div class="row">
                     <div class="col">
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">نام:</label>
-                  <input type="text" class="form-control" id="recipient-name">
-                </div>
-                <div class="form-group">
-                  <label for="message-text" class="col-form-label">موبایل:</label>
-                  <input type="text" class="form-control" id="recipient-name">
-                </div>
-                <div class="form-group">
-                  <label for="message-text" class="col-form-label">آقا/خانم:</label>
-                  <input type="text" class="form-control" id="recipient-name">
-                </div>
-                </div>
-                <div class="col">
                         <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">نام خانوادگی</label>
-                                <input type="text" class="form-control" id="recipient-name">
-                              </div>
-                              <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">شهر مبدا:</label>
-                                    <input type="text" class="form-control" id="recipient-name">
-                                  </div>
-                                  <div class="form-group">
-                                        <label for="message-text" class="col-form-label">خارحی:</label>
-                                        <input type="text" class="form-control" id="recipient-name">
-                                      </div>
-                </div><div class="col">
+                            <label for="first_name" class="col-form-label">نام:</label>
+                            <input type="text" class="form-control" id="first_name">
+                        </div>
                         <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">کدملی</label>
-                                <input type="text" class="form-control" id="recipient-name">
-                              </div>
-                              <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">قصد از مسافرت:</label>
-                                    <input type="text" class="form-control" id="recipient-name">
-                                  </div>
-                </div>
+                            <label for="phone_number" class="col-form-label">موبایل:</label>
+                            <input type="text" class="form-control" id="phone_number">
+                        </div>
+                        <div class="form-group">
+                            <label for="Sir_Madam" class="col-form-label">آقا/خانم:</label>
+                            <input type="text" class="form-control" id="Sir_Madam">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="last_name" class="col-form-label">نام خانوادگی</label>
+                            <input type="text" class="form-control" id="last_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="origin" class="col-form-label">شهر مبدا:</label>
+                            <input type="text" class="form-control" id="origin">
+                        </div>
+                        <div class="form-group">
+                            <label for="Foreign" class="col-form-label">خارجی:</label>
+                            <input type="checkbox" class="form-control" id="Foreign">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="national_code" class="col-form-label">کدملی</label>
+                            <input type="text" class="form-control" id="national_code">
+                        </div>
+                        <div class="form-group">
+                            <label for="purpose" class="col-form-label">قصد از مسافرت:</label>
+                            <input type="text" class="form-control" id="purpose">
+                        </div>
+                    </div>
                 </div>
             </div>
 
-
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">انصراف از رزرو</button>
-              <button type="button" class="btn btn-primary">درخواست رزرو</button>
+              <button type="button" class="btn btn-primary" onclick="reserve();">درخواست رزرو</button>
             </div>
           </div>
         </div>
@@ -347,7 +332,75 @@
 <script src="/asset/bootstrap-slider/bootstrap-slider.js"></script>
 <script src="/asset/leaflet.js"></script>
 <script>
-// $(function () {
+    var idHotel="{{$rec->id}}";
+    var rooms=<?php echo json_encode($rec->rooms, JSON_PRETTY_PRINT) ?>;
+
+    $('#reserve').on('show.bs.modal', function (event) {
+        var nameRoom = event.relatedTarget.dataset.nameroom;
+        var idRoom = event.relatedTarget.dataset.idRoom;
+        var id = event.relatedTarget.dataset.id;
+        var from = event.relatedTarget.dataset.from ;
+        var to = event.relatedTarget.dataset.to;
+        var capacity = event.relatedTarget.dataset.capacity;
+
+        var calc="";
+
+            calc += "<div class=\"col\">";
+            calc += "<div class=\"form-group\">";
+            calc += "<lable> تاریخ رفت "+from+"</lable>";
+            calc += "</div>";
+            calc += "</div>";
+
+            calc += "<div class=\"col\">";
+            calc += "<div class=\"form-group\">";
+            calc += "<lable> تاریخ برگشت "+to+"</lable>";
+            calc += "</div>";
+            calc += "</div>";
+
+            calc += "<div class=\"col\">";
+            calc += "<div class=\"form-group\">";
+            calc += "<lable > تعداد نفرات "+capacity+"</lable>";
+            calc += "</div>";
+            calc += "</div>";
+
+
+        var contracts="";
+        var Titelcontracts = "<div class=\"col\"><label>انتخاب نوع اقامت:</label></div>";
+
+        for (az = 0; az < rooms[id].contracts.length; az++) {
+            var breakfast="";
+            var lunch="";
+            var dinner="";
+            var stay="";
+            if (rooms[id].contracts[az].stay = 1) {
+                var text = "اقامت";
+            }
+            if (rooms[id].contracts[az].breakfast == 1) {
+                 breakfast = "صبحانه";
+            }
+            if (rooms[id].contracts[az].lunch == 1) {
+                lunch = "نهار";
+            }
+            if (rooms[id].contracts[az].dinner == 1) {
+                dinner = "شام";
+            }
+            
+            contracts += "<div class=\"col\">";
+            contracts += "<div class=\"form-group\">";
+            contracts += "<input type=\"radio\" name=\"gender\" value=\""+rooms[id].contracts[az].price+"\">"+ stay +" "+ breakfast +" "+ lunch +" "+ dinner +"<br>"+rooms[id].contracts[az].price+" ريال </input>";
+            contracts += "</div>";
+            contracts += "</div>";
+        }
+        var modal = $(this)
+        // modal.find('.modal-title').text('New message to ' + recipient)
+        modal.find('#roomReserve').text("رزرو "+nameRoom);
+        modal.find('#Titelcontracts').html(Titelcontracts);
+        modal.find('#contracts').html(contracts);
+        modal.find('#calc').html(calc);
+        // modal.find('nameRoom').text(nameRoom)
+    });
+
+// function reserve(idRoom,nameRoom) {
 //     $.ajax({
 //         type: 'POST',
 //         url: 'http://recepshen.ir/api/fetchRooms',
@@ -363,27 +416,27 @@
 //     });
 // });
 
-var biHotel="";
+// var biHotel="";
 
-function Modal(idRoom,nameRoom) {
+// function Modal(idRoom,nameRoom) {
 
 
 
-            // for (b = 0; b < Data["images_sm"].length; b++) {
-            //     biHotel += "<div class=\"col-lg-4 col-md-6 col-12\">";
-            //     biHotel += "<div class=\"single-blog-1\">";
-            //     biHotel += "<img src=\""+ Data["images_sm"][b] +"\" alt=\"brand-icon\">";
-            //     biHotel += "</div>";
-            //     biHotel += "</div>";
-            //     biHotel += "</div>";
-            // }
+//             // for (b = 0; b < Data["images_sm"].length; b++) {
+//             //     biHotel += "<div class=\"col-lg-4 col-md-6 col-12\">";
+//             //     biHotel += "<div class=\"single-blog-1\">";
+//             //     biHotel += "<img src=\""+ Data["images_sm"][b] +"\" alt=\"brand-icon\">";
+//             //     biHotel += "</div>";
+//             //     biHotel += "</div>";
+//             //     biHotel += "</div>";
+//             // }
 
 
    
 
-    document.getElementById("roomReserve").innerHTML = "اتاق "+ nameRoom;
-    // document.getElementById('#Hotels').style.background-image = "url("+Data["images"]["0"]+")";
-};
+//     document.getElementById("roomReserve").innerHTML = "اتاق "+ nameRoom;
+//     // document.getElementById('#Hotels').style.background-image = "url("+Data["images"]["0"]+")";
+// };
 
 
 
