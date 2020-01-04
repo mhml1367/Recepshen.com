@@ -50,10 +50,11 @@ class hotelsController extends Controller
     {
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/fetchRooms");
+        curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/reserve");
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
             'hotel_id' => $rec->input("hotel_id"),
-            'contract_id' => $rec->input("contract_id"),
+            'room_id' => $rec->input("room_id"),
+            'contract_id' => $rec->input("contracts"),
             'start_date' => $rec->input("start_date"),
             'end_date' => $rec->input("end_date"),
             'agentPay' => "0",
@@ -78,8 +79,8 @@ class hotelsController extends Controller
         ]);
 
         $response = json_decode(curl_exec($ch));
+        dd($response);
         $res = $response->data;
-        dd($res);
         return view('hotel')->with(compact('rec'));
     }
 }

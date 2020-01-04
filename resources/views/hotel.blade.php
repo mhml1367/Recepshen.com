@@ -310,8 +310,8 @@
                                           </select>
                                 </div>
                         <div class="form-group">
-                            <label for="origin" class="col-form-label">شهر مبدا:</label>
-                            <input type="text" class="form-control" id="origin">
+                            <label for="city" class="col-form-label">شهر مبدا:</label>
+                            <input type="text" class="form-control" id="city">
                         </div>
     
                     </div>
@@ -419,6 +419,7 @@
             phone_number: $("#phone_number").val(),
             phone_number: $("#phone_number").val(),
             Sir_Madam: $("#Sir_Madam").val(),
+            city: $("#city").val(),
             Foreign: $("#Foreign").val(),
             start_date: "{{$rec->start_date}}",
             end_date: "{{$rec->end_date}}",
