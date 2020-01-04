@@ -42,7 +42,6 @@
 
            </div> --}}
        </div>
-        <div class="row">
                 <div class="col">
                     <div class="data-wedged">
                         <div class="data-single-wedged">
@@ -97,7 +96,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
     </div>
  </section>
 
@@ -201,7 +199,7 @@
                                                         <div class="col-lg-10 col-md-12 col-xs-12\">
                                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reserve" data-whatever="@getbootstrap"
                                                             data-idRoom="{{$rec->rooms[$i]->id}}" data-id="{{$i}}" data-nameRoom="{{$rec->rooms[$i]->name}}"
-                                                            data-from="1398-10-11"  data-to="1398-10-13" data-capacity="{{$rec->rooms[$i]->details->capacity}}"
+                                                            data-capacity="{{$rec->rooms[$i]->details->capacity}}"
                                                             
                                                             >رزرو اتاق</button>
                                                         </div>
@@ -284,13 +282,10 @@
                             <input type="text" class="form-control" id="first_name">
                         </div>
                         <div class="form-group">
-                            <label for="phone_number" class="col-form-label">موبایل:</label>
-                            <input type="text" class="form-control" id="phone_number">
+                            <label for="national_code" class="col-form-label">کدملی</label>
+                            <input type="text" class="form-control" id="national_code">
                         </div>
-                        <div class="form-group">
-                            <label for="Sir_Madam" class="col-form-label">آقا/خانم:</label>
-                            <input type="text" class="form-control" id="Sir_Madam">
-                        </div>
+                       
                     </div>
                     <div class="col">
                         <div class="form-group">
@@ -298,30 +293,34 @@
                             <input type="text" class="form-control" id="last_name">
                         </div>
                         <div class="form-group">
+                            <label for="phone_number" class="col-form-label">موبایل:</label>
+                            <input type="text" class="form-control" id="phone_number">
+                        </div>
+                        {{-- <div class="form-group">
+                            <label for="Foreign" class="col-form-label">خارجی:</label>
+                            <input type="checkbox" class="form-control" id="Foreign">
+                        </div> --}}
+                    </div>
+                    <div class="col">
+                            <div class="form-group">
+                                    <label for="Sir_Madam" class="col-form-label">آقا/خانم:</label>
+                                    <select name="Sir_Madam" id="Sir_Madam">
+                                            <option value="m" selected>اقا</option>
+                                            <option value="f">خانم</option>
+                                          </select>
+                                </div>
+                        <div class="form-group">
                             <label for="origin" class="col-form-label">شهر مبدا:</label>
                             <input type="text" class="form-control" id="origin">
                         </div>
-                        <div class="form-group">
-                            <label for="Foreign" class="col-form-label">خارجی:</label>
-                            <input type="checkbox" class="form-control" id="Foreign">
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="national_code" class="col-form-label">کدملی</label>
-                            <input type="text" class="form-control" id="national_code">
-                        </div>
-                        <div class="form-group">
-                            <label for="purpose" class="col-form-label">قصد از مسافرت:</label>
-                            <input type="text" class="form-control" id="purpose">
-                        </div>
+    
                     </div>
                 </div>
             </div>
 
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">انصراف از رزرو</button>
-              <button type="button" class="btn btn-primary" onclick="reserve();">درخواست رزرو</button>
+              <button type="button" class="btn btn-primary" id="send">درخواست رزرو</button>
             </div>
           </div>
         </div>
@@ -332,12 +331,14 @@
 <script src="/asset/bootstrap-slider/bootstrap-slider.js"></script>
 <script src="/asset/leaflet.js"></script>
 <script>
-    var idHotel="{{$rec->id}}";
+    var idRoom="";
+    var start_date="{{$rec->start_date}}";
+    var end_date="{{$rec->end_date}}";
     var rooms=<?php echo json_encode($rec->rooms, JSON_PRETTY_PRINT) ?>;
 
     $('#reserve').on('show.bs.modal', function (event) {
         var nameRoom = event.relatedTarget.dataset.nameroom;
-        var idRoom = event.relatedTarget.dataset.idRoom;
+            idRoom = event.relatedTarget.dataset.idroom;
         var id = event.relatedTarget.dataset.id;
         var from = event.relatedTarget.dataset.from ;
         var to = event.relatedTarget.dataset.to;
@@ -347,13 +348,13 @@
 
             calc += "<div class=\"col\">";
             calc += "<div class=\"form-group\">";
-            calc += "<lable> تاریخ رفت "+from+"</lable>";
+            calc += "<lable> تاریخ رفت "+start_date+"</lable>";
             calc += "</div>";
             calc += "</div>";
 
             calc += "<div class=\"col\">";
             calc += "<div class=\"form-group\">";
-            calc += "<lable> تاریخ برگشت "+to+"</lable>";
+            calc += "<lable> تاریخ برگشت "+end_date+"</lable>";
             calc += "</div>";
             calc += "</div>";
 
@@ -373,7 +374,7 @@
             var dinner="";
             var stay="";
             if (rooms[id].contracts[az].stay = 1) {
-                var text = "اقامت";
+                var stay = "اقامت";
             }
             if (rooms[id].contracts[az].breakfast == 1) {
                  breakfast = "صبحانه";
@@ -387,7 +388,7 @@
             
             contracts += "<div class=\"col\">";
             contracts += "<div class=\"form-group\">";
-            contracts += "<input type=\"radio\" name=\"gender\" value=\""+rooms[id].contracts[az].price+"\">"+ stay +" "+ breakfast +" "+ lunch +" "+ dinner +"<br>"+rooms[id].contracts[az].price+" ريال </input>";
+            contracts += "<input type=\"radio\" name=\"gender\" value=\""+rooms[id].contracts[az].id+"\">"+ stay +" "+ breakfast +" "+ lunch +" "+ dinner +"<br>"+rooms[id].contracts[az].price+" ريال </input>";
             contracts += "</div>";
             contracts += "</div>";
         }
@@ -399,22 +400,35 @@
         modal.find('#calc').html(calc);
         // modal.find('nameRoom').text(nameRoom)
     });
-
-// function reserve(idRoom,nameRoom) {
-//     $.ajax({
-//         type: 'POST',
-//         url: 'http://recepshen.ir/api/fetchRooms',
-//         data: {
-//             token: "mzoc1CEq401565108119FTd7QvbGea",
-//             hotel_id: ,
-//             from: "",
-//             to: "",
-//         },
-//         success: function (Data) {
-//             hotel(Data["data"])
-//         }
-//     });
-// });
+    $("#send").click(function () {
+        jQuery.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+    $.ajax({
+        type: 'POST',
+        url: "{{ route('post.reserve') }}",
+        data: {
+            hotel_id: "{{$rec->id}}",
+            room_id: idRoom,
+            contracts: $('input[name="gender"]:checked').val(),
+            first_name: $("#first_name").val(),
+            last_name: $("#last_name").val(),
+            national_code: $("#national_code").val(),
+            phone_number: $("#phone_number").val(),
+            phone_number: $("#phone_number").val(),
+            Sir_Madam: $("#Sir_Madam").val(),
+            Foreign: $("#Foreign").val(),
+            start_date: "{{$rec->start_date}}",
+            end_date: "{{$rec->end_date}}",
+        },
+        success: function (Data) {
+            console.log(Data);
+            
+        }
+    });
+});
 
 // var biHotel="";
 
