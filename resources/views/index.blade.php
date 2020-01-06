@@ -85,8 +85,16 @@
       </div>
    </div>
 </section>
+<section class="blog-details latest-blog-area wow fadeUpIn animated" data-wow-duration="2s" data-wow-delay="0.2s">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <img src="/image/resev.jpg">
+            </div>
+        </div>
+    </div>
+</section>
 @endsection
-
 
 
 @section('js')
