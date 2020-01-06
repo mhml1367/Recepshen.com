@@ -11,15 +11,15 @@
                         <option value="Eng">Ar</option>
                       </select>
                    </li>
-                   <li> <a href="tel:+8801711991383"> <span class="ti-headphone-alt"></span>+8801711991383</a> </li>
-                   <li> <a href="mailto:company@gmail.com"> <span class="ti-email"></span>company@mail.com</a> </li>
+                   <li> <a href="tel:09156580020"> <span class="ti-headphone-alt"></span>09156580020</a> </li>
+                   <li> <a href="mailto:info@recepahen.com"> <span class="ti-email"></span>info@recepahen.com</a> </li>
                 </ul>
              </div>
           </div>
           <div class="col-xl-5 col-lg-5 col-md-6 col-12">
              <div class="header-top-right">
                 <ul>
-                   <li><a href="#">چت آنلاین <span class="ti-comments"></span></a></li>
+                   <li><a href="#">رزرئ آنلاین <span class="ti-comments"></span></a></li>
                    <li><a href="#">عضویت</a></li>
                    <li><a href="#">ورود </a></li>
                 </ul>
@@ -33,14 +33,15 @@
         <div class="row">
             <div class="col-md-2">
                 <div class="logo">
-                    <a href="index.html"><img src="/asset/img/logo/logo.png" alt="logo"></a>
+                    <a href="/"><img src="/asset/img/logo/logo.png" alt="logo"></a>
                 </div>
             </div>
             <div class="col-md-10">
                 <div class="navigation">
                     <ul class="list-inline text-right" id="mainmenu">
-                        <li><a href="#">رسپشن</a></li>
-                        <li><a href="contact.html">تماس باما</a></li>
+                        <li><a href="/hotels">رزرو هتل</a></li>
+                        <li><a href="/hotels">رزرو بوم گردی</a></li>
+                        <li><a href="#">تماس باما</a></li>
                     </ul>
                 </div>
             </div>
