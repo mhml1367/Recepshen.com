@@ -200,7 +200,6 @@
                                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reserve" data-whatever="@getbootstrap"
                                                             data-idRoom="{{$rec->rooms[$i]->id}}" data-id="{{$i}}" data-nameRoom="{{$rec->rooms[$i]->name}}"
                                                             data-capacity="{{$rec->rooms[$i]->details->capacity}}"
-                                                            
                                                             >رزرو اتاق</button>
                                                         </div>
                                                     </div>
@@ -212,6 +211,31 @@
                             @endfor
                         </div>
                     </div>
+                    <div class="col-lg-12 col-md-12 col-xs-12">
+                        <div class="row single-table ">
+                            <div class="col"></div>
+                            <div class="col">نام</div>
+                            <div class="col">تعداد</div>
+                            <div class="col">رزرو</div>
+                        </div>
+
+                    </div>           
+                    <div class="col-lg-12 col-md-12 col-xs-12">
+                        @for ($i = 0; $i < count($rec->rooms); $i++)
+                        <div class="row single-table ">
+                            <div class="col"><img src="{{$rec->rooms[$i]->images["0"]}}"></div>
+                            <div class="col">{{$rec->rooms[$i]->name}}</div>
+                            <div class="col">{{$rec->rooms[$i]->beds}}</div>
+                            <div class="col"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reserve"
+                                data-idRoom="{{$rec->rooms[$i]->id}}" data-id="{{$i}}" data-nameRoom="{{$rec->rooms[$i]->name}}"
+                                data-capacity="{{$rec->rooms[$i]->details->capacity}}"
+                                >رزرو اتاق</button></div>
+                        </div>
+                        @endfor
+
+                    </div>           
+
+
                 </div>
             </div>
          </div>
@@ -305,8 +329,8 @@
                             <div class="form-group">
                                     <label for="Sir_Madam" class="col-form-label">آقا/خانم:</label>
                                     <select name="Sir_Madam" id="Sir_Madam">
-                                            <option value="m" selected>اقا</option>
-                                            <option value="f">خانم</option>
+                                            <option value="M" selected>اقا</option>
+                                            <option value="F">خانم</option>
                                           </select>
                                 </div>
                         <div class="form-group">

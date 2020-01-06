@@ -96,10 +96,10 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0;
+    /* margin: 0; */
     font-weight: 700;
     font-family: 'Vazir', sans-serif;
-    color: #3a4368 ;
+    color: #fff ;
 }
 
 a {
@@ -3431,6 +3431,62 @@ h3.domain-head {
     border-bottom: 13px solid #fff;
     transform: rotate(90deg);
 }
+.single-table {
+    text-align: center;
+    background: aliceblue;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    padding: 20px 0 10px;
+    margin-bottom: 20px;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.single-table img {
+    width: auto;
+    height: 150px;
+    background-color: #555;
+    border-radius: 15px;
+}
+.single-table:hover
+{
+    border-color: #3464e0;
+    box-shadow: 0px 15px 30px 0px rgba(0, 35, 137, 0.15)
+}
+.single-table h2 {
+    font-size: 24px;
+    color: #3a4368;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+.Homepage-1-amount h3 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #5dafef;
+    position: relative;
+}
+.single-table .table-highlight {
+    position: absolute;
+    background-color: #3464e0;
+    color: #fff;
+    padding: 8px 35px 8px 37px;
+    font-size: 14px;
+    font-weight: 400;
+    left: -20px;
+    top: 35px;
+    transform: rotate(-90deg);
+}
+.single-table .table-highlight:after {
+    content: "";
+    position: absolute;
+    bottom: 13px;
+    left: -19px;
+    border-left: 26px solid transparent;
+    border-right: 24px solid transparent;
+    border-bottom: 13px solid #fff;
+    transform: rotate(90deg);
+}
 .pricing-amount {
     position: relative;
 }
@@ -6272,6 +6328,9 @@ table.cart-table tbody tr td {
     width: 100%;
     max-width: 100%;
     margin: 0;
+    border-radius: 50px;
+    border: 10px solid black;
+    background: aliceblue;
 }
 
 
