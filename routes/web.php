@@ -14,9 +14,9 @@
 Route::get ('/'   , 'indexController@index')->name('index'); 
 
 Route::get ('/hotels/{City?}'   , 'hotelsController@index')->name('index.hotels'); 
-Route::get ('/hotels/{Hotel}/{id}/'   , 'hotelsController@Hotel')->name('hotel'); 
+Route::get ('/hotels/{Hotel}/'   , 'hotelsController@Hotel')->name('hotel'); 
 Route::POST('/hotels/reserve'   , 'hotelsController@reserve')->name('post.hotels.reserve'); 
-Route::get('/hotels/verify'   , 'hotelsController@verify')->name('hotels.verify'); 
+Route::get ('/hotels/reserve/confirmation'   , 'hotelsController@confirmation')->name('hotels.confirmation'); 
 
 
 

@@ -138,11 +138,18 @@ $(function () {
 	$("#ex3SliderVal").text(" ( "+txt[0]+" الی "+txt[1]+" ) ");
 });
 })
+    var city = "{{$city1}}";
 
-$("#sub").click(function () {
+    $("#sub").click(function () {
+        DataHotel();
+    )};
+    if (city != null) {
+        DataHotel();
+    };
+
+function DataHotel() {
     var DateFrom= new persianDate($("#date").val()).toLocale('en').format('YYYY-MM-DD');
     var DateEnd= new persianDate().add('days', $("#date1").val()).toLocale('en').format("YYYY-MM-DD");
-
     $.ajax({
         type: 'POST',
         url: 'http://recepshen.ir/api/fetchHotels',
@@ -151,6 +158,7 @@ $("#sub").click(function () {
             from: DateFrom,
             to: DateEnd,
             city_id: $("#city").val(),
+            city_name_en: city,
         },
         success: function (D) {
             var FIELD= "";
@@ -158,7 +166,7 @@ $("#sub").click(function () {
                 FIELD += "<div class=\"col-lg-12 col-md-12 col-xs-12\">";
                 FIELD += "<div class=\"single-pricing-table active\">";
                     if (D["data"][i]["discount"] != null) {
-                        FIELD += "<span class=\"table-highlight\">"+ D["data"][i]["discount"] +"</span>";
+                        FIELD += "<span class=\"table-highlight\">"+ D["data"][i]["discount"] +"%</span>";
                     }
 
                 FIELD += "<h2>"+ D["data"][i]["type"] +" "+ D["data"][i]["name"];
@@ -179,7 +187,7 @@ $("#sub").click(function () {
                 FIELD += "<i class=\"fa fa-map-marker\" style=\"color:darkgray;\"></i>"+ D["data"][i]["address"];
                 FIELD += "</p>";
                 FIELD += "<div class=\"col-lg-10 col-md-12 col-xs-12\">";
-                FIELD += "<a class=\"pricing-btn blue-btn pull-left\" href=/hotels/" + D["data"][i]["name_en"] + "/" + D["data"][i]["id"] + "?DateFrom=" + DateFrom + "&DateEnd=" + DateEnd + ">رزرو هتل</a>";
+                FIELD += "<a class=\"pricing-btn blue-btn pull-left\" href=/hotels/" + D["data"][i]["name_en"] + "/?DateFrom=" + DateFrom + "&DateEnd=" + DateEnd + ">رزرو هتل</a>";
                 FIELD += "</div>";
                 FIELD += "</div>";
                 FIELD += "</div>";
@@ -191,6 +199,6 @@ $("#sub").click(function () {
             document.getElementById("HOTELS").innerHTML = FIELD;
         }
     });
-});
+};
  </script>
 @endsection
