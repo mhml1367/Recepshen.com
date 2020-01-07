@@ -105,5 +105,15 @@ $('#date').persianDatepicker({
     format: "YYYY/MM/DD",
     autoClose: true
  });
+
+ var DateFrom= new persianDate($("#date").val()).toLocale('en').format('YYYY-MM-DD');
+ var DateEnd= new persianDate().add('days', $("#date1").val()).toLocale('en').format("YYYY-MM-DD");
+
+ $("#send").click(function () {
+
+     window.location.replace(Data["payLink"]);
+
+});
+
  </script>
 @endsection
