@@ -449,8 +449,7 @@
             end_date: "{{$rec->end_date}}",
         },
         success: function (Data) {
-            console.log(Data);
-            
+            window.location.replace(Data["payLink"]);
         }
     });
 });
