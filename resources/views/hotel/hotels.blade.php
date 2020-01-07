@@ -138,7 +138,6 @@ $(function () {
 	$("#ex3SliderVal").text(" ( "+txt[0]+" الی "+txt[1]+" ) ");
 });
 })
-var FIELD= "";
 
 $("#sub").click(function () {
     var DateFrom= new persianDate($("#date").val()).toLocale('en').format('YYYY-MM-DD');
@@ -154,15 +153,18 @@ $("#sub").click(function () {
             city_id: $("#city").val(),
         },
         success: function (D) {
+            var FIELD= "";
             for (i = 0; i < D["data"].length; i++) {
-
                 FIELD += "<div class=\"col-lg-12 col-md-12 col-xs-12\">";
                 FIELD += "<div class=\"single-pricing-table active\">";
-                FIELD += "<span class=\"table-highlight\">"+ D["data"][i]["discount"] +"</span>";
+                    if (D["data"][i]["discount"] != null) {
+                        FIELD += "<span class=\"table-highlight\">"+ D["data"][i]["discount"] +"</span>";
+                    }
+
                 FIELD += "<h2>"+ D["data"][i]["type"] +" "+ D["data"][i]["name"];
 
                     for (b = 0; b < D["data"][i]["stars"]; b++) {
-                        FIELD += "<i class=\"fa fa-star\" style=\"color: yellow;\"></i>";
+                        FIELD += "<i class=\"fa fa-star\" style=\"color: #ffa726;\"></i>";
                     }
 
                 FIELD += "</h2>";                
@@ -182,10 +184,9 @@ $("#sub").click(function () {
                 FIELD += "</div>";
                 FIELD += "</div>";
                 FIELD += "</div>";
-                FIELD += "";
                 FIELD += "</div>";
                 FIELD += "</div>";
-
+                FIELD += "</div>";
             }
             document.getElementById("HOTELS").innerHTML = FIELD;
         }

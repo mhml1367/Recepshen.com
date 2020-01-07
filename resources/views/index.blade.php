@@ -12,7 +12,7 @@
                             <div class="flex-form ">
                                 <select id="city" name="option">
                                      @foreach ($city as $item)
-                                     <option value="{{$item->id}}">{{$item->name}}</option>
+                                     <option value="{{$item->name_en}}">{{$item->name}}</option>
                                      @endforeach
                                 </select>
                                 <input id="date" class="domain-input">
@@ -27,7 +27,7 @@
                                     <option value="8">هشت شب</option>
                                 </select>
                                 <div class="domain-checkup-right">
-                                    <button id="sub">
+                                    <button id="send">
                                         <img src="/asset/img/icons/search-icon.png" alt="Search icon">
                                         جستجو
                                     </button>
@@ -111,7 +111,7 @@ $('#date').persianDatepicker({
 
  $("#send").click(function () {
 
-     window.location.replace(Data["payLink"]);
+     window.location.replace("/hotels/"+$("#city").val()+"/");
 
 });
 

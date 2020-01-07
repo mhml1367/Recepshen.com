@@ -180,62 +180,36 @@
                   </div>
                </div>
                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-xs-12">
-                        <div class="row">
-                            @for ($i = 0; $i < count($rec->rooms); $i++)
-                                <div class="col-lg-12 col-md-12 col-xs-12">
-                                    <div class="single-pricing-table active">
-                                        <span class="table-highlight\">{{$rec->rooms[$i]->beds}}</span>
-                                        <div class="row no-gutters\">
-                                            <div class="col-lg-4 col-md-12 col-xs-12">
-                                                <img src="{{$rec->rooms[$i]->images["0"]}}" alt="pricing-icon">
-                                            </div>
-                                            <div class="col-lg-8 col-md-12 col-xs-12">
-                                                <div class="row no-gutters\">
-                                                    <div class="col-lg-10 col-md-12 col-xs-12 text-right">
-                                                        <h2>{{$rec->rooms[$i]->name}}</h2>
-                                                        <i class="fa fa-map-marker"
-                                                            style="color:darkgray;"></i>{{$rec->rooms[$i]->id}}
-                                                        <div class="col-lg-10 col-md-12 col-xs-12\">
-                                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reserve" data-whatever="@getbootstrap"
-                                                            data-idRoom="{{$rec->rooms[$i]->id}}" data-id="{{$i}}" data-nameRoom="{{$rec->rooms[$i]->name}}"
-                                                            data-capacity="{{$rec->rooms[$i]->details->capacity}}"
-                                                            >رزرو اتاق</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endfor
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-xs-12">
-                        <div class="row single-table ">
+                      <div class="col-lg-12 col-md-12 col-xs-12">
+                        <div class="row single-table">
                             <div class="col"></div>
                             <div class="col">نام</div>
                             <div class="col">تعداد</div>
+                            <div class="col col-lg-4 col-sm-6">نوع اقامت</div>
                             <div class="col">رزرو</div>
                         </div>
-
                     </div>           
                     <div class="col-lg-12 col-md-12 col-xs-12">
                         @for ($i = 0; $i < count($rec->rooms); $i++)
                         <div class="row single-table ">
-                            <div class="col"><img src="{{$rec->rooms[$i]->images["0"]}}"></div>
-                            <div class="col">{{$rec->rooms[$i]->name}}</div>
-                            <div class="col">{{$rec->rooms[$i]->beds}}</div>
-                            <div class="col"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reserve"
+                            <div class="col my-auto"><img src="{{$rec->rooms[$i]->images["0"]}}"></div>
+                            <div class="col my-auto">{{$rec->rooms[$i]->name}}</div>
+                            <div class="col my-auto">{{$rec->rooms[$i]->beds}}</div>
+                            <div class="col col-lg-4 col-sm-6 my-auto">
+                                @for ($b = 0; $b < count($rec->rooms[$i]->contracts); $b++)
+                                    <div class="row">
+                                        <div class="col">{{$rec->rooms[$i]->contracts[$b]->name}}</div>
+                                        <div class="col">{{$rec->rooms[$i]->contracts[$b]->price}}</div>
+                                    </div>
+                                @endfor
+                            </div>
+                            <div class="col my-auto"><button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#reserve"
                                 data-idRoom="{{$rec->rooms[$i]->id}}" data-id="{{$i}}" data-nameRoom="{{$rec->rooms[$i]->name}}"
                                 data-capacity="{{$rec->rooms[$i]->details->capacity}}"
                                 >رزرو اتاق</button></div>
                         </div>
                         @endfor
-
                     </div>           
-
-
                 </div>
             </div>
          </div>
@@ -412,7 +386,7 @@
             
             contracts += "<div class=\"col\">";
             contracts += "<div class=\"form-group\">";
-            contracts += "<input type=\"radio\" name=\"gender\" value=\""+rooms[id].contracts[az].id+"\">"+ stay +" "+ breakfast +" "+ lunch +" "+ dinner +"<br>"+rooms[id].contracts[az].price+" ريال </input>";
+            contracts += "<input type=\"radio\" name=\"gender\" value=\""+rooms[id].contracts[az].id+"\"> "+ stay +" "+ breakfast +" "+ lunch +" "+ dinner +"<br>"+rooms[id].contracts[az].price+" ريال </input>";
             contracts += "</div>";
             contracts += "</div>";
         }
@@ -432,7 +406,7 @@
         });
     $.ajax({
         type: 'POST',
-        url: "{{ route('post.reserve') }}",
+        url: "{{ route('post.hotels.reserve') }}",
         data: {
             hotel_id: "{{$rec->id}}",
             room_id: idRoom,

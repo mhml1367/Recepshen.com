@@ -84,11 +84,11 @@ canvas{
   
 }
 
-[type=reset], [type=submit], button, html [type=button] {
+/* [type=reset], [type=submit], button, html [type=button] {
     -webkit-appearance: button;
     cursor: pointer;
     color: #3a4368 ;
-}
+} */
 
 h1,
 h2,
