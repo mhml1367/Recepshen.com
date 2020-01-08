@@ -107,6 +107,9 @@
                     </div>
                     <div class="col-lg-8 col-md-12 col-xs-12">
                         <div class="row" id="HOTELS">
+                            <div class="lds-ellipsis">
+                                            <div></div><div></div><div></div><div></div>
+                                        </div>
                         </div>
                     </div>
                   </div>
