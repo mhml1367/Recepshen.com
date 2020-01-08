@@ -138,28 +138,36 @@ $(function () {
 	$("#ex3SliderVal").text(" ( "+txt[0]+" الی "+txt[1]+" ) ");
 });
 }) 
+
     var city = "{{$city1}}";
 
     $("#sub").click(function () {
-        DataHotel();
-    )};
+        dataSend = {
+            token: "mzoc1CEq401565108119FTd7QvbGea",
+            from: new persianDate($("#date").val()).toLocale('en').format('YYYY-MM-DD'),
+            to: new persianDate().add('days', $("#date1").val()).toLocale('en').format("YYYY-MM-DD"),
+            city_id: $("#city").val(),
+        };
+        DataHotel(dataSend);
+    });
+    
     if (city != null) {
-        DataHotel();
+        dataSend = {
+            token: "mzoc1CEq401565108119FTd7QvbGea",
+            from: new persianDate($("#date").val()).toLocale('en').format('YYYY-MM-DD'),
+            to: new persianDate().add('days', $("#date1").val()).toLocale('en').format("YYYY-MM-DD"),
+            city_name_en: city,
+        };
+        DataHotel(dataSend);
     };
 
-function DataHotel() {
+function DataHotel(dataSend) {
     var DateFrom= new persianDate($("#date").val()).toLocale('en').format('YYYY-MM-DD');
     var DateEnd= new persianDate().add('days', $("#date1").val()).toLocale('en').format("YYYY-MM-DD");
     $.ajax({
         type: 'POST',
         url: 'http://recepshen.ir/api/fetchHotels',
-        data: {
-            token: "mzoc1CEq401565108119FTd7QvbGea",
-            from: DateFrom,
-            to: DateEnd,
-            city_id: $("#city").val(),
-            city_name_en: city,
-        },
+        data: dataSend,
         success: function (D) {
             var FIELD= "";
             for (i = 0; i < D["data"].length; i++) {
