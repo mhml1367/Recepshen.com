@@ -57,7 +57,7 @@ class hotelsController extends Controller
             'start_date' => $rec->input("start_date"),
             'end_date' => $rec->input("end_date"),
             'agentPay' => "0",
-            'redirectPath' => "http://recepshen.com//hotels/reserve/confirmation",
+            'redirectPath' => "http://recepshen.com/hotels/reserve/confirmation",
             'user_token' => "DEsFVekRIkrvfbfiuULvzSdvLL6BwvkzGg0LRJDtySA7a0xsYladMyxJ2gcLv8LNt74ihjAxz9RvXE7bymLm8op47Oqqiur0",
             'token' => 'mzoc1CEq401565108119FTd7QvbGea',
             "guests"=> array(
