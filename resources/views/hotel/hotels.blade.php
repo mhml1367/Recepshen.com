@@ -137,7 +137,7 @@ $(function () {
         var txt=slideEvt.value;
 	$("#ex3SliderVal").text(" ( "+txt[0]+" الی "+txt[1]+" ) ");
 });
-})
+}) 
     var city = "{{$city1}}";
 
     $("#sub").click(function () {
