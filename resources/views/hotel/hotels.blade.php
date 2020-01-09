@@ -10,16 +10,21 @@
        <div class="single-slider-item">
            <div class="container">
                <div class="row slider-content-area">
-                   <div class="col-xl-12 col-lg-7 col-md-12 col-12">
+                   <div class="col">
                        <div class="cover">
                            <h2>جستجو هتل</h2>
-                           <div class="flex-form ">
+                           <div class="flex-form row ">
+                            <div class="col">
                                <select id="city" name="option">
                                     @foreach ($city as $item)
                                     <option value="{{$item->id}}">{{$item->name}}</option>
                                     @endforeach
                                </select>
+                                </div>
+                                <div class="col">
                                <input id="date" class="domain-input">
+                                </div>
+                                <div class="col">
                                <select id="date1" name="option">
                                    <option value="1">یک شب</option>
                                    <option value="2">دو شب</option>
@@ -30,6 +35,7 @@
                                    <option value="7">هفت شب</option>
                                    <option value="8">هشت شب</option>
                                </select>
+                                </div>
                                <div class="domain-checkup-right">
                                    <button id="sub">
                                        <img src="/asset/img/icons/search-icon.png" alt="Search icon">
@@ -52,8 +58,8 @@
             <div class="homepage-2 homepage-4 pricing-table-area">
                <div class="row">
                   <div class="col-md-12">
-                     <div class="section-title">
-                        <h2><span>رسپشن</span> لیست بهترین هتل ها </h2>
+                     <div class="section-title" id="title">
+                        <h2><span>لطفا</span> بالا جستو جو کنید </h2>
                         <img src="/asset/img/section-shape.png" alt="section-shape">
                      </div>
                   </div>
@@ -96,7 +102,7 @@
                         </div>
                         <div class="blog-detail blog-categories-right">
                             <h2>امکانات هتل</h2>
-                            <div class="categories-right-list">
+                            <div class="categories-right-list" style=" overflow: auto; height: 400px;">
                                 <ul>
                                     @foreach ($hotelSpecifications as $item)
                                         <li><input type="checkbox" value="{{$item->id}}"> <a>{{$item->name}} </a></li>
@@ -106,10 +112,10 @@
                         </div>
                     </div>
                     <div class="col-lg-8 col-md-12 col-xs-12">
+                        <div class="lds-ellipsis" id="loadig" style="display: none">
+                            <div></div><div></div><div></div><div></div>
+                        </div>
                         <div class="row" id="HOTELS">
-                            <div class="lds-ellipsis">
-                                            <div></div><div></div><div></div><div></div>
-                                        </div>
                         </div>
                     </div>
                   </div>
@@ -145,6 +151,9 @@ $(function () {
     var city = "{{$city1}}";
 
     $("#sub").click(function () {
+    document.getElementById("HOTELS").innerHTML = "";
+    document.getElementById('loadig').style.display = "initial";
+
         dataSend = {
             token: "mzoc1CEq401565108119FTd7QvbGea",
             from: new persianDate($("#date").val()).toLocale('en').format('YYYY-MM-DD'),
@@ -154,7 +163,10 @@ $(function () {
         DataHotel(dataSend);
     });
     
-    if (city != null) {
+    if (city != "") {
+    document.getElementById("HOTELS").innerHTML = "";
+    document.getElementById('loadig').style.display = "initial";
+
         dataSend = {
             token: "mzoc1CEq401565108119FTd7QvbGea",
             from: new persianDate($("#date").val()).toLocale('en').format('YYYY-MM-DD'),
@@ -165,6 +177,8 @@ $(function () {
     };
 
 function DataHotel(dataSend) {
+    $('html,body').animate({ scrollTop: 500 }, 'slow');
+
     var DateFrom= new persianDate($("#date").val()).toLocale('en').format('YYYY-MM-DD');
     var DateEnd= new persianDate().add('days', $("#date1").val()).toLocale('en').format("YYYY-MM-DD");
     $.ajax({
@@ -172,6 +186,12 @@ function DataHotel(dataSend) {
         url: 'http://recepshen.ir/api/fetchHotels',
         data: dataSend,
         success: function (D) {
+            if(D["error"] == undefined){
+                if(D["data"].length != 0){
+
+                document.getElementById("title").innerHTML ="<h2>لیست هتل و اقامتگاه های <span>"+ D["data"]["0"]["city"]+"</span></h2>";
+                document.getElementById('loadig').style.display = "none";
+
             var FIELD= "";
             for (i = 0; i < D["data"].length; i++) {
                 FIELD += "<div class=\"col-lg-12 col-md-12 col-xs-12\">";
@@ -207,8 +227,22 @@ function DataHotel(dataSend) {
                 FIELD += "</div>";
                 FIELD += "</div>";
             }
-            document.getElementById("HOTELS").innerHTML = FIELD;
+                document.getElementById("HOTELS").innerHTML = FIELD;
+                }else{
+                    document.getElementById("title").innerHTML ="<h2>در این شهر هتلی موجود نیست</h2>";
+                    document.getElementById('loadig').style.display = "none";
+                }
+            }else{
+                document.getElementById("title").innerHTML ="<h2>"+ D["error"]+"</h2>";
+                document.getElementById('loadig').style.display = "none";
+            }
+
+        },
+        error: function (e) {
+            document.getElementById("title").innerHTML ="<h2>خطایی رخ داده لطفا دوباره تلاش نمایید</h2>";
+            document.getElementById('loadig').style.display = "none";
         }
+
     });
 };
  </script>

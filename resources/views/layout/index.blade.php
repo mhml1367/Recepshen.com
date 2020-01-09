@@ -43,14 +43,10 @@
         border-radius: 5px;
     }
   .lds-ellipsis {
+    padding-right: 50%;
     display: inline-block;
     position: relative;
-    width: 64px;
-    height: 64px;
-    display: inline-block;
-      position: relative;
-      width: 64px;
-      height: 64px;
+ 
   }
   .lds-ellipsis div {
     position: absolute;

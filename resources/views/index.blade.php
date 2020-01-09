@@ -9,30 +9,36 @@
                     <div class="col-xl-12 col-lg-7 col-md-12 col-12">
                         <div class="cover">
                             <h2>جستجو هتل</h2>
-                            <div class="flex-form ">
-                                <select id="city" name="option">
-                                     @foreach ($city as $item)
-                                     <option value="{{$item->name_en}}">{{$item->name}}</option>
-                                     @endforeach
-                                </select>
-                                <input id="date" class="domain-input">
-                                <select id="date1" name="option">
-                                    <option value="1">یک شب</option>
-                                    <option value="2">دو شب</option>
-                                    <option value="3">سه شب</option>
-                                    <option value="4">چهار شب</option>
-                                    <option value="5">پنج شب</option>
-                                    <option value="6">شش شب</option>
-                                    <option value="7">هفت شب</option>
-                                    <option value="8">هشت شب</option>
-                                </select>
-                                <div class="domain-checkup-right">
-                                    <button id="send">
-                                        <img src="/asset/img/icons/search-icon.png" alt="Search icon">
-                                        جستجو
-                                    </button>
-                                </div>
-                            </div>
+                            <div class="flex-form row ">
+                                <div class="col">
+                                   <select id="city" name="option">
+                                        @foreach ($city as $item)
+                                        <option value="{{$item->name_en}}">{{$item->name}}</option>
+                                        @endforeach
+                                   </select>
+                                    </div>
+                                    <div class="col">
+                                   <input id="date" class="domain-input">
+                                    </div>
+                                    <div class="col">
+                                   <select id="date1" name="option">
+                                       <option value="1">یک شب</option>
+                                       <option value="2">دو شب</option>
+                                       <option value="3">سه شب</option>
+                                       <option value="4">چهار شب</option>
+                                       <option value="5">پنج شب</option>
+                                       <option value="6">شش شب</option>
+                                       <option value="7">هفت شب</option>
+                                       <option value="8">هشت شب</option>
+                                   </select>
+                                    </div>
+                                   <div class="domain-checkup-right">
+                                       <button id="send">
+                                           <img src="/asset/img/icons/search-icon.png" alt="Search icon">
+                                           جستجو
+                                       </button>
+                                   </div>
+                               </div>
                         </div>
                     </div>
                 </div>

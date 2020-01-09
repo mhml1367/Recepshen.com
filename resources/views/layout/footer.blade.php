@@ -5,11 +5,11 @@
              <div class="col-lg-3 col-md-12 col-12">
                 <div class="footer-single-item">
                    <div class="logo">
-                      <a href="index.html"><img src="/asset/img/logo/logo.png" alt="logo"></a>
+                      <a href="/"><img src="/asset/img/logo/logo.png" alt="logo"></a>
                    </div>
                    <p>سیستم مدیریت رسپشن</p>
-                   <p class="contact-info"><span>موبایل:</span><a href="tel:+8801711991383">0098-915658020</a></p>
-                   <p class="contact-info"><span>ایمیل:</span><a href="mailto:hasan.nazmulmmc@gamil.com">www.Recepshen.com</a> </p>
+                   <p class="contact-info"><span>موبایل:</span><a href="tel:+98-915658020">+98-915658020</a></p>
+                   <p class="contact-info"><span>ایمیل:</span><a href="mailto:info@Recepshen.com">info@Recepshen.com</a> </p>
                    <p class="contact-info"><span>آدرس:</span><a href="#">مشهد</a></p>
                 </div>
              </div>
@@ -18,7 +18,7 @@
                    <h2>پیوند های مهم</h2>
                    <div class="footer-links">
                       <ul>
-                         <li><a href="index.html">پشتیبانی</a></li>
+                         <li><a href="#">پشتیبانی</a></li>
                       </ul>
                    </div>
                 </div>
@@ -28,10 +28,10 @@
                    <h2>انواع سرویس ها</h2>
                    <div class="footer-links">
                       <ul>
-                         <li><a href="hosting.html">رزرو هتل</a></li>
-                         <li><a href="vps-hosting.html">بلیط قطار</a></li>
-                         <li><a href="vps-hosting.html">بلیط هواپیما</a></li>
-                         <li><a href="vps-hosting.html">رزرو تور</a></li>
+                         <li><a href="#">رزرو هتل</a></li>
+                         <li><a href="#">بلیط قطار</a></li>
+                         <li><a href="#">بلیط هواپیما</a></li>
+                         <li><a href="#">رزرو تور</a></li>
                       </ul>
                    </div>
                 </div>

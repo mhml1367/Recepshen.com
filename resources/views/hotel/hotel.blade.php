@@ -47,7 +47,7 @@
                         <div class="data-single-wedged">
                             <span>ساعت ورود</span>
                             <h4>{{$rec->in_time}}</h4>
-                            <p>هتل آپارتمان</p>
+                            <p>{{$rec->type}}</p>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                         <div class="data-single-wedged">
                             <span>ساعت خروج</span>
                             <h4>{{$rec->out_time}}</h4>
-                            <p>هتل آپارتمان</p>
+                            <p>{{$rec->type}}</p>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                         <div class="data-single-wedged">
                             <span>تعداد طبقات</span>
                             <h4>{{$rec->floors}}</h4>
-                            <p>هتل آپارتمان</p>
+                            <p>{{$rec->type}}</p>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                         <div class="data-single-wedged">
                             <span>تعداد اتاق ها</span>
                             <h4>{{$rec->roomsCount}}</h4>
-                            <p>هتل آپارتمان</p>
+                            <p>{{$rec->type}}</p>
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                         <div class="data-single-wedged">
                             <span>تعداد تخت ها</span>
                             <h4>{{$rec->beds}}</h4>
-                            <p>هتل آپارتمان</p>
+                            <p>{{$rec->type}}</p>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                         <div class="data-single-wedged">
                             <span>سال ساخت</span>
                             <h4>{{$rec->construct_year}}</h4>
-                            <p>هتل آپارتمان</p>
+                            <p>{{$rec->type}}</p>
                         </div>
                     </div>
                 </div>
