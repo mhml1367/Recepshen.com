@@ -23,7 +23,7 @@
                                     <div class="col">
                                    <select id="date1" name="option">
                                        <option value="1">یک شب</option>
-                                       <option value="2">دو شب</option>
+                                       <option selected value="2">دو شب</option>
                                        <option value="3">سه شب</option>
                                        <option value="4">چهار شب</option>
                                        <option value="5">پنج شب</option>

@@ -3,7 +3,9 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>@yield ("title","رسپشن - فروش بلیط و رزرو اتاق")</title>
+      <title>@yield ("title","رسپشن - رزرو آنلاین هتل  و رزرو اتاق")</title>
+      <meta name="description" content="@yield ("description","رسپشن رزرو آنلاین هتل و رزرو اتاق آنلاین اتاق بوم گردی را با تخفیف ها متنوع انجام می دهد")">
+      <meta name="Keywords" content="@yield ("Keywords","رزرو هتل مشهد , هتل کيش , هتل قشم , هتل تهران , رزرو هتل  , رزرو هتل آپارتمان , رزرو آنلاین , بوم گردی , رزرو اتاق")">
       <link rel="apple-touch-icon" href="/asset/img/favicon/apple-touch-icon.png">
       <link rel="icon" href="/asset/img/favicon/favicon.png">
       <link href="/asset/css/bootstrap.min.css" rel="stylesheet">
@@ -13,92 +15,6 @@
       <link href="/responsive.css" rel="stylesheet">
       <link rel="stylesheet" href="/asset/css/persian-datepicker.css" />
       <meta name="_token" content="{{ csrf_token() }}">
-
-      <style>
-      .flex-form > * {
-        border: 0;
-        padding: 10px;
-        background: white;
-        line-height: 50px;
-        font-size: 20px;
-        border-radius: 0;
-        outline: 1;
-    }
-
-    .flex-form > *:last-child {
-        border-right: 0;
-    }
-
-
-    .cover {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    .flex-form {
-        display: flex;
-        border: 10px solid rgba(0,0,0,0.3);
-        border-radius: 5px;
-    }
-  .lds-ellipsis {
-    padding-right: 50%;
-    display: inline-block;
-    position: relative;
- 
-  }
-  .lds-ellipsis div {
-    position: absolute;
-    top: 27px;
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-    background: #008fd4;
-    animation-timing-function: cubic-bezier(0, 1, 1, 0);
-  }
-  .lds-ellipsis div:nth-child(1) {
-    left: 6px;
-    animation: lds-ellipsis1 0.6s infinite;
-  }
-  .lds-ellipsis div:nth-child(2) {
-    left: 6px;
-    animation: lds-ellipsis2 0.6s infinite;
-  }
-  .lds-ellipsis div:nth-child(3) {
-    left: 26px;
-    animation: lds-ellipsis2 0.6s infinite;
-  }
-  .lds-ellipsis div:nth-child(4) {
-    left: 45px;
-    animation: lds-ellipsis3 0.6s infinite;
-  }
-  @keyframes lds-ellipsis1 {
-    0% {
-      transform: scale(0);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  @keyframes lds-ellipsis3 {
-    0% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(0);
-    }
-  }
-  @keyframes lds-ellipsis2 {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(19px, 0);
-    }
-  }
-
-</style>
 @yield ("css")
    </head>
    <body id="homepage-3">
