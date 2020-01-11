@@ -180,15 +180,7 @@
                   </div>
                </div>
                <div class="row">
-                      <div class="col-lg-12 col-md-12 col-xs-12">
-                        <div class="row single-table">
-                            <div class="col"></div>
-                            <div class="col">نام</div>
-                            <div class="col">تعداد</div>
-                            <div class="col col-lg-4 col-sm-6">نوع اقامت</div>
-                            <div class="col">رزرو</div>
-                        </div>
-                    </div>           
+                      <div class="col-lg-12 col-md-12 col-xs-12">          
                     <div class="col-lg-12 col-md-12 col-xs-12">
                         @for ($i = 0; $i < count($rec->rooms); $i++)
                         <div class="row single-table ">
@@ -199,7 +191,7 @@
                                 @for ($b = 0; $b < count($rec->rooms[$i]->contracts); $b++)
                                     <div class="row">
                                         <div class="col">{{$rec->rooms[$i]->contracts[$b]->name}}</div>
-                                        <div class="col">{{$rec->rooms[$i]->contracts[$b]->price}}</div>
+                                        <div class="col"><span>{{$rec->rooms[$i]->contracts[$b]->price}}</span> {{$rec->rooms[$i]->contracts[$b]->discount_price}}</div>
                                     </div>
                                 @endfor
                             </div>
