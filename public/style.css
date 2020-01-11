@@ -1,64 +1,3 @@
-/* ============================================
-Template Name: Slake
-Template URI:
-Description: Hosting HTML5 Template
-Author:
-Author URI:
-Version: 1.0
-===================================================
-
-##CSS TABLE OF CONTENT
---------------------------------
-1. THEME BASIC CSS
-2. HEADER TOP STYLE
-3. NAVIGATION STYLE
-4. HOMEPAGE-1  SLIDER-1 STYLE
-5. HOME PAGE 2 STYLE SLIDER
-6. HOME 1 BG ANIMATION
-7. HOME 2 CLOUD ANIMATION 
-8. DOMAIN- STYLE SECTION
-9. SECTION-TITLE STYLE
-10. BLOG-1 STYLE
-11. PRICING TABLE STYLE
-12. FEATURE ONE STYLE
-13. FEATURE TWO STYLE
-14. FUN FACT STYLE
-15. SERVICE STYLE
-16. REGISTER STYLE
-17. TESTIMONIAL STYLE
-18. BRAND AREA STYLE
-19. CALL-TO-ACTION AREA STYLE
-20. FOOTER AREA STYLE
-21. FOOTER BOTOM AREA STYLE
-22. DOMAIN CHECKER AREA STYLE
-23. FAQ PAGE STYLE
-24. ABOUT.HTML STYLE
-25. TAB STYLE
-26. WELCOME AREA STYLE
-27. DOMAIN-SEARCH AREA STYLE
-28. DOMAIN-SEARCH-NOW AREA STYLE
-29. DOMAIN-FEATURE AREA STYLE
-30. HOSTING AREA.HTML STYLE
-31. CLOUD HOSTING.HTML STYLE
-32. DEDICATION.HTML HOSTING STYLE
-33. AFFILIATE HTML STYLE
-34. CART.HTMLAREA
-35.CHECK-OUT.HTMLAREA
-36.CONTACT.HTMLAREA
-37. ALL+FULL BLOG.HTMLAREA
-38. ALL+SHOP GRID STYLE
-39. 404 PAGE STYLE
-40. COMING SOON PAGE STYLE 
-41. MAP STYLE
-
-
-================================================ */
-
-
-/*----------------------------------------
-1. THEME BASIC CSS
-------------------------------------------*/
-
 @import url("asset/fonts/Recepshen.css");
 
 html, body {
@@ -82,6 +21,9 @@ canvas{
     background-color: #dddddd;
     color: #3e445b;
   
+}
+button, input {
+    border: 0px;
 }
 
 /* [type=reset], [type=submit], button, html [type=button] {
@@ -1410,6 +1352,11 @@ a.pricing-btn.blue-btn.homepage-one-all-features-btn.action-btn.slider-links-2 {
 
 .Hotels {
     background-image: url(/image/Hotels.jpg);
+    /* background-size: cover; */
+    background-position: center;
+}
+.ecotourism {
+    background-image: url(/image/ecotourism.jpg);
     /* background-size: cover; */
     background-position: center;
 }
@@ -8437,4 +8384,3 @@ animation: lds-ellipsis3 0.6s infinite;
   transform: translate(19px, 0);
 }
 }
-

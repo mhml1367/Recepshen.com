@@ -8,6 +8,7 @@ Route::POST('/hotels/reserve/'   , 'hotelsController@reserve')->name('post.hotel
 Route::get ('/hotels/reserve/confirmation'   , 'hotelsController@confirmation')->name('hotels.confirmation'); 
 
 
+Route::get ('/ecotourisms/{City?}'   , 'ecotourismsController@index')->name('index.ecotourisms'); 
 
 
 Route::get('/clear', function() {
