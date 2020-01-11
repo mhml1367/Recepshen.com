@@ -59,7 +59,11 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="section-title" id="title">
-                        <h2><span>لطفا</span> بالا جستو جو کنید </h2>
+                    @if ($rec != null)
+                    <h2> لیست هتل و اقامتگاه های  <span>{{$rec["0"]->city}}</span></h2>
+                    @else
+                    <h2><span>لطفا</span> بالا جستو جو کنید </h2>
+                    @endif
                         <img src="/asset/img/section-shape.png" alt="section-shape">
                      </div>
                   </div>
@@ -116,6 +120,41 @@
                             <div></div><div></div><div></div><div></div>
                         </div>
                         <div class="row" id="HOTELS">
+                            @isset ($rec)
+                            @for ($i = 0; $i < count($rec); $i++)
+                             <div class="col-lg-12 col-md-12 col-xs-12">
+                                <div class="single-pricing-table active">
+                                    @if ($rec[$i]->discount != null) 
+                                        <span class="table-highlight">{{$rec[$i]->discount}}%</span>
+                                    @endif
+                
+                                    <h2> {{$rec[$i]->type}} {{$rec[$i]->name}}
+                                        @for ($b = 0; $b < $rec[$i]->stars; $b++) 
+                                            <i class="fa fa-star" style="color: #ffa726;"></i>
+                                        @endfor
+                                    </h2>
+                                    <div class="row no-gutters">
+                                        <div class="col-lg-4 col-md-12 col-xs-12">
+                                            <img src="{{$rec[$i]->image}}" alt="pricing-icon">
+                                        </div>
+                                        <div class="col-lg-8 col-md-12 col-xs-12">
+                                            <div class="row no-gutters">
+                                                <div class="col-lg-10 col-md-12 col-xs-12">
+                                                    <p class="text-right">
+                                                        <i class="fa fa-map-marker" style="color:darkgray;"></i>
+                                                        {{$rec[$i]->address}}</p>
+                                                    <div class="col-lg-10 col-md-12 col-xs-12">
+                                                        <a class="pricing-btn blue-btn pull-left" href="/hotel/{{$rec[$i]->name_en}}">رزرو هتل</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endfor
+                            @endisset
+                            </div>
                         </div>
                     </div>
                   </div>
@@ -148,7 +187,6 @@ $(function () {
 });
 }) 
 
-    var city = "{{$city1}}";
 
     $("#sub").click(function () {
     document.getElementById("HOTELS").innerHTML = "";
@@ -163,19 +201,6 @@ $(function () {
         DataHotel(dataSend);
     });
     
-    if (city != "") {
-    document.getElementById("HOTELS").innerHTML = "";
-    document.getElementById('loadig').style.display = "initial";
-
-        dataSend = {
-            token: "mzoc1CEq401565108119FTd7QvbGea",
-            from: new persianDate($("#date").val()).toLocale('en').format('YYYY-MM-DD'),
-            to: new persianDate().add('days', $("#date1").val()).toLocale('en').format("YYYY-MM-DD"),
-            city_name_en: city,
-        };
-        DataHotel(dataSend);
-    };
-
 function DataHotel(dataSend) {
     $('html,body').animate({ scrollTop: 500 }, 'slow');
 

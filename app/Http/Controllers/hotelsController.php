@@ -9,10 +9,28 @@ class hotelsController extends Controller
 {
     public function index($city1 = null)
     {
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/fetchHotels");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
+            'city_name_en'=> $city1,
+            'token' => 'mzoc1CEq401565108119FTd7QvbGea',
+        )));
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+        ]);
+
+        $response = json_decode(curl_exec($ch));
+        $rec = $response->data;
+
+
         $city = city();
         $hotelTypes = hotelTypes();
         $hotelSpecifications = hotelSpecifications();
-        return view('hotel/hotels',compact('city','hotelTypes','hotelSpecifications','city1'));
+        return view('hotel/hotels',compact('rec','city','hotelTypes','hotelSpecifications'));
 
     }
     

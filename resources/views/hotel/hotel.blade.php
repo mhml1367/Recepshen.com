@@ -233,7 +233,7 @@
 
     <section class="testimonial-carousel testimonial-area">
         <div class="container">
-            <div class=" slick-initialized slick-slider" style="direction: ltr;">
+            <div class=" slick-initialized slick-slider">
                 <div class="slick-list draggable">
                     <div class="slick-track">
                         <div class="single-item slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true"
