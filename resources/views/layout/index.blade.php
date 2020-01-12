@@ -28,7 +28,7 @@
     </div>
   </div>
 
-      <div class="ecotourism" @isset ($rec->images[0])
+      <div class="Hotels" @isset ($rec->images[0])
       style="background-image: url('{{$rec->images[0]}}');background-position: top;background-size: cover;";
       @else
           
