@@ -132,7 +132,7 @@
    <div class="container domain-inner">
        <div class="row domain-checkup">
             <div class="domain-checkup-left" >
-                <div id="mapid" class="" style="width: 600px; height: 400px;"></div>
+                <div id="mapid" class="" style="width: 100%; height: 400px;"></div>
             </div>
             {{-- <div class="domain-checkup-left" >
                 <div id="mapi" class="pull-right"></div>
