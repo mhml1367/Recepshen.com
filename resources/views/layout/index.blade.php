@@ -29,7 +29,7 @@
   </div>
 
       <div class="{{ Request::is('ecotourisms/*') ? 'ecotourism' : '' }}{{ Request::is('ecotourisms') ? 'ecotourism' : '' }}{{ Request::is('hotels/*') ? 'Hotels' : '' }}{{ Request::is('hotels') ? 'Hotels' : '' }}
-      @if (url()->full() == "http://127.0.0.1:8000")
+      @if (url()->full() == "http://recepshen.com")
       Hotels
       @endif
       {{ url()->full() ? 'Hotels' : '' }}
