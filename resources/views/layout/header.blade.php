@@ -7,11 +7,11 @@
                    <li>
                       <select name="name" id="option">
                         <option value="Eng">Fa</option>
-                        <option value="Eng">En</option>
-                        <option value="Eng">Ar</option>
+                        {{-- <option value="Eng">En</option>
+                        <option value="Eng">Ar</option> --}}
                       </select>
                    </li>
-                   <li> <a href="tel:09156580020"> <span class="ti-headphone-alt"></span>09156580020</a> </li>
+                   <li> <a href="tel:09156580020"> <span class="ti-headphone-alt"></span>09361206076</a> </li>
                    <li> <a href="mailto:info@recepahen.com"> <span class="ti-email"></span>info@recepahen.com</a> </li>
                 </ul>
              </div>
@@ -19,7 +19,7 @@
           <div class="col-xl-5 col-lg-5 col-md-6 col-12">
              <div class="header-top-right">
                 <ul>
-                   <li><a href="#">رزرئ آنلاین <span class="ti-comments"></span></a></li>
+                   {{-- <li><a href="#">رزرو آنلاین <span class="ti-comments"></span></a></li> --}}
                    <li><a href="#">عضویت</a></li>
                    <li><a href="#">ورود </a></li>
                 </ul>
@@ -40,7 +40,7 @@
                 <div class="navigation">
                     <ul class="list-inline text-right" id="mainmenu">
                         <li><a href="/hotels">رزرو هتل</a></li>
-                        <li><a href="/hotels">رزرو بوم گردی</a></li>
+                        <li><a href="/ecotourisms/">رزرو بوم گردی</a></li>
                         <li><a href="#">تماس باما</a></li>
                     </ul>
                 </div>

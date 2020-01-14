@@ -9,10 +9,27 @@ class ecotourismsController extends Controller
 {
     public function index($city1 = null)
     {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/boomgardi/list");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
+            'city_name_en'=> $city1,
+            'token' => 'mzoc1CEq401565108119FTd7QvbGea',
+        )));
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+        ]);
+
+        $response = json_decode(curl_exec($ch));
+        $rec = $response->data;
+
+
         $city = city();
         $hotelTypes = hotelTypes();
         $hotelSpecifications = hotelSpecifications();
-        return view('ecotourism/ecotourisms',compact('city','hotelTypes','hotelSpecifications','city1'));
+        return view('ecotourism/ecotourisms',compact('rec','city','hotelTypes','hotelSpecifications'));
 
     }
     
@@ -27,7 +44,7 @@ class ecotourismsController extends Controller
     }
 
     $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/fetchRooms");
+        curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/boomgardi/rooms");
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
             'name_en' => $Hotels,
             'from' => $from,
@@ -44,7 +61,7 @@ class ecotourismsController extends Controller
         $response = json_decode(curl_exec($ch));
         // dd($response);
         $rec = $response->data;
-        return view('hotel/hotel')->with(compact('rec'));
+        return view('ecotourism/ecotourism')->with(compact('rec'));
     }
     
     public function reserve(Request $rec)

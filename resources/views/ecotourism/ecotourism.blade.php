@@ -132,7 +132,7 @@
    <div class="container domain-inner">
        <div class="row domain-checkup">
             <div class="domain-checkup-left" >
-                <div id="mapid" class="" style="width: 600px; height: 400px;"></div>
+                <div id="mapid" class="" style="width: 100%; height: 400px;"></div>
             </div>
             {{-- <div class="domain-checkup-left" >
                 <div id="mapi" class="pull-right"></div>
@@ -180,15 +180,7 @@
                   </div>
                </div>
                <div class="row">
-                      <div class="col-lg-12 col-md-12 col-xs-12">
-                        <div class="row single-table">
-                            <div class="col"></div>
-                            <div class="col">نام</div>
-                            <div class="col">تعداد</div>
-                            <div class="col col-lg-4 col-sm-6">نوع اقامت</div>
-                            <div class="col">رزرو</div>
-                        </div>
-                    </div>           
+                      <div class="col-lg-12 col-md-12 col-xs-12">          
                     <div class="col-lg-12 col-md-12 col-xs-12">
                         @for ($i = 0; $i < count($rec->rooms); $i++)
                         <div class="row single-table ">
@@ -199,7 +191,13 @@
                                 @for ($b = 0; $b < count($rec->rooms[$i]->contracts); $b++)
                                     <div class="row">
                                         <div class="col">{{$rec->rooms[$i]->contracts[$b]->name}}</div>
-                                        <div class="col">{{$rec->rooms[$i]->contracts[$b]->price}}</div>
+                                        <div class="col">
+                                            @if ($rec->rooms[$i]->contracts[$b]->discount_price == null)
+                                                {{$rec->rooms[$i]->contracts[$b]->price}} ريال
+                                            @else
+                                            <strike>{{$rec->rooms[$i]->contracts[$b]->price}}</strike>{{$rec->rooms[$i]->contracts[$b]->discount_price}} ريال
+                                            @endif
+                                             </div>
                                     </div>
                                 @endfor
                             </div>
@@ -233,7 +231,7 @@
 
     <section class="testimonial-carousel testimonial-area">
         <div class="container">
-            <div class=" slick-initialized slick-slider" style="direction: ltr;">
+            <div class=" slick-initialized slick-slider">
                 <div class="slick-list draggable">
                     <div class="slick-track">
                         <div class="single-item slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true"
@@ -261,7 +259,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="roomReserve"></h5>
+              <b class="modal-title" id="roomReserve"></b>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -323,7 +321,7 @@
           </div>
         </div>
       </div>
-@endsection
+      @endsection
 
 @section('js')
 <script src="/asset/bootstrap-slider/bootstrap-slider.js"></script>
@@ -386,7 +384,14 @@
             
             contracts += "<div class=\"col\">";
             contracts += "<div class=\"form-group\">";
-            contracts += "<input type=\"radio\" name=\"gender\" value=\""+rooms[id].contracts[az].id+"\"> "+ stay +" "+ breakfast +" "+ lunch +" "+ dinner +"<br>"+rooms[id].contracts[az].price+" ريال </input>";
+            contracts += "<input type=\"radio\" name=\"gender\" value=\""+rooms[id].contracts[az].id+"\"> "+ stay +" "+ breakfast +" "+ lunch +" "+ dinner +"<br>";
+            if (rooms[id].contracts[az].discount_price == null) {
+                contracts += rooms[id].contracts[az].price;
+            }else{
+                contracts += rooms[id].contracts[az].discount_price;
+                contracts += "<strike>"+rooms[id].contracts[az].price+"</strike>";
+            }
+            contracts += " ريال </input>";
             contracts += "</div>";
             contracts += "</div>";
         }
@@ -427,29 +432,6 @@
         }
     });
 });
-
-// var biHotel="";
-
-// function Modal(idRoom,nameRoom) {
-
-
-
-//             // for (b = 0; b < Data["images_sm"].length; b++) {
-//             //     biHotel += "<div class=\"col-lg-4 col-md-6 col-12\">";
-//             //     biHotel += "<div class=\"single-blog-1\">";
-//             //     biHotel += "<img src=\""+ Data["images_sm"][b] +"\" alt=\"brand-icon\">";
-//             //     biHotel += "</div>";
-//             //     biHotel += "</div>";
-//             //     biHotel += "</div>";
-//             // }
-
-
-   
-
-//     document.getElementById("roomReserve").innerHTML = "اتاق "+ nameRoom;
-//     // document.getElementById('#Hotels').style.background-image = "url("+Data["images"]["0"]+")";
-// };
-
 
 
 

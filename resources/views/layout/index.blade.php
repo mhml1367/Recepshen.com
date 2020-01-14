@@ -28,7 +28,12 @@
     </div>
   </div>
 
-      <div class="Hotels" @isset ($rec->images[0])
+      <div class="{{ Request::is('ecotourisms/*') ? 'ecotourism' : '' }}{{ Request::is('ecotourisms') ? 'ecotourism' : '' }}{{ Request::is('hotels/*') ? 'Hotels' : '' }}{{ Request::is('hotels') ? 'Hotels' : '' }}
+      @if (url()->full() == "http://127.0.0.1:8000")
+      Hotels
+      @endif
+      {{ url()->full() ? 'Hotels' : '' }}
+      " @isset ($rec->images[0])
       style="background-image: url('{{$rec->images[0]}}');background-position: top;background-size: cover;";
       @else
           
