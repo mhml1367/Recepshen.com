@@ -78,18 +78,9 @@
                                 </div>
                             </div>
                         </div>
+          
                         <div class="blog-detail blog-categories-right">
-                            <h2>نوع هتل</h2>
-                            <div class="categories-right-list">
-                                <ul>
-                                    @foreach ($hotelTypes as $item)
-                                        <li><input type="checkbox" value="{{$item->id}}"> <a>{{$item->name}} </a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="blog-detail blog-categories-right">
-                            <h2>درجه هتل</h2>
+                            <h2>درجه اقامتگاه</h2>
                             <div class="categories-right-list">
                                 <ul>
                                     <li><input type="checkbox" value="1"><a><i class="fa fa-star" style="color: #ffa726;"></i></a></li>
@@ -101,7 +92,7 @@
                             </div>
                         </div>
                         <div class="blog-detail blog-categories-right">
-                            <h2>امکانات هتل</h2>
+                            <h2>امکانات اقامتگاه</h2>
                             <div class="categories-right-list" style=" overflow: auto; height: 400px;">
                                 <ul>
                                     @foreach ($hotelSpecifications as $item)
