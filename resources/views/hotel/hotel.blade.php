@@ -184,7 +184,11 @@
                     <div class="col-lg-12 col-md-12 col-xs-12">
                         @for ($i = 0; $i < count($rec->rooms); $i++)
                         <div class="row single-table ">
-                            <div class="col my-auto"><img src="{{$rec->rooms[$i]->images["0"]}}"></div>
+                            
+                        
+                            <div class="col my-auto"><img src="@isset($rec->rooms[$i]->images["0"]) {{$rec->rooms[$i]->images["0"]}} @endisset @empty($rec->rooms[$i]->images["0"])
+                                /image/imageNotFound.jpg
+                                @endempty"></div>
                             <div class="col my-auto">{{$rec->rooms[$i]->name}}</div>
                             <div class="col my-auto">{{$rec->rooms[$i]->beds}}</div>
                             <div class="col col-lg-4 col-sm-6 my-auto">
