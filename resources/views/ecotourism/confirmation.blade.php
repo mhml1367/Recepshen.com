@@ -23,7 +23,7 @@
 @section('content')
       <section class="blog-1-area about-blog">
          <div class="container">
-             @if (request()->input('factorNumber'))
+            @isset ($rest->info)
             <div class="homepage-2 homepage-4 pricing-table-area">
                <div class="row">
                   <div class="col-md-12">
@@ -35,20 +35,33 @@
                </div>
                <div class="row">
                     <div class="col-lg-12 col-md-12 col-xs-12">
-
-                        شماره رزرو شما {{$rest->factor_number}} و در تاریخ {{$rest->hotel->start_date}} در ساعت {{$rest->hotel->in_time}} حضور رسانید 
+                        
+                        شماره رزرو شما {{$rest->info->factor_number}} و در تاریخ {{$rest->info->hotel->start_date}} در ساعت {{$rest->info->hotel->in_time}} حضور رسانید 
                         <br>
                         و تایید رزرو از طرف هتل برای شما پیامک می شود.
-                     
+                        
                     </div>
                 </div>
             </div>
-            @else
+            @endisset
+            @isset ($rest->error)
             <div class="homepage-2 homepage-4 pricing-table-area">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-title">
-                            <h2><span>مشکلی</span> پیش آمده </h2>
+                            <h2><span>پرداخت</span> انجام نشد </h2>
+                            <img src="/asset/img/section-shape.png" alt="section-shape">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endisset
+            @if ($rest == "")
+            <div class="homepage-2 homepage-4 pricing-table-area">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h2><span>پرداخت</span> کنسل کردید </h2>
                             <img src="/asset/img/section-shape.png" alt="section-shape">
                         </div>
                     </div>

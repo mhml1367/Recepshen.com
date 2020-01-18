@@ -103,26 +103,27 @@ class hotelsController extends Controller
     public function confirmation()
     {
         $factor = request()->input('factorNumber');
-        if (isset($factor)){
+        $status = request()->input('status');
+        $rest = "";
+        if (isset($factor) && isset($status)){
            
-        $ch = curl_init('http://recepshen.ir/api/reserves/confirmation');
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
-            'payed' => request()->input('status'),
-            'factorNumber' => request()->input('factorNumber'),
-            'user_token' => "DEsFVekRIkrvfbfiuULvzSdvLL6BwvkzGg0LRJDtySA7a0xsYladMyxJ2gcLv8LNt74ihjAxz9RvXE7bymLm8op47Oqqiur0",
-            'token' => 'mzoc1CEq401565108119FTd7QvbGea',
-                
-        )));
+            $ch = curl_init('http://recepshen.ir/api/reserves/confirmation');
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
+                'payed' => request()->input('status'),
+                'factorNumber' => request()->input('factorNumber'),
+                'user_token' => "DEsFVekRIkrvfbfiuULvzSdvLL6BwvkzGg0LRJDtySA7a0xsYladMyxJ2gcLv8LNt74ihjAxz9RvXE7bymLm8op47Oqqiur0",
+                'token' => 'mzoc1CEq401565108119FTd7QvbGea',
+                    
+            )));
 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Accept:application/json'));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Accept:application/json'));
 
-        $response = json_decode(curl_exec($ch));
-        
-        $res = $response->info;
-    }else{
-        $res = "1"; 
-    }
-        return view('hotel/confirmation')->with(compact('res'));
+            $response = json_decode(curl_exec($ch));
+            // dd($response);
+            $rest = $response;
+        }
+
+        return view('hotel/confirmation')->with(compact('rest'));
     }
 }
