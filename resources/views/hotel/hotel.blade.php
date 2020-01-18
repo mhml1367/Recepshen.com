@@ -25,29 +25,52 @@
 
 <section class="welcome-area">
     <div class="container">
-       <div class="row" style="direction: ltr;">
+       <div class="row">
            <div class="col-xl-12 col-lg-7 col-md-12">
             <div class="row">  
+
+                <div class="col">
+                    <img  id="expandedImg" src="{{$rec->images[0]}}" width="500px" alt="">   
+                </div>
+                            
+                <div class="col">
+                    <div class="welcome-right">
             
-            <div class="col">
-                   <div class="welcome-right">
-              
-                <h5 class="heading-title">@for ($i = 0; $i < $rec->stars; $i++)
-                        <i class="fa fa-star" style="color: yellow;"></i>
-                    @endfor                {{$rec->type}}</h5>
+                <h5 class="heading-title">{{$rec->type}}   @for ($i = 0; $i < $rec->stars; $i++)
+                    <i class="fa fa-star" style="color: yellow;"></i>
+                @endfor</h5>
                 <h2 class="heading-title-default">{{$rec->name}}</h2>
                 <div class="heading-text clearfix">
-                <p>{{$rec->address}} <i class="fa fa-map-marker"></i></p>
-                <p>{{$rec->description}}</p>
+                    <p><i class="fa fa-map-marker"></i> {{$rec->address}} </p>
+                    <p>{{$rec->description}}</p>
                 </div>
 
-           </div>
-           </div>
-           <div class="col">
-                <img src="{{$rec->images[0]}}" width="500px" alt="">   
-                </div>
+            </div>
+            </div>
            </div>
        </div>
+
+    </div>
+    </div>
+</section>
+<section class="homepage-2 blog-2-area">
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                @for ($b = 0; $b < count($rec->images_sm); $b++)
+                    <div class="col">
+                        <div class="single-blog-1">
+                        <img onclick="Gallery('{{$rec->images[$b]}}');" src="{{$rec->images_sm[$b]}}" alt="Hotel Image {{$b}}">
+                        </div>
+                    </div>
+                @endfor
+            </div>
+        </div>
+    </div>
+</section>
+       <section class="welcome-area">
+        <div class="container">
+           <div class="row">
                 <div class="col">
                     <div class="data-wedged">
                         <div class="data-single-wedged">
@@ -97,7 +120,59 @@
                     </div>
                 </div>
     </div>
+    </div>
  </section>
+
+
+
+
+<section class="blog-1-area about-blog">
+    <div class="container">
+       <div class="homepage-2 homepage-4 pricing-table-area">
+          <div class="row">
+             <div class="col-md-12">
+                <div class="section-title">
+                   <h2> لیست <span>اتاق ها</span> موجود </h2>
+                   <img src="/asset/img/section-shape.png" alt="section-shape">
+                </div>
+             </div>
+          </div>
+          <div class="row">
+                 <div class="col-lg-12 col-md-12 col-xs-12">          
+               <div class="col-lg-12 col-md-12 col-xs-12">
+                   @for ($i = 0; $i < count($rec->rooms); $i++)
+                   <div class="row single-table ">
+                       <div class="col my-auto"><img src="@isset($rec->rooms[$i]->images["0"]) {{$rec->rooms[$i]->images["0"]}} @endisset @empty($rec->rooms[$i]->images["0"])
+                           /image/imageNotFound.jpg
+                           @endempty"></div>
+                       <div class="col my-auto">{{$rec->rooms[$i]->name}}</div>
+                       <div class="col my-auto">{{$rec->rooms[$i]->beds}}</div>
+                       <div class="col col-lg-4 col-sm-6 my-auto">
+                           @for ($b = 0; $b < count($rec->rooms[$i]->contracts); $b++)
+                               <div class="row">
+                                   <div class="col">{{$rec->rooms[$i]->contracts[$b]->name}}</div>
+                                   <div class="col">
+                                       @if ($rec->rooms[$i]->contracts[$b]->discount_price == null)
+                                           {{$rec->rooms[$i]->contracts[$b]->price}} ريال
+                                       @else
+                                       <strike>{{$rec->rooms[$i]->contracts[$b]->price}}</strike>{{$rec->rooms[$i]->contracts[$b]->discount_price}} ريال
+                                       @endif
+                                        </div>
+                               </div>
+                           @endfor
+                       </div>
+                       <div class="col my-auto"><button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#reserve"
+                           data-idRoom="{{$rec->rooms[$i]->id}}" data-id="{{$i}}" data-nameRoom="{{$rec->rooms[$i]->name}}"
+                           data-capacity="{{$rec->rooms[$i]->details->capacity}}"
+                           >رزرو اتاق</button></div>
+                   </div>
+                   @endfor
+               </div>           
+           </div>
+       </div>
+    </div>
+ </section>
+
 
  <section class="homepage-2 blog-2-area">
      <div class="row">
@@ -119,24 +194,23 @@
 
 
 
-
  <section class="domain-area homepage-2 ">
-    <div class="clouds">
-       <img src="/asset/img/cloud/cloud-6.png" alt="cloud" class="cloud1">
-       <img src="/asset/img/cloud/cloud-2.png" alt="cloud" class="cloud3">
-       <img src="/asset/img/cloud/cloud-3.png" alt="cloud" class="cloud4">
-       <img src="/asset/img/cloud/cloud-4.png" alt="cloud" class="cloud5">
-       <img src="/asset/img/cloud/cloud-5.png" alt="cloud" class="cloud2">
-       <img src="/asset/img/cloud/cloud-6.png" alt="cloud" class="cloud6">
-    </div>
    <div class="container domain-inner">
        <div class="row domain-checkup">
+           <div class="col">
             <div class="domain-checkup-left" >
                 <div id="mapid" class="" style="width: 100%; height: 400px;"></div>
             </div>
-            {{-- <div class="domain-checkup-left" >
-                <div id="mapi" class="pull-right"></div>
-            </div> --}}
+            </div>
+            <div class="col">
+                <div class="categories-right-list" style="overflow: auto; height: 400px; width: 250px;">
+                    <ul>
+                        @for ($c = 0; $c < count($rec->places); $c++)
+                            <li> {{$rec->places[$c]->name}}  ->  {{$rec->places[$c]->distance}} </li>
+                        @endfor
+                    </ul>
+                </div>
+            </div>
        </div>
    </div>
 </section>
@@ -168,69 +242,6 @@
         </div>
     </div>
 </section>
-       <section class="blog-1-area about-blog">
-         <div class="container">
-            <div class="homepage-2 homepage-4 pricing-table-area">
-               <div class="row">
-                  <div class="col-md-12">
-                     <div class="section-title">
-                        <h2> لیست <span>اتاق ها</span> موجود </h2>
-                        <img src="/asset/img/section-shape.png" alt="section-shape">
-                     </div>
-                  </div>
-               </div>
-               <div class="row">
-                      <div class="col-lg-12 col-md-12 col-xs-12">          
-                    <div class="col-lg-12 col-md-12 col-xs-12">
-                        @for ($i = 0; $i < count($rec->rooms); $i++)
-                        <div class="row single-table ">
-                            
-                        
-                            <div class="col my-auto"><img src="@isset($rec->rooms[$i]->images["0"]) {{$rec->rooms[$i]->images["0"]}} @endisset @empty($rec->rooms[$i]->images["0"])
-                                /image/imageNotFound.jpg
-                                @endempty"></div>
-                            <div class="col my-auto">{{$rec->rooms[$i]->name}}</div>
-                            <div class="col my-auto">{{$rec->rooms[$i]->beds}}</div>
-                            <div class="col col-lg-4 col-sm-6 my-auto">
-                                @for ($b = 0; $b < count($rec->rooms[$i]->contracts); $b++)
-                                    <div class="row">
-                                        <div class="col">{{$rec->rooms[$i]->contracts[$b]->name}}</div>
-                                        <div class="col">
-                                            @if ($rec->rooms[$i]->contracts[$b]->discount_price == null)
-                                                {{$rec->rooms[$i]->contracts[$b]->price}} ريال
-                                            @else
-                                            <strike>{{$rec->rooms[$i]->contracts[$b]->price}}</strike>{{$rec->rooms[$i]->contracts[$b]->discount_price}} ريال
-                                            @endif
-                                             </div>
-                                    </div>
-                                @endfor
-                            </div>
-                            <div class="col my-auto"><button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#reserve"
-                                data-idRoom="{{$rec->rooms[$i]->id}}" data-id="{{$i}}" data-nameRoom="{{$rec->rooms[$i]->name}}"
-                                data-capacity="{{$rec->rooms[$i]->details->capacity}}"
-                                >رزرو اتاق</button></div>
-                        </div>
-                        @endfor
-                    </div>           
-                </div>
-            </div>
-         </div>
-      </section>
-      <section class="homepage-2 blog-2-area">
-        <div class="row">
-            <div class="container">
-                <div class="row">
-                    @for ($b = 0; $b < count($rec->images_sm); $b++)
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="single-blog-1">
-                                <img src="{{$rec->images_sm[$b]}}" alt="brand-icon">
-                            </div>
-                        </div>
-                    @endfor
-                </div>
-            </div>
-        </div>
-      </section>
 
 
     <section class="testimonial-carousel testimonial-area">
@@ -445,7 +456,7 @@
 
     function map(lat,lan,name)
     {
-        var map = L.map('mapid').setView([lat,lan], 13);
+        var map = L.map('mapid').setView([lat,lan], 10);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -457,6 +468,11 @@
 
         var popup = L.popup();
 
+    }
+
+    function Gallery(imgs) {
+        var expandImg = document.getElementById("expandedImg");
+        expandImg.src = imgs;
     }
  </script>
 @endsection
