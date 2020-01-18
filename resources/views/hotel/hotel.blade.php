@@ -27,7 +27,11 @@
     <div class="container">
        <div class="row" style="direction: ltr;">
            <div class="col-xl-12 col-lg-7 col-md-12">
-            <div class="welcome-right">
+            <div class="row">  
+            
+            <div class="col">
+                   <div class="welcome-right">
+              
                 <h5 class="heading-title">@for ($i = 0; $i < $rec->stars; $i++)
                         <i class="fa fa-star" style="color: yellow;"></i>
                     @endfor                {{$rec->type}}</h5>
@@ -38,16 +42,17 @@
                 </div>
 
            </div>
-           {{-- <div class="col-xl-4 col-lg-5 col-md-12">
-
-           </div> --}}
+           </div>
+           <div class="col">
+                <img src="{{$rec->images[0]}}" width="500px" alt="">   
+                </div>
+           </div>
        </div>
                 <div class="col">
                     <div class="data-wedged">
                         <div class="data-single-wedged">
                             <span>ساعت ورود</span>
                             <h4>{{$rec->in_time}}</h4>
-                            <p>{{$rec->type}}</p>
                         </div>
                     </div>
                 </div>
@@ -56,7 +61,6 @@
                         <div class="data-single-wedged">
                             <span>ساعت خروج</span>
                             <h4>{{$rec->out_time}}</h4>
-                            <p>{{$rec->type}}</p>
                         </div>
                     </div>
                 </div>
@@ -65,7 +69,6 @@
                         <div class="data-single-wedged">
                             <span>تعداد طبقات</span>
                             <h4>{{$rec->floors}}</h4>
-                            <p>{{$rec->type}}</p>
                         </div>
                     </div>
                 </div>
@@ -74,7 +77,6 @@
                         <div class="data-single-wedged">
                             <span>تعداد اتاق ها</span>
                             <h4>{{$rec->roomsCount}}</h4>
-                            <p>{{$rec->type}}</p>
                         </div>
                     </div>
                 </div>
@@ -83,7 +85,6 @@
                         <div class="data-single-wedged">
                             <span>تعداد تخت ها</span>
                             <h4>{{$rec->beds}}</h4>
-                            <p>{{$rec->type}}</p>
                         </div>
                     </div>
                 </div>
@@ -92,7 +93,6 @@
                         <div class="data-single-wedged">
                             <span>سال ساخت</span>
                             <h4>{{$rec->construct_year}}</h4>
-                            <p>{{$rec->type}}</p>
                         </div>
                     </div>
                 </div>
@@ -106,9 +106,9 @@
                 <div class="row">
                     @for ($c = 0; $c < count($rec->specifications); $c++)
                         <div class="col">
-                            <div class="single-blog-1">
+                            <div class="list-specifications">
                                 <img src="{{$rec->specifications[$c]->icon}}" alt="brand-icon">
-                                <h2>{{$rec->specifications[$c]->name}}</h2>
+                                <p>{{$rec->specifications[$c]->name}}</p>
                             </div>
                         </div>
                     @endfor
@@ -122,12 +122,12 @@
 
  <section class="domain-area homepage-2 ">
     <div class="clouds">
-       <img src="asset/img/cloud/cloud-6.png" alt="cloud" class="cloud1">
-       <img src="asset/img/cloud/cloud-2.png" alt="cloud" class="cloud3">
-       <img src="asset/img/cloud/cloud-3.png" alt="cloud" class="cloud4">
-       <img src="asset/img/cloud/cloud-4.png" alt="cloud" class="cloud5">
-       <img src="asset/img/cloud/cloud-5.png" alt="cloud" class="cloud2">
-       <img src="asset/img/cloud/cloud-6.png" alt="cloud" class="cloud6">
+       <img src="/asset/img/cloud/cloud-6.png" alt="cloud" class="cloud1">
+       <img src="/asset/img/cloud/cloud-2.png" alt="cloud" class="cloud3">
+       <img src="/asset/img/cloud/cloud-3.png" alt="cloud" class="cloud4">
+       <img src="/asset/img/cloud/cloud-4.png" alt="cloud" class="cloud5">
+       <img src="/asset/img/cloud/cloud-5.png" alt="cloud" class="cloud2">
+       <img src="/asset/img/cloud/cloud-6.png" alt="cloud" class="cloud6">
     </div>
    <div class="container domain-inner">
        <div class="row domain-checkup">
