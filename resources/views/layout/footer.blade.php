@@ -55,7 +55,7 @@
           <div class="row">
              <div class="col-md-6 col-sm-6 col-xs-12 ">
                 <div class="offer-left">
-                   <p>تمام پرداخت ها آنلاین انجام می شود 
+                   <p>پرداخت آنلاین و پشتیبانی 24 ساعته انجام می شود 
                       <br>
                       
                    </p>
