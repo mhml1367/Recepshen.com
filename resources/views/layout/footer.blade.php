@@ -15,25 +15,19 @@
              </div>
              <div class="col-lg-3 col-md-12 col-12 ">
                 <div class="single-footer margin-left">
-                   <h2>پیوند های مهم</h2>
+                   <h2>سرویس ها</h2>
                    <div class="footer-links">
                       <ul>
-                         <li><a href="#">پشتیبانی</a></li>
+                         <li><a href="/hotels">رزرو هتل و اقامتگاه</a></li>
+                         <li><a href="/ecotourisms/">رزرو بوم گردی</a></li>
                       </ul>
                    </div>
                 </div>
              </div>
              <div class="col-lg-3 col-md-12 col-12 ">
-                <div class="single-footer">
-                   <h2>انواع سرویس ها</h2>
-                   <div class="footer-links">
-                      <ul>
-                         <li><a href="#">رزرو هتل</a></li>
-                         <li><a href="#">بلیط قطار</a></li>
-                         <li><a href="#">بلیط هواپیما</a></li>
-                         <li><a href="#">رزرو تور</a></li>
-                      </ul>
-                   </div>
+                <div class="text-center">
+                   <a href="/Recepshen-Android.apk"><img src="/image/Android.png" style="height: 250px"></a>
+                   <h2>اندروید رسپشن</h2>
                 </div>
              </div>
              <div class="col-lg-3 col-md-12 col-12">
