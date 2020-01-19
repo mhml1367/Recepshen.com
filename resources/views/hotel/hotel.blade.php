@@ -155,7 +155,7 @@
                                        @if ($rec->rooms[$i]->contracts[$b]->discount_price == null)
                                            {{$rec->rooms[$i]->contracts[$b]->price}} ريال
                                        @else
-                                       <strike>{{$rec->rooms[$i]->contracts[$b]->price}}</strike>{{$rec->rooms[$i]->contracts[$b]->discount_price}} ريال
+                                       <strike>{{$rec->rooms[$i]->contracts[$b]->price}}</strike>  {{$rec->rooms[$i]->contracts[$b]->discount_price}} ريال 
                                        @endif
                                         </div>
                                </div>
@@ -365,19 +365,19 @@
 
             calc += "<div class=\"col\">";
             calc += "<div class=\"form-group\">";
-            calc += "<lable> تاریخ رفت "+start_date+"</lable>";
+            calc += "<lable> تاریخ رفت: "+start_date+"</lable>";
             calc += "</div>";
             calc += "</div>";
 
             calc += "<div class=\"col\">";
             calc += "<div class=\"form-group\">";
-            calc += "<lable> تاریخ برگشت "+end_date+"</lable>";
+            calc += "<lable> تاریخ برگشت: "+end_date+"</lable>";
             calc += "</div>";
             calc += "</div>";
 
             calc += "<div class=\"col\">";
             calc += "<div class=\"form-group\">";
-            calc += "<lable > تعداد نفرات "+capacity+"</lable>";
+            calc += "<lable > تعداد نفرات: "+capacity+"</lable>";
             calc += "</div>";
             calc += "</div>";
 
