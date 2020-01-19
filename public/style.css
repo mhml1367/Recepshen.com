@@ -26,6 +26,40 @@ button, input {
     border: 0px;
 }
 
+
+.scroll-bar-wrap {
+    position: relative;
+  }
+  .scroll-box {
+    height: 400px;
+    overflow-y: scroll;
+  }
+  .scroll-box::-webkit-scrollbar {
+    width: .4em; 
+  }
+  .scroll-box::-webkit-scrollbar,
+  .scroll-box::-webkit-scrollbar-thumb {
+    overflow:visible;
+    border-radius: 4px;
+  }
+  .scroll-box::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.2); 
+  }
+  .cover-bar {
+    position: absolute;
+    background: #fff;;
+    height: 100%;  
+    top: 0;
+    right: 0;
+    width: .4em;
+    -webkit-transition: all .5s;
+    opacity: 1;
+  }
+  /* MAGIC HAPPENS HERE */
+  .scroll-bar-wrap:hover .cover-bar {
+     opacity: 0;
+    -webkit-transition: all .5s;
+  }
 /* [type=reset], [type=submit], button, html [type=button] {
     -webkit-appearance: button;
     cursor: pointer;
@@ -7091,7 +7125,7 @@ p.blog-meta i.fa {
     border-radius: 5px;
 }
 .categories-right-list{
-padding: 30px 0px;
+padding: 10px 0px;
 }
 .blog-categories-right h2 {
     font-size: 24px;

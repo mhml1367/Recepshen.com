@@ -196,21 +196,26 @@
 
  <section class="domain-area homepage-2 ">
    <div class="container domain-inner">
-       <div class="row domain-checkup">
+       <div class="domain-checkup">
+       <div class="row">
            <div class="col">
-            <div class="domain-checkup-left" >
                 <div id="mapid" class="" style="width: 100%; height: 400px;"></div>
             </div>
-            </div>
-            <div class="col">
-                <div class="categories-right-list" style="overflow: auto; height: 400px; width: 250px;">
+            <div class="col-md-4">
+                <b>مراکز و خیابان های نزدیک با خودرو:</b>
+                <div class="scroll-bar-wrap">
+                    <div class="scroll-box">
+                <div class="categories-right-list">
                     <ul>
                         @for ($c = 0; $c < count($rec->places); $c++)
-                            <li> {{$rec->places[$c]->name}}  ->  {{$rec->places[$c]->distance}} </li>
+                            <li><i class="fa fa-map-marker"></i> {{$rec->places[$c]->name}}   <i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i>   {{$rec->places[$c]->distance}} دقیقه</li>
                         @endfor
                     </ul>
                 </div>
+                </div>
+                </div>
             </div>
+       </div>
        </div>
    </div>
 </section>
@@ -456,7 +461,7 @@
 
     function map(lat,lan,name)
     {
-        var map = L.map('mapid').setView([lat,lan], 10);
+        var map = L.map('mapid').setView([lat,lan], 16);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

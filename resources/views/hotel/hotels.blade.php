@@ -106,12 +106,16 @@
                         </div>
                         <div class="blog-detail blog-categories-right">
                             <h2>امکانات هتل</h2>
-                            <div class="categories-right-list" style=" overflow: auto; height: 400px;">
+                            <div class="scroll-bar-wrap">
+                            <div class="scroll-box">
+                            <div class="categories-right-list">
                                 <ul>
                                     @foreach ($hotelSpecifications as $item)
                                         <li><input type="checkbox" value="{{$item->id}}"> <a>{{$item->name}} </a></li>
                                     @endforeach
                                 </ul>
+                            </div>
+                            </div>
                             </div>
                         </div>
                     </div>
