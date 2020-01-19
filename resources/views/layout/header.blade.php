@@ -11,8 +11,8 @@
                         <option value="Eng">Ar</option> --}}
                       </select>
                    </li>
-                   <li> <a href="tel:09156580020"> <span class="ti-headphone-alt"></span>09361206076</a> </li>
-                   <li> <a href="mailto:info@recepahen.com"> <span class="ti-email"></span>info@recepahen.com</a> </li>
+                   <li> <a href="tel:09152040749"> <span class="ti-headphone-alt"></span>09152040749</a> </li>
+                   <li> <a> <span class="ti-email"></span>info[@]Recepshen.com</a> </li>
                 </ul>
              </div>
           </div>
