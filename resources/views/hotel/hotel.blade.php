@@ -3,6 +3,8 @@
 @section('css')
 <link rel="stylesheet" href="/asset/bootstrap-slider/slider.css">
 <link rel="stylesheet" href="/asset/leaflet.css">
+<script src="/asset/js/vue.js"></script>
+
 @endsection
 
 @section('search')
@@ -22,6 +24,7 @@
 @endsection
 
 @section('content')
+<div id="app">
 
 <section class="welcome-area">
     <div class="container">
@@ -30,7 +33,11 @@
             <div class="row">  
 
                 <div class="col">
-                    <img  id="expandedImg" src="{{$rec->images[0]}}" width="500px" alt="">   
+                    <div class="lds-ellipsis" id="loadig" style="display: none">
+                        <div></div><div></div><div></div><div></div>
+                    </div>      
+
+                    <img  id="expandedImg" v-bind:src="curentselect" width="500px" alt="">   
                 </div>
                             
                 <div class="col">
@@ -60,7 +67,8 @@
                 @for ($b = 0; $b < count($rec->images_sm); $b++)
                     <div class="col">
                         <div class="single-blog-1">
-                        <img onclick="Gallery('{{$rec->images[$b]}}');" src="{{$rec->images_sm[$b]}}" alt="Hotel Image {{$b}}">
+                        <img @click="itemclick({{$b}})" src="{{$rec->images_sm[$b]}}" alt="Hotel Image {{$b}}">
+                        {{-- onclick="Gallery('{{$rec->images[$b]}}');" --}}
                         </div>
                     </div>
                 @endfor
@@ -341,13 +349,33 @@
           </div>
         </div>
       </div>
-@endsection
+
+    </div>
+    @endsection
 
 @section('js')
 <script src="/asset/bootstrap-slider/bootstrap-slider.js"></script>
 <script src="/asset/leaflet.js"></script>
 <script src="/asset/js/notify.js"></script>
+<script src="/asset/js/vue/componets/myselect.js"></script>
 <script>
+    new Vue({
+    el: "#app",
+    data:{
+        images_sm: <?php echo json_encode($rec->images_sm, JSON_PRETTY_PRINT) ?>,
+        images: <?php echo json_encode($rec->images, JSON_PRETTY_PRINT) ?>,
+        curentselect : ''
+    },
+    methods: {
+        itemclick(index) {
+            this.curentselect = this.images_sm[index];
+        }
+    },
+    mounted () {
+       this.curentselect = this.images_sm[0]
+    }
+    });
+
     var idRoom="";
     var start_date="{{$rec->start_date}}";
     var end_date="{{$rec->end_date}}";
@@ -486,7 +514,7 @@
 
     function Gallery(imgs) {
         var expandImg = document.getElementById("expandedImg");
-        expandImg.src = imgs;
+            expandImg.src = imgs;
     }
  </script>
 @endsection
