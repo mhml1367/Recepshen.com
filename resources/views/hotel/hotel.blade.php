@@ -346,6 +346,7 @@
 @section('js')
 <script src="/asset/bootstrap-slider/bootstrap-slider.js"></script>
 <script src="/asset/leaflet.js"></script>
+<script src="/asset/js/notify.js"></script>
 <script>
     var idRoom="";
     var start_date="{{$rec->start_date}}";
@@ -448,7 +449,15 @@
             end_date: "{{$rec->end_date}}",
         },
         success: function (Data) {
-            window.location.replace(Data["data"]["payLink"]);
+            if (Data["status"] == 0) {
+                $("#send").notify(
+                    Data["error"], "error",
+                    { position:"right" }
+                );
+            }
+            if (Data["status"] == 1) {
+                window.location.replace(Data["data"]["payLink"]);
+            }
         }
     });
 });
