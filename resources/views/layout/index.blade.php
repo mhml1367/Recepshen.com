@@ -28,16 +28,10 @@
     </div>
   </div>
 
-      <div class="{{ Request::is('ecotourisms/*') ? 'ecotourism' : '' }}{{ Request::is('ecotourisms') ? 'ecotourism' : '' }}{{ Request::is('hotels/*') ? 'Hotels' : '' }}{{ Request::is('hotels') ? 'Hotels' : '' }}
+      <div class="{{ Request::is('ecotourisms/*') ? 'ecotourism' : '' }}{{ Request::is('ecotourism/*') ? 'ecotourism' : '' }}{{ Request::is('ecotourisms') ? 'ecotourism' : '' }}{{ Request::is('hotels/*') ? 'Hotels' : '' }}{{ Request::is('hotel/*') ? 'Hotels' : '' }}{{ Request::is('hotels') ? 'Hotels' : '' }}
       @if (url()->full() == "http://recepshen.com")
       Hotels
-      @endif
-      {{ url()->full() ? 'Hotels' : '' }}
-      " @isset ($rec->images[0])
-      style="background-image: url('{{$rec->images[0]}}');background-position: top;background-size: cover;";
-      @else
-          
-      @endisset >
+      @endif">
       @include("layout.header")
       @yield ("search")
       </div>
