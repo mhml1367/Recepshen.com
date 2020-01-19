@@ -8,9 +8,9 @@
                       <a href="/"><img src="/asset/img/logo/logo.png" alt="logo"></a>
                    </div>
                    <p>سیستم مدیریت رسپشن</p>
-                   <p class="contact-info"><span>موبایل:</span><a href="tel:09361206076">09361206076</a></p>
-                   <p class="contact-info"><span>ایمیل:</span><a href="mailto:info@Recepshen.com">info@Recepshen.com</a> </p>
-                   <p class="contact-info"><span>آدرس:</span><a>مشهد - بلوار پیروزی - پیروزی 24</a></p>
+                   <p class="contact-info"><span>موبایل:</span><a href="tel:09152040749">09152040749</a></p>
+                   <p class="contact-info"><span>ایمیل:</span><a>info[@]Recepshen.com</a> </p>
+                   <p class="contact-info"><span>آدرس:</span><a>مشهد - بلوار پیروزی</a></p>
                 </div>
              </div>
              <div class="col-lg-3 col-md-12 col-12 ">
