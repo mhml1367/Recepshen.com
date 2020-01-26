@@ -1621,7 +1621,7 @@ div#sticky-wrapper .sticky-wrapper.is-sticky{
 .homepage-4 .single-blog-1 {
     text-align: center;
     margin: 0px 0px 0px 0px;
-    padding: 55px 40px 40px 40px;
+    /* padding: 15px 10px 10px 10px; */
     box-shadow: none;
     background-color: #ffffff;
   border-width: 1px;
@@ -3420,7 +3420,7 @@ background: #f5f5f5;
     font-size: 14px;
     font-weight: 400;
     left: -20px;
-    top: 35px;
+    top: 15px;
     transform: rotate(-90deg);
 }
 .single-pricing-table .table-highlight:after {
@@ -8416,6 +8416,61 @@ left: 26px;
 animation: lds-ellipsis2 0.6s infinite;
 }
 .lds-ellipsis div:nth-child(4) {
+left: 45px;
+animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+0% {
+  transform: scale(0);
+}
+100% {
+  transform: scale(1);
+}
+}
+@keyframes lds-ellipsis3 {
+0% {
+  transform: scale(1);
+}
+100% {
+  transform: scale(0);
+}
+}
+@keyframes lds-ellipsis2 {
+0% {
+  transform: translate(0, 0);
+}
+100% {
+  transform: translate(19px, 0);
+}
+}
+.lds-ellipsis-Box {
+padding-right: 50%;
+display: inline-block;
+position: relative;
+
+}
+.lds-ellipsis-Box div {
+position: absolute;
+top: 27px;
+width: 11px;
+height: 11px;
+border-radius: 50%;
+background: #008fd4;
+animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis-Box div:nth-child(1) {
+left: 6px;
+animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis-Box div:nth-child(2) {
+left: 6px;
+animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis-Box div:nth-child(3) {
+left: 26px;
+animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis-Box div:nth-child(4) {
 left: 45px;
 animation: lds-ellipsis3 0.6s infinite;
 }

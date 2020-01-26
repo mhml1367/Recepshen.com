@@ -1,7 +1,7 @@
 @extends('layout.index')
 
 @section('css')
-<link rel="stylesheet" href="/asset/bootstrap-slider/slider.css">
+<link rel="stylesheet" href="https://daneden.github.io/animate.css/animate.min.css">
 <link rel="stylesheet" href="/asset/leaflet.css">
 <script src="/asset/js/vue.js"></script>
 
@@ -29,15 +29,10 @@
 <section class="welcome-area">
     <div class="container">
        <div class="row">
-           <div class="col-xl-12 col-lg-7 col-md-12">
-            <div class="row">  
 
                 <div class="col">
-                    <div class="lds-ellipsis" id="loadig" style="display: none">
-                        <div></div><div></div><div></div><div></div>
-                    </div>      
-
-                    <img  id="expandedImg" v-bind:src="curentselect" width="500px" alt="">   
+                    <img src="{{$rec->images["0"]}}" width="500px" v-show="!show">   
+                    <img v-bind:src="curentselect" width="500px" v-bind:class="show">   
                 </div>
                             
                 <div class="col">
@@ -54,26 +49,20 @@
 
             </div>
             </div>
-           </div>
-       </div>
 
     </div>
     </div>
 </section>
-<section class="homepage-2 blog-2-area">
+<section class="homepage-5 blog-2-area">
+    <div class="container">
     <div class="row">
-        <div class="container">
-            <div class="row">
-                @for ($b = 0; $b < count($rec->images_sm); $b++)
-                    <div class="col">
-                        <div class="single-blog-1">
-                        <img @click="itemclick({{$b}})" src="{{$rec->images_sm[$b]}}" alt="Hotel Image {{$b}}">
-                        {{-- onclick="Gallery('{{$rec->images[$b]}}');" --}}
-                        </div>
-                    </div>
-                @endfor
+        @for ($b = 0; $b < count($rec->images_sm); $b++)
+            <div class="col single-blog-1">
+                <img @click="itemclick({{$b}})" src="{{$rec->images_sm[$b]}}" width="150px" alt="Hotel Image {{$b}}">
+                {{-- onclick="Gallery('{{$rec->images[$b]}}');" --}}
             </div>
-        </div>
+        @endfor
+    </div>
     </div>
 </section>
        <section class="welcome-area">
@@ -131,7 +120,40 @@
     </div>
  </section>
 
+ <section class="testimonial-carousel testimonial-area">
+    <div class="container">
+        <div class=" slick-initialized slick-slider">
+            <div class="slick-list draggable">
+                <div class="slick-track">
+                    <div class="single-item slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true"
+                        tabindex="-1" style="width: 555px;">
+                        <div class="row item-inner">
+                            <div class="col">
+                            <img src="/image/parking.png" alt="testimonial quote" class="quote-img">
+                            </div>
+                            <div class="col-md-8">
+                                <p class="review">{{$rec->parking}}</p>
+                            </div>
+                        </div>
+                    </div>
 
+
+                    <div class="single-item slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true"
+                    tabindex="-1" style="width: 555px;">
+                    <div class="row item-inner">
+                        <div class="col">
+                        <img src="/image/Restoran.png" alt="testimonial quote" class="quote-img">
+                        </div>
+                        <div class="col-md-8">
+                            <p class="review">{{$rec->foods}}</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <section class="blog-1-area about-blog">
@@ -148,6 +170,9 @@
           <div class="row">
                  <div class="col-lg-12 col-md-12 col-xs-12">          
                <div class="col-lg-12 col-md-12 col-xs-12">
+                {{-- <div class="lds-ellipsis-Box" id="loadigBox" style="display: none">
+                    <div></div><div></div><div></div><div></div>
+                </div>    --}}
                    @for ($i = 0; $i < count($rec->rooms); $i++)
                    <div class="row single-table ">
                        <div class="col my-auto"><img src="@isset($rec->rooms[$i]->images["0"]) {{$rec->rooms[$i]->images["0"]}} @endisset @empty($rec->rooms[$i]->images["0"])
@@ -155,15 +180,15 @@
                            @endempty"></div>
                        <div class="col my-auto">{{$rec->rooms[$i]->name}}</div>
                        <div class="col my-auto">{{$rec->rooms[$i]->beds}}</div>
-                       <div class="col col-lg-4 col-sm-6 my-auto">
+                       <div class="col col-lg-5 col-sm-6 my-auto">
                            @for ($b = 0; $b < count($rec->rooms[$i]->contracts); $b++)
                                <div class="row">
-                                   <div class="col">{{$rec->rooms[$i]->contracts[$b]->name}}</div>
-                                   <div class="col">
+                                   <div class="col-4">{{$rec->rooms[$i]->contracts[$b]->name}}</div>
+                                   <div class="col-8">
                                        @if ($rec->rooms[$i]->contracts[$b]->discount_price == null)
-                                           {{$rec->rooms[$i]->contracts[$b]->price}} ريال
+                                       {{ number_format($rec->rooms[$i]->contracts[$b]->price, 3) }} ريال
                                        @else
-                                       <strike>{{$rec->rooms[$i]->contracts[$b]->price}}</strike>  {{$rec->rooms[$i]->contracts[$b]->discount_price}} ريال 
+                                       <strike>{{ number_format($rec->rooms[$i]->contracts[$b]->price, 3) }}</strike> {{ number_format($rec->rooms[$i]->contracts[$b]->discount_price, 3) }} ريال 
                                        @endif
                                         </div>
                                </div>
@@ -257,30 +282,6 @@
 </section>
 
 
-    <section class="testimonial-carousel testimonial-area">
-        <div class="container">
-            <div class=" slick-initialized slick-slider">
-                <div class="slick-list draggable">
-                    <div class="slick-track">
-                        <div class="single-item slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true"
-                            tabindex="-1" style="width: 555px;">
-                            <div class="item-inner">
-                                <img src="/image/parking.png" alt="testimonial quote" class="quote-img">
-                            <p class="review">{{$rec->parking}}</p>
-                            </div>
-                        </div>
-                        <div class="single-item slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true"
-                            tabindex="-1" style="width: 555px;">
-                            <div class="item-inner">
-                                <img src="/image/Restoran.png" alt="testimonial quote" class="quote-img">
-                                <p class="review">{{$rec->foods}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     <div class="modal fade" id="reserve" tabindex="-1" role="dialog" aria-labelledby="reserve" aria-hidden="true">
@@ -349,31 +350,31 @@
           </div>
         </div>
       </div>
-
     </div>
     @endsection
 
 @section('js')
-<script src="/asset/bootstrap-slider/bootstrap-slider.js"></script>
 <script src="/asset/leaflet.js"></script>
 <script src="/asset/js/notify.js"></script>
-<script src="/asset/js/vue/componets/myselect.js"></script>
 <script>
     new Vue({
     el: "#app",
     data:{
-        images_sm: <?php echo json_encode($rec->images_sm, JSON_PRETTY_PRINT) ?>,
         images: <?php echo json_encode($rec->images, JSON_PRETTY_PRINT) ?>,
-        curentselect : ''
+        curentselect : '',
+        show: "",
+        timeLoading: 2,
     },
     methods: {
         itemclick(index) {
-            this.curentselect = this.images_sm[index];
+            this.curentselect = this.images[index];
+            this.show = "animated bounce";
+            setTimeout(() => { this.show = "animated"; }, this.timeLoading * 400)
         }
     },
-    mounted () {
-       this.curentselect = this.images_sm[0]
-    }
+    // mounted () {
+    //    this.curentselect = this.images[0]
+    // }
     });
 
     var idRoom="";
@@ -418,8 +419,9 @@
             var lunch="";
             var dinner="";
             var stay="";
+            
             if (rooms[id].contracts[az].stay = 1) {
-                var stay = "اقامت";
+                 stay = "اقامت";
             }
             if (rooms[id].contracts[az].breakfast == 1) {
                  breakfast = "صبحانه";
@@ -435,10 +437,10 @@
             contracts += "<div class=\"form-group\">";
             contracts += "<input type=\"radio\" name=\"gender\" value=\""+rooms[id].contracts[az].id+"\"> "+ stay +" "+ breakfast +" "+ lunch +" "+ dinner +"<br>";
             if (rooms[id].contracts[az].discount_price == null) {
-                contracts += rooms[id].contracts[az].price;
+                contracts += (rooms[id].contracts[az].price + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
             }else{
-                contracts += rooms[id].contracts[az].discount_price;
-                contracts += "<strike>"+rooms[id].contracts[az].price+"</strike>";
+                contracts += (rooms[id].contracts[az].discount_price + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+                contracts += "<strike>"+(rooms[id].contracts[az].price + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</strike>";
             }
             contracts += " ريال </input>";
             contracts += "</div>";

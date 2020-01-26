@@ -170,11 +170,12 @@
 
 @section('js')
 <script src="/asset/bootstrap-slider/bootstrap-slider.js"></script>
+<script src="https://unpkg.com/jalali-moment/dist/jalali-moment.browser.js"></script>
 
 <script>
 $('#date').persianDatepicker({
     initialValue: true,
-    initialValueType: 'persian',
+    initialValueType: 'en',
     format: "YYYY/MM/DD",
     autoClose: true
 });
@@ -189,17 +190,31 @@ $(function () {
         var txt=slideEvt.value;
 	$("#ex3SliderVal").text(" ( "+txt[0]+" الی "+txt[1]+" ) ");
 });
-}) 
+})
 
+
+function parseArabic(str) {
+    return Number( str.replace(/[٠١٢٣٤٥٦٧٨٩]/g, function(d) {
+        return d.charCodeAt(0) - 1632; // Convert Arabic numbers
+    }).replace(/[۰۱۲۳۴۵۶۷۸۹]/g, function(d) {
+        return d.charCodeAt(0) - 1776; // Convert Persian numbers
+    }) );
+}
 
     $("#sub").click(function () {
     document.getElementById("HOTELS").innerHTML = "";
     document.getElementById('loadig').style.display = "initial";
+    var DateF = $("#date").val();
+    var DateS = DateF.split("/");
+    var DateFro = parseArabic(DateS[0])+"/"+parseArabic(DateS[1])+"/"+parseArabic(DateS[2]);
 
+    var DateFrom = moment(DateFro).format('YYYY/MM/DD');
+    var DateEnd = moment(DateFro).add($("#date1").val(),'d').format('YYYY/MM/DD');
+            
         dataSend = {
             token: "mzoc1CEq401565108119FTd7QvbGea",
-            from: new persianDate($("#date").val()).toLocale('en').format('YYYY-MM-DD'),
-            to: new persianDate().add('days', $("#date1").val()).toLocale('en').format("YYYY-MM-DD"),
+            from : DateFrom,
+            to : DateEnd,
             city_id: $("#city").val(),
         };
         DataHotel(dataSend);
@@ -207,9 +222,12 @@ $(function () {
     
 function DataHotel(dataSend) {
     $('html,body').animate({ scrollTop: 500 }, 'slow');
+    var DateF = $("#date").val();
+    var DateS = DateF.split("/");
+    var DateFro = parseArabic(DateS[0])+"/"+parseArabic(DateS[1])+"/"+parseArabic(DateS[2]);
 
-    var DateFrom= new persianDate($("#date").val()).toLocale('en').format('YYYY-MM-DD');
-    var DateEnd= new persianDate().add('days', $("#date1").val()).toLocale('en').format("YYYY-MM-DD");
+    var DateFrom = moment(DateFro).format('YYYY/MM/DD');
+    var DateEnd = moment(DateFro).add($("#date1").val(),'d').format('YYYY/MM/DD');
     $.ajax({
         type: 'POST',
         url: 'http://recepshen.ir/api/fetchHotels',
@@ -225,7 +243,7 @@ function DataHotel(dataSend) {
             for (i = 0; i < D["data"].length; i++) {
                 FIELD += "<div class=\"col-lg-12 col-md-12 col-xs-12\">";
                 FIELD += "<div class=\"single-pricing-table active\">";
-                    if (D["data"][i]["discount"] != null) {
+                    if (D["data"][i]["discount"] != 0) {
                         FIELD += "<span class=\"table-highlight\">"+ D["data"][i]["discount"] +"%</span>";
                     }
 
@@ -246,8 +264,14 @@ function DataHotel(dataSend) {
                 FIELD += "<p class=\"text-right\">";
                 FIELD += "<i class=\"fa fa-map-marker\" style=\"color:darkgray;\"></i>"+ D["data"][i]["address"];
                 FIELD += "</p>";
-                FIELD += "<div class=\"col-lg-10 col-md-12 col-xs-12\">";
-                FIELD += "<a class=\"pricing-btn blue-btn pull-left\" href=/hotel/" + D["data"][i]["name_en"] + "/?DateFrom=" + DateFrom + "&DateEnd=" + DateEnd + ">رزرو هتل</a>";
+                FIELD += "<div class=\"row\">";
+                FIELD += "<div class=\"col-lg-6 col-md-12 col-xs-12\">";
+                num = D["data"][i]["rooms"]["0"]["contracts"]["0"]["price"];
+                FIELD +=  "شروع قیمت: " + (num + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "ريال";
+                FIELD += "</div>";
+                FIELD += "<div class=\"col-lg-6 col-md-12 col-xs-12\">";
+                FIELD += "<a class=\"btn btn-primary btn-block\" href=/hotel/" + D["data"][i]["name_en"] + "/?DateFrom=" + DateFrom + "&DateEnd=" + DateEnd + ">رزرو هتل</a>";
+                FIELD += "</div>";
                 FIELD += "</div>";
                 FIELD += "</div>";
                 FIELD += "</div>";

@@ -6,14 +6,13 @@
       <title>@yield ("title","رسپشن - رزرو آنلاین هتل  و رزرو اتاق")</title>
       <meta name="description" content="@yield ("description","رسپشن رزرو آنلاین هتل و رزرو اتاق آنلاین اتاق بوم گردی را با تخفیف ها متنوع انجام می دهد")">
       <meta name="Keywords" content="@yield ("Keywords","رزرو هتل مشهد , هتل کيش , هتل قشم , هتل تهران , رزرو هتل  , رزرو هتل آپارتمان , رزرو آنلاین , بوم گردی , رزرو اتاق")">
-      <link rel="apple-touch-icon" href="/asset/img/favicon/apple-touch-icon.png">
       <link rel="icon" href="/asset/img/favicon/favicon.png">
       <link href="/asset/css/bootstrap.min.css" rel="stylesheet">
       <link href="/asset/css/jquery.mCustomScrollbar.min.css" rel="stylesheet">
       <link href="/asset/css/elements.css" rel="stylesheet">
       <link href="/style.css" rel="stylesheet">
       <link href="/responsive.css" rel="stylesheet">
-      <link rel="stylesheet" href="/asset/css/persian-datepicker.css" />
+      <link href="/asset/css/persian-datepicker.css" rel="stylesheet">
       <meta name="_token" content="{{ csrf_token() }}">
 @yield ("css")
    </head>
@@ -27,7 +26,7 @@
       <div class="shape shape-4"></div>
     </div>
   </div>
-
+  <div id="app">
       <div class="{{ Request::is('ecotourisms/*') ? 'ecotourism' : '' }}{{ Request::is('ecotourism/*') ? 'ecotourism' : '' }}{{ Request::is('ecotourisms') ? 'ecotourism' : '' }}{{ Request::is('hotels/*') ? 'Hotels' : '' }}{{ Request::is('hotel/*') ? 'Hotels' : '' }}{{ Request::is('/') ? 'Hotels' : '' }}{{ Request::is('hotels') ? 'Hotels' : '' }}
       @if (url()->full() == "http://recepshen.com")
       Hotels
@@ -49,6 +48,6 @@
       <script src="/asset/js/persian-date.js"></script>
       <script src="/asset/js/persian-datepicker.js"></script>
       @yield ("js")
-
+   </div>
    </body>
 </html>
