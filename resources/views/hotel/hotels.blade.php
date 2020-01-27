@@ -147,9 +147,15 @@
                                                     <p class="text-right">
                                                         <i class="fa fa-map-marker" style="color:darkgray;"></i>
                                                         {{$rec[$i]->address}}</p>
-                                                    <div class="col-lg-10 col-md-12 col-xs-12">
-                                                        <a class="pricing-btn blue-btn pull-left" href="/hotel/{{$rec[$i]->name_en}}">رزرو هتل</a>
-                                                    </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-12 col-xs-12">
+                                                              شروع قیمت: {{ number_format($rec->rooms[$i]->contracts[$b]->price) }} ريال
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-12 col-xs-12">
+                                                                <a class="btn btn-primary btn-block" href="/hotel/{{$rec[$i]->name_en}}?DateFrom=DateFrom&DateEnd=DateEnd">رزرو هتل</a>
+                                                            </div>
+                                                        </div>
+
                                                 </div>
                                             </div>
                                         </div>
