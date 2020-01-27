@@ -186,9 +186,9 @@
                                    <div class="col-4">{{$rec->rooms[$i]->contracts[$b]->name}}</div>
                                    <div class="col-8">
                                        @if ($rec->rooms[$i]->contracts[$b]->discount_price == null)
-                                       {{ number_format($rec->rooms[$i]->contracts[$b]->price, 3) }} ريال
+                                       {{ number_format($rec->rooms[$i]->contracts[$b]->price) }} ريال
                                        @else
-                                       <strike>{{ number_format($rec->rooms[$i]->contracts[$b]->price, 3) }}</strike> {{ number_format($rec->rooms[$i]->contracts[$b]->discount_price, 3) }} ريال 
+                                       <strike>{{ number_format($rec->rooms[$i]->contracts[$b]->price) }}</strike> {{ number_format($rec->rooms[$i]->contracts[$b]->discount_price) }} ريال 
                                        @endif
                                         </div>
                                </div>
