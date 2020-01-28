@@ -132,7 +132,7 @@
                                         <span class="table-highlight">{{$rec[$i]->discount}}%</span>
                                     @endif
                 
-                                    <h2> {{$rec[$i]->type}} {{$rec[$i]->name}}
+                                    <h2> {{$rec[$i]->type}} {{$rec[$i]->name}}  
                                         @for ($b = 0; $b < $rec[$i]->stars; $b++) 
                                             <i class="fa fa-star" style="color: #ffa726;"></i>
                                         @endfor
@@ -149,10 +149,10 @@
                                                         {{$rec[$i]->address}}</p>
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-12 col-xs-12">
-                                                              شروع قیمت: {{ number_format($rec->rooms[$i]->contracts[$b]->price) }} ريال
+                                                              شروع قیمت: {{ number_format($rec[$i]->rooms[0]->contracts[0]->price) }} ريال
                                                             </div>
                                                             <div class="col-lg-6 col-md-12 col-xs-12">
-                                                                <a class="btn btn-primary btn-block" href="/hotel/{{$rec[$i]->name_en}}?DateFrom=DateFrom&DateEnd=DateEnd">رزرو هتل</a>
+                                                                <a class="btn btn-primary btn-block" href="/hotel/{{$rec[$i]->name_en}}">رزرو هتل</a>
                                                             </div>
                                                         </div>
 

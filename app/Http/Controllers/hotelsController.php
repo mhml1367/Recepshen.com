@@ -25,7 +25,7 @@ class hotelsController extends Controller
 
         $response = json_decode(curl_exec($ch));
         $rec = $response->data;
-
+// dd($rec);
 
         $city = city();
         $hotelTypes = hotelTypes();
