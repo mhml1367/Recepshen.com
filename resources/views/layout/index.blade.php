@@ -38,7 +38,78 @@
       @yield ("content")
 
       @include('layout.footer')
-      
+
+<div id="register" tabindex="-1" role="dialog" class="modal fade show"
+    style="padding-right: 17px; display: block;">
+    <div role="document" class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header"><b class="modal-title">ثبت نام</b> <button type="button"
+                    data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <lable>چند نکته مهم جهت پرکردن فرم ثبت نام : </lable>
+                            <p>
+                              1 - در صورت صحیح بودن آدرس ایمیل، یک ایمیل فعال سازی بصورت خودکار دریافت خواهید کرد . بر روی لینک فعال سازی کلیک نمایید. 
+                              <br>2 - رمز عبور باید شش حرف یا بیشتر باشد.
+                              <br>3 - برای وارد کردن نام کاربری و رمز عبور از حروف انگلیسی استفاده نمایید.
+                              <br>4 - در تکمیل کردن فرم عضویت دقت کنید و نام کاربری و رمز عبور خود را به یاد داشته باشید تا برای ورود به سایت دچار مشکل نشوید.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row">
+                  <div class="col">
+                     <div class="form-group"><label for="email" class="col-form-label">ایمیل:</label> <input
+                             type="text" id="email" class="form-control"></div>
+                           </div>
+                           <div class="col">
+
+                           <div class="form-group"><label for="national_code" class="col-form-label">پسورد:</label> <input
+                                   type="text" id="passwor" class="form-control"></div>
+                           </div>
+
+                </div>
+                <div class="row">
+                 
+                    <div class="col">
+                        <div class="form-group"><label for="first_name" class="col-form-label">نام:</label> <input
+                                type="text" id="first_name" class="form-control"></div>
+                        <div class="form-group"><label for="national_code" class="col-form-label">کدملی</label> <input
+                                type="text" id="national_code" class="form-control"></div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group"><label for="last_name" class="col-form-label">نام خانوادگی</label>
+                            <input type="text" id="last_name" class="form-control"></div>
+                        <div class="form-group"><label for="phone_number" class="col-form-label">موبایل:</label> <input
+                                type="text" id="phone_number" class="form-control"></div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group"><label for="Sir_Madam" class="col-form-label">آقا/خانم:</label> <select
+                                name="Sir_Madam" id="Sir_Madam" style="display: none;">
+                                <option value="M" selected="selected">اقا</option>
+                                <option value="F">خانم</option>
+                            </select>
+                            <div class="nice-select" tabindex="0"><span class="current">اقا</span>
+                                <ul class="list">
+                                    <li data-value="M" class="option selected">اقا</li>
+                                    <li data-value="F" class="option">خانم</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form-group"><label for="city" class="col-form-label">شهر مبدا:</label> <input
+                                type="text" class="form-control"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-secondary">کنسل</button> <button type="button" id="send" class="btn btn-primary">عضویت</button></div>
+        </div>
+    </div>
+</div>
       <script src="/asset/js/jquery.min.js"></script>
       <script src="/asset/js/bootstrap.min.js"></script>
       <script src="/asset/js/jquery.mCustomScrollbar.concat.min.js"></script>

@@ -24,7 +24,6 @@
 @endsection
 
 @section('content')
-<div id="app">
 
 <section class="welcome-area">
     <div class="container">
@@ -350,7 +349,6 @@
           </div>
         </div>
       </div>
-    </div>
     @endsection
 
 @section('js')

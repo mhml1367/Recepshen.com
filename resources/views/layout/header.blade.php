@@ -20,7 +20,7 @@
              <div class="header-top-right">
                 <ul>
                    {{-- <li><a href="#">رزرو آنلاین <span class="ti-comments"></span></a></li> --}}
-                   <li><a href="#">عضویت</a></li>
+                   <li><a data-toggle="modal" data-target="#register">عضویت</a></li>
                    <li><a href="#">ورود </a></li>
                 </ul>
              </div>
