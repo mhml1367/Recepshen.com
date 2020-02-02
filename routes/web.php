@@ -11,6 +11,7 @@ Route::get ('/hotels/reserve/confirmation'   , 'hotelsController@confirmation')-
 Route::get ('/ecotourisms/{City?}'   , 'ecotourismsController@index')->name('index.ecotourisms'); 
 Route::get ('/ecotourism/{Hotel}/'   , 'ecotourismsController@Hotel')->name('hotel.ecotourisms'); 
 
+Route::get ('/trains'   , 'trainController@index')->name('index.train'); 
 
 Route::get('/clear', function() {
     Artisan::call('cache:clear');

@@ -27,7 +27,7 @@
     </div>
   </div>
   <div id="app">
-      <div class="{{ Request::is('ecotourisms/*') ? 'ecotourism' : '' }}{{ Request::is('ecotourism/*') ? 'ecotourism' : '' }}{{ Request::is('ecotourisms') ? 'ecotourism' : '' }}{{ Request::is('hotels/*') ? 'Hotels' : '' }}{{ Request::is('hotel/*') ? 'Hotels' : '' }}{{ Request::is('/') ? 'Hotels' : '' }}{{ Request::is('hotels') ? 'Hotels' : '' }}
+      <div class="{{ Request::is('trains/*') ? 'train' : '' }}{{ Request::is('trains') ? 'train' : '' }}{{ Request::is('ecotourisms/*') ? 'ecotourism' : '' }}{{ Request::is('ecotourism/*') ? 'ecotourism' : '' }}{{ Request::is('ecotourisms') ? 'ecotourism' : '' }}{{ Request::is('hotels/*') ? 'Hotels' : '' }}{{ Request::is('hotel/*') ? 'Hotels' : '' }}{{ Request::is('/') ? 'Hotels' : '' }}{{ Request::is('hotels') ? 'Hotels' : '' }}
       @if (url()->full() == "http://recepshen.com")
       Hotels
       @endif">
@@ -126,78 +126,72 @@
     </div>
 </div>
 <script>
-    $("#subRegister").click(function () {
-        $.ajaxSetup({
-        beforeSend: function(xhr) {
-            xhr.setRequestHeader('Authorization', '...');
-            }
-        });
+//     $("#subRegister").click(function () {
+//     $.ajax({
+//         type: 'POST',
+//         url: 'http://recepshen.ir/api/fetchHotels',
+//         data: {
+//             email: $("#email").val(),
+//             password: $("#password").val(),
+//             first_name: $("#first_name").val(),
+//             last_name: $("#last_name").val(),
+//             national_code: $("#national_code").val(),
+//             phone_number: $("#phone_number").val(),
+//             Sir_Madam: $("#Sir_Madam").val(),
+//             city: $("#city").val(),
+//             Foreign: $("#Foreign").val(),
+//         },
+//         success: function (Data) {
+//             if (Data["status"] == 0) {
+//                 $("#subRegister").notify(
+//                     Data["error"], "error",
+//                     { position:"right" }
+//                 );
+//             }
+//             if (Data["status"] == 1) {
+//                 window.location.replace(Data["data"]["payLink"]);
+//             }
 
-    $.ajax({
-        type: 'POST',
-        url: 'http://recepshen.ir/api/fetchHotels',
-        data: {
-            email: $("#email").val(),
-            password: $("#password").val(),
-            first_name: $("#first_name").val(),
-            last_name: $("#last_name").val(),
-            national_code: $("#national_code").val(),
-            phone_number: $("#phone_number").val(),
-            Sir_Madam: $("#Sir_Madam").val(),
-            city: $("#city").val(),
-            Foreign: $("#Foreign").val(),
-        },,
-        success: function (Data) {
-            if (Data["status"] == 0) {
-                $("#subRegister").notify(
-                    Data["error"], "error",
-                    { position:"right" }
-                );
-            }
-            if (Data["status"] == 1) {
-                window.location.replace(Data["data"]["payLink"]);
-            }
+//         },
+//         error: function (e) {
+//             $("#subRegister").notify(
+//                 "خطایی رخ داد مجدد تلاش نمایید!", "error",
+//                 { position:"right" }
+//             );
+//         }
 
-        },
-        error: function (e) {
-            $("#subRegister").notify(
-                "خطایی رخ داد مجدد تلاش نمایید!", "error",
-                { position:"right" }
-            );
-        }
+//     });
+// });
+//     $("#subLogin").click(function () {
+//     $.ajax({
+//         type: 'POST',
+//         url: 'http://recepshen.ir/api/fetchHotels',
+//         data: {
+//             email: $("#email").val(),
+//             password: $("#password").val(),
+//             phone_number: $("#phone_number").val(),
+//         },
+//         success: function (Data) {
+//             if (Data["status"] == 0) {
+//                 $("#subLogin").notify(
+//                     Data["error"], "error",
+//                     { position:"right" }
+//                 );
+//             }
+//             if (Data["status"] == 1) {
+//                 window.location.replace(Data["data"]["payLink"]);
+//             }
 
-    });
-};
-    $("#subLogin").click(function () {
-    $.ajax({
-        type: 'POST',
-        url: 'http://recepshen.ir/api/fetchHotels',
-        data: {
-            email: $("#email").val(),
-            password: $("#password").val(),
-            phone_number: $("#phone_number").val(),
-        },,
-        success: function (Data) {
-            if (Data["status"] == 0) {
-                $("#subLogin").notify(
-                    Data["error"], "error",
-                    { position:"right" }
-                );
-            }
-            if (Data["status"] == 1) {
-                window.location.replace(Data["data"]["payLink"]);
-            }
+//         },
+//         error: function (e) {
+//             $("#subLogin").notify(
+//                 "خطایی رخ داد مجدد تلاش نمایید!", "error",
+//                 { position:"right" }
+//             );
+//         }
 
-        },
-        error: function (e) {
-            $("#subLogin").notify(
-                "خطایی رخ داد مجدد تلاش نمایید!", "error",
-                { position:"right" }
-            );
-        }
-
-    });
-};
+//     });
+// });
 </script>
       <script src="/asset/js/jquery.min.js"></script>
       <script src="/asset/js/bootstrap.min.js"></script>

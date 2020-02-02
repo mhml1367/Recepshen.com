@@ -1394,6 +1394,11 @@ a.pricing-btn.blue-btn.homepage-one-all-features-btn.action-btn.slider-links-2 {
     /* background-size: cover; */
     background-position: center;
 }
+.train {
+    background-image: url(/image/train.jpg);
+    /* background-size: cover; */
+    background-position: center;
+}
 #homepage-3 .full-slider {
     background-image: url(asset/img/bg/homepage-3-bg.png);
     /* background-size: cover; */
@@ -3377,6 +3382,30 @@ background: #f5f5f5;
     box-shadow: 0px 15px 30px 0px rgba(0, 35, 137, 0.15)
 }
 
+.trains-table {
+    text-align: center;
+    background: #fff;
+    border: 1px solid #3464e0;
+    border-radius: 5px;
+    padding: 20px 0 10px;
+    margin-bottom: 20px;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.trains-table:hover
+{
+    border-color: #3464e0;
+    box-shadow: 0px 15px 30px 0px rgba(0, 35, 137, 0.15)
+}
+.trains-table h2 {
+    font-size: 24px;
+    color: #3a4368;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
 .single-pricing-table {
     text-align: center;
     background: #fff;
@@ -3389,12 +3418,16 @@ background: #f5f5f5;
     position: relative;
     overflow: hidden;
 }
+
 .single-pricing-table img {
-    width: auto;
     height: 150px;
+    width: 180px;
     background-color: #555;
     border-radius: 15px;
+    object-fit: cover;
+    object-position: center;
 }
+
 .single-pricing-table:hover
 {
     border-color: #3464e0;

@@ -149,7 +149,7 @@
                                                         {{$rec[$i]->address}}</p>
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-12 col-xs-12">
-                                                              شروع قیمت: {{ number_format($rec[$i]->rooms[0]->contracts[0]->price) }} ريال
+                                                              شروع قیمت: {{ number_format($rec[$i]->min_price) }} ريال
                                                             </div>
                                                             <div class="col-lg-6 col-md-12 col-xs-12">
                                                                 <a class="btn btn-primary btn-block" href="/hotel/{{$rec[$i]->name_en}}">رزرو هتل</a>
@@ -272,7 +272,7 @@ function DataHotel(dataSend) {
                 FIELD += "</p>";
                 FIELD += "<div class=\"row\">";
                 FIELD += "<div class=\"col-lg-6 col-md-12 col-xs-12\">";
-                num = D["data"][i]["rooms"]["0"]["contracts"]["0"]["price"];
+                num = D["data"][i]["min_price"];
                 FIELD +=  "شروع قیمت: " + (num + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "ريال";
                 FIELD += "</div>";
                 FIELD += "<div class=\"col-lg-6 col-md-12 col-xs-12\">";
