@@ -39,8 +39,7 @@
 
       @include('layout.footer')
 
-<div id="register" tabindex="-1" role="dialog" class="modal fade show"
-    style="padding-right: 17px; display: block;">
+<div id="register" tabindex="-1" role="dialog" class="modal fade">
     <div role="document" class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header"><b class="modal-title">ثبت نام</b> <button type="button"
@@ -65,13 +64,13 @@
                 <div class="row">
                   <div class="col">
                      <div class="form-group"><label for="email" class="col-form-label">ایمیل:</label> <input
-                             type="text" id="email" class="form-control"></div>
-                           </div>
-                           <div class="col">
+                            type="email" id="email" class="form-control"></div>
+                        </div>
+                        <div class="col">
 
-                           <div class="form-group"><label for="national_code" class="col-form-label">پسورد:</label> <input
-                                   type="text" id="passwor" class="form-control"></div>
-                           </div>
+                        <div class="form-group"><label for="national_code" class="col-form-label">پسورد:</label> <input
+                                type="password" id="password" class="form-control"></div>
+                        </div>
 
                 </div>
                 <div class="row">
@@ -89,27 +88,117 @@
                                 type="text" id="phone_number" class="form-control"></div>
                     </div>
                     <div class="col">
-                        <div class="form-group"><label for="Sir_Madam" class="col-form-label">آقا/خانم:</label> <select
-                                name="Sir_Madam" id="Sir_Madam" style="display: none;">
-                                <option value="M" selected="selected">اقا</option>
-                                <option value="F">خانم</option>
-                            </select>
-                            <div class="nice-select" tabindex="0"><span class="current">اقا</span>
-                                <ul class="list">
-                                    <li data-value="M" class="option selected">اقا</li>
-                                    <li data-value="F" class="option">خانم</li>
-                                </ul>
-                            </div>
+                        <div class="form-group">
+                            <label for="Sir_Madam" class="col-form-label">آقا/خانم:</label>
+                            <select name="Sir_Madam" id="Sir_Madam">
+                                    <option value="M" selected>اقا</option>
+                                    <option value="F">خانم</option>
+                                  </select>
                         </div>
-                        <div class="form-group"><label for="city" class="col-form-label">شهر مبدا:</label> <input
+                        <div class="form-group"><label for="city" class="col-form-label">شهر:</label> <input
                                 type="text" class="form-control"></div>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-secondary">کنسل</button> <button type="button" id="send" class="btn btn-primary">عضویت</button></div>
+            <div class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-secondary">بستن</button> <button type="button" id="subRegister" class="btn btn-primary">ثبت نام</button></div>
         </div>
     </div>
 </div>
+<div id="login" tabindex="-1" role="dialog" class="modal fade">
+    <div role="document" class="modal-dialog modal-dialog-centered modal">
+        <div class="modal-content">
+            <div class="modal-header"><b class="modal-title">ورود به سایت</b> <button type="button"
+                    data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                  <div class="col">
+                     <div class="form-group"><label for="email" class="col-form-label">ایمیل:</label> <input
+                            type="email" id="email" class="form-control"></div>
+                        
+                        <div class="form-group"><label for="national_code" class="col-form-label">کلمه عبور:</label> <input
+                                type="password" id="password" class="form-control"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-secondary">بستن</button> <button type="button" id="subLogin" class="btn btn-primary">ورود به سایت</button></div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#subRegister").click(function () {
+        $.ajaxSetup({
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', '...');
+            }
+        });
+
+    $.ajax({
+        type: 'POST',
+        url: 'http://recepshen.ir/api/fetchHotels',
+        data: {
+            email: $("#email").val(),
+            password: $("#password").val(),
+            first_name: $("#first_name").val(),
+            last_name: $("#last_name").val(),
+            national_code: $("#national_code").val(),
+            phone_number: $("#phone_number").val(),
+            Sir_Madam: $("#Sir_Madam").val(),
+            city: $("#city").val(),
+            Foreign: $("#Foreign").val(),
+        },,
+        success: function (Data) {
+            if (Data["status"] == 0) {
+                $("#subRegister").notify(
+                    Data["error"], "error",
+                    { position:"right" }
+                );
+            }
+            if (Data["status"] == 1) {
+                window.location.replace(Data["data"]["payLink"]);
+            }
+
+        },
+        error: function (e) {
+            $("#subRegister").notify(
+                "خطایی رخ داد مجدد تلاش نمایید!", "error",
+                { position:"right" }
+            );
+        }
+
+    });
+};
+    $("#subLogin").click(function () {
+    $.ajax({
+        type: 'POST',
+        url: 'http://recepshen.ir/api/fetchHotels',
+        data: {
+            email: $("#email").val(),
+            password: $("#password").val(),
+            phone_number: $("#phone_number").val(),
+        },,
+        success: function (Data) {
+            if (Data["status"] == 0) {
+                $("#subLogin").notify(
+                    Data["error"], "error",
+                    { position:"right" }
+                );
+            }
+            if (Data["status"] == 1) {
+                window.location.replace(Data["data"]["payLink"]);
+            }
+
+        },
+        error: function (e) {
+            $("#subLogin").notify(
+                "خطایی رخ داد مجدد تلاش نمایید!", "error",
+                { position:"right" }
+            );
+        }
+
+    });
+};
+</script>
       <script src="/asset/js/jquery.min.js"></script>
       <script src="/asset/js/bootstrap.min.js"></script>
       <script src="/asset/js/jquery.mCustomScrollbar.concat.min.js"></script>
