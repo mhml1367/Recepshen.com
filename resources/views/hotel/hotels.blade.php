@@ -152,7 +152,7 @@
                                                               شروع قیمت: {{ number_format($rec[$i]->min_price) }} ريال
                                                             </div>
                                                             <div class="col-lg-6 col-md-12 col-xs-12">
-                                                                <a class="btn btn-primary btn-block" href="/hotel/{{$rec[$i]->name_en}}">رزرو هتل</a>
+                                                                <a class="btn btn-primary btn-block" href="/hotel/{{ $rec[$i]->name_en ? $rec[$i]->name_en : $rec[$i]->id."__".$rec[$i]->api_type}}">رزرو هتل</a>
                                                             </div>
                                                         </div>
 
@@ -176,7 +176,7 @@
 
 @section('js')
 <script src="/asset/bootstrap-slider/bootstrap-slider.js"></script>
-<script src="https://unpkg.com/jalali-moment/dist/jalali-moment.browser.js"></script>
+<script src="/asset/js/jalali-moment.browser.js"></script>
 
 <script>
 $('#date').persianDatepicker({
@@ -276,7 +276,8 @@ function DataHotel(dataSend) {
                 FIELD +=  "شروع قیمت: " + (num + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "ريال";
                 FIELD += "</div>";
                 FIELD += "<div class=\"col-lg-6 col-md-12 col-xs-12\">";
-                FIELD += "<a class=\"btn btn-primary btn-block\" href=/hotel/" + D["data"][i]["name_en"] + "/?DateFrom=" + DateFrom + "&DateEnd=" + DateEnd + ">رزرو هتل</a>";
+                      if(D["data"][i]["name_en"] == null) {var url = D["data"][i]["name_en"]; }else{ var url = D["data"][i]["id"]+"__"+D["data"][i]["api_type"];}
+                FIELD += "<a class=\"btn btn-primary btn-block\" href=/hotel/" + url + "?DateFrom=" + DateFrom + "&DateEnd=" + DateEnd + ">رزرو هتل</a>";
                 FIELD += "</div>";
                 FIELD += "</div>";
                 FIELD += "</div>";

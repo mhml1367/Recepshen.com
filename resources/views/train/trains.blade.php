@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <div class="blog-detail blog-categories-right">
-                            <h2>نوع هتل</h2>
+                            <h2>نوع قطار</h2>
                             <div class="categories-right-list">
                                 <ul>
                                         <li><input type="checkbox" value="1"> <a>1 </a></li>
@@ -82,19 +82,15 @@
                             </div>
                         </div>
                         <div class="blog-detail blog-categories-right">
-                            <h2>درجه هتل</h2>
+                            <h2>شرکت های ریلی</h2>
                             <div class="categories-right-list">
                                 <ul>
-                                    <li><input type="checkbox" value="1"><a><i class="fa fa-star" style="color: #ffa726;"></i></a></li>
-                                    <li><input type="checkbox" value="2"><a><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i></a></li>
-                                    <li><input type="checkbox" value="3"><a><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i></a></li>
-                                    <li><input type="checkbox" value="4"><a><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i></a></li>
-                                    <li><input type="checkbox" value="5"><a><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i><i class="fa fa-star" style="color: #ffa726;"></i></a></li>
+                                    <li><input type="checkbox" value="1"><a>0</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="blog-detail blog-categories-right">
-                            <h2>امکانات هتل</h2>
+                            <h2>امکانات قطار</h2>
                             <div class="scroll-bar-wrap">
                             <div class="scroll-box">
                             <div class="categories-right-list">
@@ -125,7 +121,7 @@
 
 @section('js')
 <script src="/asset/bootstrap-slider/bootstrap-slider.js"></script>
-<script src="https://unpkg.com/jalali-moment/dist/jalali-moment.browser.js"></script>
+<script src="/asset/js/jalali-moment.browser.js"></script>
 
 <script>
 $('#date').persianDatepicker({
@@ -202,7 +198,7 @@ function DataHotel(dataSend) {
                 FIELD += "<div class=\"row no-gutters\">";
                 FIELD += "<div class=\"col-lg-4 col-md-12 col-xs-12\">";
                 FIELD += "<img class=\"imageTrains\" src="+ D["tickets"][i]["company"]["logo"] +" alt=\"icon\">";
-                FIELD += "<p></p>";
+                FIELD += "<p>"+ D["tickets"][i]["company"]["name"] +"</p>";
                 FIELD += "</div>";
                 FIELD += "<div class=\"col-lg-8 col-md-12 col-xs-12\">";
                 FIELD += "<div class=\"row no-gutters\">";
@@ -212,11 +208,12 @@ function DataHotel(dataSend) {
                 FIELD += "</p>";
                 FIELD += "<div class=\"row\">";
                 FIELD += "<div class=\"col-lg-6 col-md-12 col-xs-12\">";
-                num = D["tickets"][i]["adult"];
-                FIELD +=  "بزرگسال قیمت: " + (num + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "ريال";
+                FIELD += "<p>"+D["tickets"][i]["from_city"]+" "+D["tickets"][i]["start_time"]+" -----> "+D["tickets"][i]["to_city"]+" "+D["tickets"][i]["end_time"]+"</p>";
                 FIELD += "</div>";
+                    num = D["tickets"][i]["adult"];
                 FIELD += "<div class=\"col-lg-6 col-md-12 col-xs-12\">";
-                FIELD += "<a class=\"btn btn-primary btn-block\">خرید بلیط</a>";
+                FIELD +=  "قیمت: " + (num + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "ريال";
+                FIELD += "<bottom class=\"btn btn-primary btn-block\">خرید بلیط</bottom>";
                 FIELD += "</div>";
                 FIELD += "</div>";
                 FIELD += "</div>";

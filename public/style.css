@@ -26,7 +26,6 @@ button, input {
     border: 0px;
 }
 
-
 .scroll-bar-wrap {
     position: relative;
   }
@@ -2962,9 +2961,13 @@ h3.domain-head {
     background-color: #ffffff;
     height: 100%;
 }
-.single-blog-1 img {
-    min-height: 76px;
-    min-width: 76px;
+.single-blog-img {
+    height: 150px;
+    width: 180px;
+    background-color: #555;
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: center;
 }
 .about-blog.about .single-blog-1 {
     margin: 0px 0px 0px 0px; 
@@ -4631,6 +4634,7 @@ coming-soon
     padding: 0px 30px 0px 30px;
     background: transparent;
 }
+
 .homepage-2 .single-blog-1 p {
     padding: 0;
 }
@@ -5434,6 +5438,10 @@ ul.nav.nav-tabs li.active a:after {
     padding: 120px 0px 10px 0px;
 }
 .welcome-area img{
+    height: 350px;
+    width: 480px;
+    object-fit: cover;
+    object-position: center;
     border-radius: 12px;
     background: #dedede;
 }

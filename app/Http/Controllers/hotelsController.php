@@ -44,14 +44,27 @@ class hotelsController extends Controller
         $to = request()->input('DateEnd');
     }
 
-    $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/fetchRooms");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
-            'name_en' => $Hotels,
+    $idHotel = explode("__", $Hotels);
+if (count($idHotel) == 2) {
+    $dataHotel = array(
+            'hotel_id' => $idHotel["0"],
+            'api_type' => $idHotel["1"],
             'from' => $from,
             'to' => $to,
             'token' => 'mzoc1CEq401565108119FTd7QvbGea',
-        )));
+        );
+} else {
+    $dataHotel = array(
+            'name_en' => $idHotel["0"],
+            'from' => $from,
+            'to' => $to,
+            'token' => 'mzoc1CEq401565108119FTd7QvbGea',
+        );
+}
+// dd($dataHotel);
+    $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/fetchRooms");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($dataHotel));
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

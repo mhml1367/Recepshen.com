@@ -64,12 +64,12 @@
                 <div class="row">
                   <div class="col">
                      <div class="form-group"><label for="email" class="col-form-label">ایمیل:</label> <input
-                            type="email" id="email" class="form-control"></div>
+                            type="email" id="emailRegister" class="form-control"></div>
                         </div>
                         <div class="col">
 
                         <div class="form-group"><label for="national_code" class="col-form-label">پسورد:</label> <input
-                                type="password" id="password" class="form-control"></div>
+                                type="password" id="passwordRegister" class="form-control"></div>
                         </div>
 
                 </div>
@@ -114,10 +114,10 @@
                 <div class="row">
                   <div class="col">
                      <div class="form-group"><label for="email" class="col-form-label">ایمیل:</label> <input
-                            type="email" id="email" class="form-control"></div>
+                            type="email" id="emailLogin" class="form-control"></div>
                         
                         <div class="form-group"><label for="national_code" class="col-form-label">کلمه عبور:</label> <input
-                                type="password" id="password" class="form-control"></div>
+                                type="password" id="passwordLogin" class="form-control"></div>
                     </div>
                 </div>
             </div>
@@ -125,74 +125,6 @@
         </div>
     </div>
 </div>
-<script>
-//     $("#subRegister").click(function () {
-//     $.ajax({
-//         type: 'POST',
-//         url: 'http://recepshen.ir/api/fetchHotels',
-//         data: {
-//             email: $("#email").val(),
-//             password: $("#password").val(),
-//             first_name: $("#first_name").val(),
-//             last_name: $("#last_name").val(),
-//             national_code: $("#national_code").val(),
-//             phone_number: $("#phone_number").val(),
-//             Sir_Madam: $("#Sir_Madam").val(),
-//             city: $("#city").val(),
-//             Foreign: $("#Foreign").val(),
-//         },
-//         success: function (Data) {
-//             if (Data["status"] == 0) {
-//                 $("#subRegister").notify(
-//                     Data["error"], "error",
-//                     { position:"right" }
-//                 );
-//             }
-//             if (Data["status"] == 1) {
-//                 window.location.replace(Data["data"]["payLink"]);
-//             }
-
-//         },
-//         error: function (e) {
-//             $("#subRegister").notify(
-//                 "خطایی رخ داد مجدد تلاش نمایید!", "error",
-//                 { position:"right" }
-//             );
-//         }
-
-//     });
-// });
-//     $("#subLogin").click(function () {
-//     $.ajax({
-//         type: 'POST',
-//         url: 'http://recepshen.ir/api/fetchHotels',
-//         data: {
-//             email: $("#email").val(),
-//             password: $("#password").val(),
-//             phone_number: $("#phone_number").val(),
-//         },
-//         success: function (Data) {
-//             if (Data["status"] == 0) {
-//                 $("#subLogin").notify(
-//                     Data["error"], "error",
-//                     { position:"right" }
-//                 );
-//             }
-//             if (Data["status"] == 1) {
-//                 window.location.replace(Data["data"]["payLink"]);
-//             }
-
-//         },
-//         error: function (e) {
-//             $("#subLogin").notify(
-//                 "خطایی رخ داد مجدد تلاش نمایید!", "error",
-//                 { position:"right" }
-//             );
-//         }
-
-//     });
-// });
-</script>
       <script src="/asset/js/jquery.min.js"></script>
       <script src="/asset/js/bootstrap.min.js"></script>
       <script src="/asset/js/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -202,6 +134,74 @@
       <script src="/asset/js/persian-date.js"></script>
       <script src="/asset/js/persian-datepicker.js"></script>
       @yield ("js")
+      <script>
+        $("#subRegister").click(function () {
+        $.ajax({
+            type: 'POST',
+            url: 'http://recepshen.ir/api/fetchHotels',
+            data: {
+                email: $("#email").val(),
+                password: $("#password").val(),
+                first_name: $("#first_name").val(),
+                last_name: $("#last_name").val(),
+                national_code: $("#national_code").val(),
+                phone_number: $("#phone_number").val(),
+                Sir_Madam: $("#Sir_Madam").val(),
+                city: $("#city").val(),
+                Foreign: $("#Foreign").val(),
+            },
+            success: function (Data) {
+                if (Data["status"] == 0) {
+                    $("#subRegister").notify(
+                        Data["error"], "error",
+                        { position:"right" }
+                    );
+                }
+                if (Data["status"] == 1) {
+                    window.location.replace(Data["data"]["payLink"]);
+                }
+    
+            },
+            error: function (e) {
+                $("#subRegister").notify(
+                    "خطایی رخ داد مجدد تلاش نمایید!", "error",
+                    { position:"right" }
+                );
+            }
+    
+        });
+    });
+        $("#subLogin").click(function () {
+        $.ajax({
+            type: 'POST',
+            url: 'http://recepshen.ir/api/fetchHotels',
+            data: {
+                email: $("#email").val(),
+                password: $("#password").val(),
+                phone_number: $("#phone_number").val(),
+            },
+            success: function (Data) {
+                if (Data["status"] == 0) {
+                    $("#subLogin").notify(
+                        Data["error"], "error",
+                        { position:"right" }
+                    );
+                }
+                if (Data["status"] == 1) {
+                    window.location.replace(Data["data"]["payLink"]);
+                }
+    
+            },
+            error: function (e) {
+                $("#subLogin").notify(
+                    "خطایی رخ داد مجدد تلاش نمایید!", "error",
+                    { position:"right" }
+                );
+            }
+    
+        });
+    });
+    </script>
    </div>
    </body>
 </html>

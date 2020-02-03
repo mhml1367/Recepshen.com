@@ -28,12 +28,13 @@
 <section class="welcome-area">
     <div class="container">
        <div class="row">
-
+        @if (count($rec->images) != null)
                 <div class="col">
                     <img src="{{$rec->images["0"]}}" width="500px" v-show="!show">   
-                    <img v-bind:src="curentselect" width="500px" v-bind:class="show">   
+                    <img v-bind:src="curentselect" width="500px" v-bind:class="show" v-show="show">
                 </div>
-                            
+        @endif
+    
                 <div class="col">
                     <div class="welcome-right">
             
@@ -55,12 +56,14 @@
 <section class="homepage-5 blog-2-area">
     <div class="container">
     <div class="row">
+        @if (count($rec->images_sm) != null)
         @for ($b = 0; $b < count($rec->images_sm); $b++)
             <div class="col single-blog-1">
-                <img @click="itemclick({{$b}})" src="{{$rec->images_sm[$b]}}" width="150px" alt="Hotel Image {{$b}}">
-                {{-- onclick="Gallery('{{$rec->images[$b]}}');" --}}
+                <img @click="itemclick({{$b}})" src="{{$rec->images_sm[$b]}}" class="single-blog-img" width="150px" alt="Hotel Image {{$b}}">
             </div>
         @endfor
+        @endif
+
     </div>
     </div>
 </section>
@@ -214,7 +217,9 @@
                     @for ($c = 0; $c < count($rec->specifications); $c++)
                         <div class="col">
                             <div class="list-specifications">
-                                <img src="{{$rec->specifications[$c]->icon}}" alt="brand-icon">
+                                @if ($rec->specifications[$c]->icon != null)
+                                    <img src="{{$rec->specifications[$c]->icon}}" alt="brand-icon">
+                                @endif
                                 <p>{{$rec->specifications[$c]->name}}</p>
                             </div>
                         </div>
@@ -225,7 +230,8 @@
  </section>
 
 
-
+@if ($rec->location != null)
+    
  <section class="domain-area homepage-2 ">
    <div class="container domain-inner">
        <div class="domain-checkup">
@@ -251,7 +257,7 @@
        </div>
    </div>
 </section>
-
+@endif
  <section class="about-blog">
     <div class="container">
         <div class="row">
