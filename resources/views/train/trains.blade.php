@@ -16,8 +16,12 @@
                            <div class="flex-form row ">
                             <div class="col">
                                <select id="fromCity" name="option">
-                                    @foreach ($city as $item)
-                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                    @foreach ($city as $key => $item)
+                                        @if ($key == 1)
+                                                <option selected value="{{$item->id}}">{{$item->name}}</option>
+                                            @else
+                                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                        @endif
                                     @endforeach
                                </select>
                                 </div>

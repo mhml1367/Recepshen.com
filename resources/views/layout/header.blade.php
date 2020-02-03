@@ -41,6 +41,7 @@
                     <ul class="list-inline text-right" id="mainmenu">
                         <li><a href="/hotels">رزرو هتل</a></li>
                         <li><a href="/ecotourisms/">رزرو بوم گردی</a></li>
+                        <li><a href="/trains/">بلیط قطار</a></li>
                         <li><a href="#">تماس باما</a></li>
                     </ul>
                 </div>
