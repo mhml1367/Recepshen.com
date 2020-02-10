@@ -212,7 +212,7 @@
  <section class="homepage-2 blog-2-area">
      <div class="row">
          <div class="container">
-                <h2 class="section-title" id="Hotelspecifications"> </h2>
+                <h2 class="section-title" id="Hotelspecifications">امکانات اقامتگاه</h2>
                 <div class="row">
                     @for ($c = 0; $c < count($rec->specifications); $c++)
                         <div class="col">

@@ -22,6 +22,14 @@ canvas{
     color: #3e445b;
   
 }
+.imageTrains {
+    height: 75px;
+    width: 75px;
+    background-color: transparent;
+    border-radius: 15px;
+    object-fit: cover;
+    object-position: center;
+}
 button, input {
     border: 0px;
 }

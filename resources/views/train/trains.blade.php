@@ -208,7 +208,7 @@ function DataHotel(dataSend) {
                 FIELD += "<div class=\"row no-gutters\">";
                 FIELD += "<div class=\"col-lg-10 col-md-12 col-xs-12\">";
                 FIELD += "<p class=\"text-right\">";
-                FIELD += "<i class=\"fa fa-map-marker\" style=\"color:darkgray;\"></i>"+ D["tickets"][i]["company"]["name"];
+                FIELD += "<i class=\"fa fa-train\" style=\"color:darkgray;\"></i>  "+ D["tickets"][i]["company"]["name"];
                 FIELD += "</p>";
                 FIELD += "<div class=\"row\">";
                 FIELD += "<div class=\"col-lg-6 col-md-12 col-xs-12\">";
