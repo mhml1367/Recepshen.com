@@ -152,7 +152,7 @@
                                                               شروع قیمت: {{ number_format($rec[$i]->min_price) }} ريال
                                                             </div>
                                                             <div class="col-lg-6 col-md-12 col-xs-12">
-                                                                <a class="btn btn-primary btn-block" href="/hotel/{{ $rec[$i]->name_en ? $rec[$i]->name_en : $rec[$i]->id."__".$rec[$i]->api_type}}">رزرو هتل</a>
+                                                                <a class="btn btn-primary btn-block" href="/hotel/{{ $rec[$i]->name_en ? $rec[$i]->name_en : $rec[$i]->id}}">رزرو هتل</a>
                                                             </div>
                                                         </div>
 
@@ -276,7 +276,7 @@ function DataHotel(dataSend) {
                 FIELD +=  "شروع قیمت: " + (num + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "ريال";
                 FIELD += "</div>";
                 FIELD += "<div class=\"col-lg-6 col-md-12 col-xs-12\">";
-                      if(D["data"][i]["name_en"] == null) {var url = D["data"][i]["name_en"]; }else{ var url = D["data"][i]["id"]+"__"+D["data"][i]["api_type"];}
+                      if(D["data"][i]["name_en"] == "") {var url = D["data"][i]["name_en"]; }else{ var url = D["data"][i]["id"];}
                 FIELD += "<a class=\"btn btn-primary btn-block\" href=/hotel/" + url + "?DateFrom=" + DateFrom + "&DateEnd=" + DateEnd + ">رزرو هتل</a>";
                 FIELD += "</div>";
                 FIELD += "</div>";

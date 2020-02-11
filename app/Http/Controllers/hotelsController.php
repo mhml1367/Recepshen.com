@@ -44,18 +44,16 @@ class hotelsController extends Controller
         $to = request()->input('DateEnd');
     }
 
-    $idHotel = explode("__", $Hotels);
-if (count($idHotel) == 2) {
-    $dataHotel = array(
-            'hotel_id' => $idHotel["0"],
-            'api_type' => $idHotel["1"],
+    if (is_numeric($Hotels)) {
+        $dataHotel = array(
+            'hotel_id' => $Hotels,
             'from' => $from,
             'to' => $to,
             'token' => 'mzoc1CEq401565108119FTd7QvbGea',
         );
 } else {
     $dataHotel = array(
-            'name_en' => $idHotel["0"],
+            'name_en' => $Hotels,
             'from' => $from,
             'to' => $to,
             'token' => 'mzoc1CEq401565108119FTd7QvbGea',
