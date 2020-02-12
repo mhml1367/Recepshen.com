@@ -81,7 +81,9 @@
                             <h2>نوع قطار</h2>
                             <div class="categories-right-list">
                                 <ul>
-                                        <li><input type="checkbox" value="1"> <a>1 </a></li>
+                                        <li><input type="checkbox" value="1"> <a>کوپه ای 4 نفره </a></li>
+                                        <li><input type="checkbox" value="1"> <a>کوپه ای 6 نفره</a></li>
+                                        <li><input type="checkbox" value="1"> <a>سالنی 4 ردیفه</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -89,22 +91,26 @@
                             <h2>شرکت های ریلی</h2>
                             <div class="categories-right-list">
                                 <ul>
-                                    <li><input type="checkbox" value="1"><a>0</a></li>
+                                    <li><input type="checkbox" value="1"> <a>رحا</a></li>
+                                    <li><input type="checkbox" value="1"> <a>فدک</a></li>
+                                    <li><input type="checkbox" value="1"> <a>نورالرضا</a></li>
+                                    <li><input type="checkbox" value="1"> <a>بن ریل</a></li>
+                                    <li><input type="checkbox" value="1"> <a>چوپار</a></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="blog-detail blog-categories-right">
+                        {{-- <div class="blog-detail blog-categories-right">
                             <h2>امکانات قطار</h2>
                             <div class="scroll-bar-wrap">
                             <div class="scroll-box">
                             <div class="categories-right-list">
                                 <ul>
-                                        <li><input type="checkbox" value="1"> <a>2</a></li>
+                                        <li><input type="checkbox" value="1"> <a>چوپار</a></li>
                                 </ul>
                             </div>
                             </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="col-lg-8 col-md-12 col-xs-12">
                         <div class="lds-ellipsis" id="loadig" style="display: none">
