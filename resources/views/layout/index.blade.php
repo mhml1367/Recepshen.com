@@ -27,7 +27,7 @@
     </div>
   </div>
   <div id="app">
-      <div class="{{ Request::is('trains/*') ? 'train' : '' }}{{ Request::is('trains') ? 'train' : '' }}{{ Request::is('ecotourisms/*') ? 'ecotourism' : '' }}{{ Request::is('ecotourism/*') ? 'ecotourism' : '' }}{{ Request::is('ecotourisms') ? 'ecotourism' : '' }}{{ Request::is('hotels/*') ? 'Hotels' : '' }}{{ Request::is('hotel/*') ? 'Hotels' : '' }}{{ Request::is('/') ? 'Hotels' : '' }}{{ Request::is('hotels') ? 'Hotels' : '' }}
+      <div class="{{ Request::is('flight/*') ? 'flight' : '' }}{{ Request::is('flight') ? 'flight' : '' }}{{ Request::is('trains/*') ? 'train' : '' }}{{ Request::is('trains') ? 'train' : '' }}{{ Request::is('ecotourisms/*') ? 'ecotourism' : '' }}{{ Request::is('ecotourism/*') ? 'ecotourism' : '' }}{{ Request::is('ecotourisms') ? 'ecotourism' : '' }}{{ Request::is('hotels/*') ? 'Hotels' : '' }}{{ Request::is('hotel/*') ? 'Hotels' : '' }}{{ Request::is('/') ? 'Hotels' : '' }}{{ Request::is('hotels') ? 'Hotels' : '' }}
       @if (url()->full() == "http://recepshen.com")
       Hotels
       @endif">

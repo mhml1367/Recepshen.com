@@ -1406,6 +1406,11 @@ a.pricing-btn.blue-btn.homepage-one-all-features-btn.action-btn.slider-links-2 {
     /* background-size: cover; */
     background-position: center;
 }
+.flight {
+    background-image: url(/image/flight.jpg);
+    /* background-size: cover; */
+    background-position: center;
+}
 #homepage-3 .full-slider {
     background-image: url(asset/img/bg/homepage-3-bg.png);
     /* background-size: cover; */

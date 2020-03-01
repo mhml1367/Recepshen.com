@@ -13,6 +13,8 @@ Route::get ('/ecotourism/{Hotel}/'   , 'ecotourismsController@Hotel')->name('hot
 
 Route::get ('/trains'   , 'trainController@index')->name('index.train'); 
 
+Route::get ('/flight'   , 'flightController@index')->name('index.flight'); 
+
 Route::get('/clear', function() {
     Artisan::call('cache:clear');
     Artisan::call('view:clear');
