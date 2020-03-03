@@ -57,32 +57,72 @@
                  <div class="owl-carousel all-brand-carsouel">
                     <div class="brand-single-item">
                       <div class="brand-single-item-cell">
-                         <img src="/asset/img/brand-logo/1.png" alt="brand-icon">
+                         <img src="/image/Hotels/AriaHotel.png" alt="هتل آریا">
                       </div>
                     </div>
                     <div class="brand-single-item">
                       <div class="brand-single-item-cell">
-                       <img src="/asset/img/brand-logo/2.png" alt="brand-icon">
+                       <img src="/image/Hotels/ّFarazHotel.png" alt="هتل فراز">
                     </div>
                     </div>
                     <div class="brand-single-item">
                       <div class="brand-single-item-cell">
-                       <img src="/asset/img/brand-logo/3.png" alt="brand-icon">
+                       <img src="/image/Hotels/FerdosHotel.png" alt="هتل فردوس">
                     </div>
                     </div>
                     <div class="brand-single-item">
                       <div class="brand-single-item-cell">
-                       <img src="/asset/img/brand-logo/4.png" alt="brand-icon">
+                       <img src="/image/Hotels/MadineHotel.png" alt="هتل مدینه">
                     </div>
                     </div>
                     <div class="brand-single-item">
                       <div class="brand-single-item-cell">
-                       <img src="/asset/img/brand-logo/5.png" alt="brand-icon">
+                       <img src="/image/Hotels/MonjiHotel.png" alt="هتل منجی">
                     </div>
                     </div>
                     <div class="brand-single-item">
                       <div class="brand-single-item-cell">
-                       <img src="/asset/img/brand-logo/6.png" alt="brand-icon">
+                       <img src="/image/Hotels/NoorHotel.png" alt="هتل نور">
+                    </div>
+                    </div>
+                    <div class="brand-single-item">
+                      <div class="brand-single-item-cell">
+                       <img src="/image/Hotels/ParmidaHotel.png" alt="هتل پارمیدا">
+                    </div>
+                    </div>
+                    <div class="brand-single-item">
+                      <div class="brand-single-item-cell">
+                       <img src="/image/Hotels/SavinHotel.png" alt="هتل ساوین">
+                    </div>
+                    </div>
+                    <div class="brand-single-item">
+                      <div class="brand-single-item-cell">
+                       <img src="/image/Hotels/Shaghayegh.png" alt="هتل شقابق">
+                    </div>
+                    </div>
+                    <div class="brand-single-item">
+                      <div class="brand-single-item-cell">
+                       <img src="/image/Hotels/Si-SePolHotel.png" alt="هتل سی سپل">
+                    </div>
+                    </div>
+                    <div class="brand-single-item">
+                      <div class="brand-single-item-cell">
+                       <img src="/image/Hotels/TabaranHotel.png" alt="هتل تابران">
+                    </div>
+                    </div>
+                    <div class="brand-single-item">
+                      <div class="brand-single-item-cell">
+                       <img src="/image/Hotels/TabasomHotel.png" alt="هتل تبسم">
+                    </div>
+                    </div>
+                    <div class="brand-single-item">
+                      <div class="brand-single-item-cell">
+                       <img src="/image/Hotels/TehranHotel.png" alt="هتل تهران">
+                    </div>
+                    </div>
+                    <div class="brand-single-item">
+                      <div class="brand-single-item-cell">
+                       <img src="/image/Hotels/YasinNorHotel.png" alt="هتل یاسین نور">
                     </div>
                     </div>
                  </div>
