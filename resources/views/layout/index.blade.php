@@ -39,7 +39,7 @@
 
       @include('layout.footer')
 
-<div id="register" tabindex="-1" role="dialog" class="modal fade">
+{{-- <div id="register" tabindex="-1" role="dialog" class="modal fade">
     <div role="document" class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header"><b class="modal-title">ثبت نام</b> <button type="button"
@@ -103,7 +103,7 @@
             <div class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-secondary">بستن</button> <button type="button" id="subRegister" class="btn btn-primary">ثبت نام</button></div>
         </div>
     </div>
-</div>
+</div> --}}
 <div id="login" tabindex="-1" role="dialog" class="modal fade">
     <div role="document" class="modal-dialog modal-dialog-centered modal">
         <div class="modal-content">

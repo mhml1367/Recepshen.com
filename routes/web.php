@@ -12,6 +12,7 @@ Route::get ('/ecotourisms/{City?}'   , 'ecotourismsController@index')->name('ind
 Route::get ('/ecotourism/{Hotel}/'   , 'ecotourismsController@Hotel')->name('hotel.ecotourisms'); 
 
 Route::get ('/trains'   , 'trainController@index')->name('index.train'); 
+Route::POST('/trains/reserve/'   , 'trainController@reserve')->name('post.trains.reserve'); 
 
 Route::get ('/flight'   , 'flightController@index')->name('index.flight'); 
 
