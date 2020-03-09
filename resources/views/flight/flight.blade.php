@@ -126,6 +126,90 @@
                </div>
             </div>
          </div>
+         <div class="modal fade" id="reserve" tabindex="-1" role="dialog" aria-labelledby="reserve" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <b class="modal-title" id="roomReserve"></b>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+    
+                <div class="modal-body">
+                    <div class="row" id="calc"></div>
+                    <hr>
+                    <div class="row" id="Titelcontracts"></div>
+                    <div class="row" id="contracts"></div>
+                    <hr>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="first_name" class="col-form-label">نام:</label>
+                                <input type="text" class="form-control" id="first_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="national_code" class="col-form-label">کدملی</label>
+                                <input type="text" class="form-control" id="national_code">
+                            </div>
+                           
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="last_name" class="col-form-label">نام خانوادگی</label>
+                                <input type="text" class="form-control" id="last_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone_number" class="col-form-label">موبایل:</label>
+                                <input type="text" class="form-control" id="phone_number">
+                            </div>
+                            {{-- <div class="form-group">
+                                <label for="Foreign" class="col-form-label">خارجی:</label>
+                                <input type="checkbox" class="form-control" id="Foreign">
+                            </div> --}}
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                            <div class="row no-gutters">
+                                    <div class="col-8">
+                                        <label for="Sir_Madam" class="col-form-label">آقا/خانم:</label>
+                                        <select name="Sir_Madam" class="form-control" id="Sir_Madam">
+                                            <option value="M" selected>آقا</option>
+                                            <option value="F">خانم</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <label for="Sir_Madam" class="col-form-label">ایمیل:</label>
+                                        <input type="email" id="email" class="form-control">
+                                    </div>
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                
+                                <label for="city" class="col-form-label">تاریخ تولد:</label>
+                                    <div class="row no-gutters">
+                                        <div class="col">
+                                                <select id="dd" class="form-control"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
+                                        </div>
+                                        <div class="col">
+                                                <select id="mm" class="form-control"><option value="1">فروردین</option><option value="2">اردیبهشت</option><option value="3">خرداد</option><option value="4">تیر</option><option value="5">مرداد</option><option value="6">شهریور</option><option value="7">مهر</option><option value="8">آبان</option><option value="9">آذر</option><option value="10">دی</option><option value="11">بهمن</option><option value="12">اسفند</option></select>
+                                        </div>
+                                        <div class="col">
+                                                <input width="50px" type="number" pattern=".{3,}" class="form-control" id="yy" placeholder="1370">
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">انصراف خرید بلیط</button>
+                  <button type="button" class="btn btn-primary" id="send">خرید بلیط</button>
+                </div>
+              </div>
+            </div>
+          </div>
       </section>
       @endsection
 
