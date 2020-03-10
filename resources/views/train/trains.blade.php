@@ -173,7 +173,7 @@
                     <div class="col">
                         <div class="form-group">
                         <div class="row no-gutters">
-                                <div class="col-8">
+                                <div class="col-4">
                                     <label for="Sir_Madam" class="col-form-label">آقا/خانم:</label>
                                     <select name="Sir_Madam" class="form-control" id="Sir_Madam">
                                         <option value="M" selected>آقا</option>
