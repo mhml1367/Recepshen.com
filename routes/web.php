@@ -13,8 +13,11 @@ Route::get ('/ecotourism/{Hotel}/'   , 'ecotourismsController@Hotel')->name('hot
 
 Route::get ('/trains'   , 'trainController@index')->name('index.train'); 
 Route::POST('/trains/reserve/'   , 'trainController@reserve')->name('post.trains.reserve'); 
+Route::get ('/trains/reserve/confirmation'   , 'trainController@confirmation')->name('trains.confirmation'); 
 
 Route::get ('/flight'   , 'flightController@index')->name('index.flight'); 
+Route::POST('/flight/reserve/'   , 'flightController@reserve')->name('post.flight.reserve'); 
+Route::get ('/flight/reserve/confirmation'   , 'flightController@confirmation')->name('flight.confirmation'); 
 
 Route::get('/clear', function() {
     Artisan::call('cache:clear');

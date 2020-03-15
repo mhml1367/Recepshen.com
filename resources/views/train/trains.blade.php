@@ -143,6 +143,7 @@
                 <hr>
                 <div class="row" id="Titelcontracts"></div>
                 <div class="row" id="contracts"></div>
+                <div class="row" id="description"></div>
                 <hr>
                 <div class="row">
                     <div class="col">
@@ -278,7 +279,7 @@ function DataHotel(dataSend) {
     var DateFrom = moment(DateFro).format('YYYY/MM/DD');
     var DateEnd = moment(DateFro).add($("#date1").val(),'d').format('YYYY/MM/DD');
     $.ajax({
-        type: 'POST',
+        type: 'GET',
         url: 'http://recepshen.ir/api/trains/tickets',
         data: dataSend,
         success: function (D) {
@@ -309,7 +310,7 @@ function DataHotel(dataSend) {
                     num = D["tickets"][i]["adult"];
                 FIELD += "<div class=\"col-lg-6 col-md-12 col-xs-12\">";
                 FIELD +=  "قیمت: " + (num + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "ريال";
-                FIELD += "<bottom class=\"btn btn-primary btn-block\" data-toggle=\"modal\" data-target=\"#reserve\" data-dates="+D["tickets"][i]["j_date"]+" data-from_city="+D["tickets"][i]["from_city"]+" data-to_city="+D["tickets"][i]["to_city"]+" data-start_time="+D["tickets"][i]["start_time"]+" data-end_time="+D["tickets"][i]["end_time"]+"  data-adult="+D["tickets"][i]["adult"]+" data-total="+D["tickets"][i]["total"]+">خرید بلیط قطار</bottom>";
+                FIELD += "<bottom class=\"btn btn-primary btn-block\" data-toggle=\"modal\" data-target=\"#reserve\" data-company_name="+D["tickets"][i]["company_name"]+" data-dates="+D["tickets"][i]["date"]+" data-railway="+D["tickets"][i]["RailwayNumber"]+" data-ticket_id="+D["tickets"][i]["id"]+"  data-from_city="+D["tickets"][i]["from_city"]+" data-to_city="+D["tickets"][i]["to_city"]+" data-start_time="+D["tickets"][i]["start_time"]+" data-end_time="+D["tickets"][i]["end_time"]+"  data-adult="+D["tickets"][i]["adult"]+" data-infant="+D["tickets"][i]["infant"]+" data-child="+D["tickets"][i]["child"]+" data-total="+D["tickets"][i]["total"]+" data-description="+D["tickets"][i]["description"]+" data-cancel1="+D["tickets"][i]["cancel_tickets1"]+" data-cancel2="+D["tickets"][i]["cancel_tickets2"]+" data-cancel3="+D["tickets"][i]["cancel_tickets3"]+">خرید بلیط قطار</bottom>";
                 FIELD += "</div>";
                 FIELD += "</div>";
                 FIELD += "</div>";
@@ -336,46 +337,63 @@ function DataHotel(dataSend) {
 };
 
 
-var idRoom="";
 
     $('#reserve').on('show.bs.modal', function (event) {
+        var company_name = $(event.relatedTarget).data('company_name');
         var dates = $(event.relatedTarget).data('dates');
+        var Railway = $(event.relatedTarget).data('railway');
+        var ticket_id = $(event.relatedTarget).data('ticket_id');
         var adult = $(event.relatedTarget).data('adult');
+        var child = $(event.relatedTarget).data('child');
+        var infant = $(event.relatedTarget).data('infant');
         var total =  $(event.relatedTarget).data('total');
         var start_time = $(event.relatedTarget).data('start_time');
         var end_time = $(event.relatedTarget).data('end_time');
         var from_city = $(event.relatedTarget).data('from_city');
         var to_city = $(event.relatedTarget).data('to_city');
+        var descriptions = $(event.relatedTarget).data('description');
+        var cancel1 = $(event.relatedTarget).data('cancel1');
+        var cancel2 = $(event.relatedTarget).data('cancel2');
+        var cancel3 = $(event.relatedTarget).data('cancel3');
 
         var calc="";
 
+            calc += "<input id=\"RailwayNumber\" value=\""+Railway+"\" type=\"hidden\">";
+            calc += "<input id=\"ticket_id\" value=\""+ticket_id+"\" type=\"hidden\">";
+
+
             calc += "<div class=\"col\">";
             calc += "<div class=\"form-group\">";
-            calc += "<lable> تاریخ : "+dates+"</lable>";
+            calc += "<lable> تاریخ : <span id=\"datee\">"+dates+"</span></lable>";
+            calc += "</div>";
+            calc += "</div>";
+            calc += "<div class=\"col\">";
+            calc += "<div class=\"form-group\">";
+            calc += "<lable> شرکت: <span id=\"company_name\">"+company_name+"</span></lable>";
             calc += "</div>";
             calc += "</div>";
 
             calc += "<div class=\"col\">";
             calc += "<div class=\"form-group\">";
-            calc += "<lable> ساعت رفت: "+start_time+"</lable>";
+            calc += "<lable> ساعت رفت: <span id=\"start_time\">"+start_time+"</span></lable>";
             calc += "</div>";
             calc += "</div>";
 
             calc += "<div class=\"col\">";
             calc += "<div class=\"form-group\">";
-            calc += "<lable > اتمام پرواز: "+end_time+"</lable>";
+            calc += "<lable > اتمام پرواز: <span id=\"end_time\">"+end_time+"</span></lable>";
             calc += "</div>";
             calc += "</div>";
 
             calc += "<div class=\"col\">";
             calc += "<div class=\"form-group\">";
-            calc += "<lable > از شهر: "+from_city+"</lable>";
+            calc += "<lable > از شهر: <span id=\"from_city\">"+from_city+"</span></lable>";
             calc += "</div>";
             calc += "</div>";
 
             calc += "<div class=\"col\">";
             calc += "<div class=\"form-group\">";
-            calc += "<lable > به شهر: "+to_city+"</lable>";
+            calc += "<lable > به شهر: <span id=\"to_city\">"+to_city+"</span></lable>";
             calc += "</div>";
             calc += "</div>";
 
@@ -385,23 +403,108 @@ var idRoom="";
 
         contracts += "<div class=\"col\">";
         contracts += "<div class=\"form-group\">";
-        contracts += "<lable > قیمت بزرگ سال: "+adult+"</lable>";
+        contracts += "<lable> قیمت بزرگ سال: <span id=\"adult\">"+adult+"</span></lable>";
         contracts += "</div>";
         contracts += "</div>";
      
+        contracts += "<div class=\"col\">";
+        contracts += "<div class=\"form-group\">";
+        contracts += "<lable> قیمت کودک: <span id=\"child\">"+child+"</span></lable>";
+        contracts += "</div>";
+        contracts += "</div>";
 
+        contracts += "<div class=\"col\">";
+        contracts += "<div class=\"form-group\">";
+        contracts += "<lable> قیمت نوزاد: <span id=\"infant\">"+infant+"</span></lable>";
+        contracts += "</div>";
+        contracts += "</div>";
+     
         contracts += "<div class=\"col\">";
         contracts += "<div class=\"form-group\">";
         contracts += "<lable > جمع قیمت: "+total+"</lable>";
         contracts += "</div>";
         contracts += "</div>";
+
+        var description="";
+
+        description += "<div class=\"col\">";
+        description += "<div class=\"form-group\">";
+        description += "<lable> "+descriptions+"</lable>";
+        description += "</div>";
+        description += "</div>";
+        
+        description += "<div class=\"col\">";
+        description += "<div class=\"form-group\">";
+        description += "<lable> "+cancel1+"</lable>";
+        description += "</div>";
+        description += "</div>";
+        
+        description += "<div class=\"col\">";
+        description += "<div class=\"form-group\">";
+        description += "<lable> "+cancel2+"</lable>";
+        description += "</div>";
+        description += "</div>";
+        
+        description += "<div class=\"col\">";
+        description += "<div class=\"form-group\">";
+        description += "<lable> "+cancel3+"</lable>";
+        description += "</div>";
+        description += "</div>";
      
         var modal = $(this)
         modal.find('#roomReserve').text("خرید بلیط ");
         modal.find('#Titelcontracts').html(Titelcontracts);
         modal.find('#contracts').html(contracts);
+        modal.find('#description').html(description);
         modal.find('#calc').html(calc);
     });
    
+
+    $("#send").click(function () {
+        jQuery.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+    $.ajax({
+        type: 'POST',
+        url: "{{ route('post.trains.reserve') }}",
+        data: {
+            railwaynumber: $("#RailwayNumber").val(),
+            start_time: $("#start_time").text(),
+            end_time: $("#end_time").text(),
+            ticket_id: $("#ticket_id").val(),
+            adult: $("#adult").text(),
+            child: $("#child").text(),
+            infant: $("#infant").text(),
+            from_city: $("#from_city").text(),
+            to_city: $("#to_city").text(),
+            date: $("#datee").text(),
+            company_name: $("#company_name").text(),
+            first_name: $("#first_name").val(),
+            last_name: $("#last_name").val(),
+            national_code: $("#national_code").val(),
+            phone_number: $("#phone_number").val(),
+            email: $("#email").val(),
+            Sir_Madam: $("#Sir_Madam").val(),
+            city: $("#city").val(),
+            Foreign: $("#Foreign").val(),
+            yy: $("#yy").val(),
+            dd: $("#dd").val(),
+            mm: $("#mm").val(),
+        },
+        success: function (Data) {
+            if (Data["status"] == 0) {
+                $("#send").notify(
+                    Data["error"], "error",
+                    { position:"right" }
+                );
+            }
+            if (Data["status"] == 1) {
+                window.location.replace(Data["data"]["payLink"]);
+            }
+        }
+    });
+});
  </script>
 @endsection

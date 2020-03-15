@@ -475,7 +475,6 @@
             last_name: $("#last_name").val(),
             national_code: $("#national_code").val(),
             phone_number: $("#phone_number").val(),
-            phone_number: $("#phone_number").val(),
             Sir_Madam: $("#Sir_Madam").val(),
             city: $("#city").val(),
             Foreign: $("#Foreign").val(),
