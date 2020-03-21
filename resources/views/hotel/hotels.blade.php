@@ -235,7 +235,7 @@ function DataHotel(dataSend) {
     var DateFrom = moment(DateFro).format('YYYY/MM/DD');
     var DateEnd = moment(DateFro).add($("#date1").val(),'d').format('YYYY/MM/DD');
     $.ajax({
-        type: 'POST',
+        type: 'GET',
         url: 'http://recepshen.ir/api/fetchHotels',
         data: dataSend,
         success: function (D) {
@@ -258,7 +258,7 @@ function DataHotel(dataSend) {
                     for (b = 0; b < D["data"][i]["stars"]; b++) {
                         FIELD += "<i class=\"fa fa-star\" style=\"color: #ffa726;\"></i>";
                     }
-
+var url="";
                 FIELD += "</h2>";                
                 FIELD += "<div class=\"row no-gutters\">";
                 FIELD += "<div class=\"col-lg-4 col-md-12 col-xs-12\">";
@@ -276,7 +276,7 @@ function DataHotel(dataSend) {
                 FIELD +=  "شروع قیمت: " + (num + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "ريال";
                 FIELD += "</div>";
                 FIELD += "<div class=\"col-lg-6 col-md-12 col-xs-12\">";
-                      if(D["data"][i]["name_en"] == "") {var url = D["data"][i]["name_en"]; }else{ var url = D["data"][i]["id"];}
+                      if(D["data"][i]["name_en"] == null) { var url = D["data"][i]["name_en"]; }else{ var url = D["data"][i]["id"];}
                 FIELD += "<a class=\"btn btn-primary btn-block\" href=/hotel/" + url + "?DateFrom=" + DateFrom + "&DateEnd=" + DateEnd + ">رزرو هتل</a>";
                 FIELD += "</div>";
                 FIELD += "</div>";

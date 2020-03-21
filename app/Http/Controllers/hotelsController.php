@@ -11,11 +11,7 @@ class hotelsController extends Controller
     {
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/fetchHotels");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
-            'city_name_en'=> $city1,
-            'token' => 'mzoc1CEq401565108119FTd7QvbGea',
-        )));
+        curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/fetchHotels?city_name_en=".$city1."&token=mzoc1CEq401565108119FTd7QvbGea");
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -24,8 +20,8 @@ class hotelsController extends Controller
         ]);
 
         $response = json_decode(curl_exec($ch));
+        // dd($response);
         $rec = $response->data;
-// dd($rec);
 
         $city = city();
         $hotelTypes = hotelTypes();
@@ -45,24 +41,19 @@ class hotelsController extends Controller
     }
 
     if (is_numeric($Hotels)) {
-        $dataHotel = array(
-            'hotel_id' => $Hotels,
-            'from' => $from,
-            'to' => $to,
-            'token' => 'mzoc1CEq401565108119FTd7QvbGea',
-        );
+        $dataHotel ="?hotel_id=". $Hotels.
+                    'from='. $from.
+                    'to='. $to.
+                    'token=mzoc1CEq401565108119FTd7QvbGea';
 } else {
-    $dataHotel = array(
-            'name_en' => $Hotels,
-            'from' => $from,
-            'to' => $to,
-            'token' => 'mzoc1CEq401565108119FTd7QvbGea',
-        );
+    $dataHotel ="?name_en=". $Hotels.
+                'from='. $from.
+                'to='. $to.
+                'token=mzoc1CEq401565108119FTd7QvbGea';
 }
 // dd($dataHotel);
     $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/fetchRooms");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($dataHotel));
+        curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/fetchRooms".$dataHotel);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

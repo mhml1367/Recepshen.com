@@ -192,7 +192,7 @@
         var DateFrom= new persianDate($("#date").val()).toLocale('en').format('YYYY-MM-DD');
         var DateEnd= new persianDate().add('days', $("#date1").val()).toLocale('en').format("YYYY-MM-DD");
         $.ajax({
-            type: 'POST',
+            type: 'GET',
             url: 'http://recepshen.ir/api/boomgardi/list',
             data: dataSend,
             success: function (D) {
