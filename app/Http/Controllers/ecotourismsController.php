@@ -10,7 +10,7 @@ class ecotourismsController extends Controller
     public function index($city1 = null)
     {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/boomgardi/list?city_name_en=".$city1."^token=mzoc1CEq401565108119FTd7QvbGea");
+        curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/boomgardi/list?city_name_en=".$city1."&token=mzoc1CEq401565108119FTd7QvbGea");
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -19,7 +19,7 @@ class ecotourismsController extends Controller
         ]);
 
         $response = json_decode(curl_exec($ch));
-        dd($response);
+        // dd($response);
         // if()
         $rec = $response->data;
 
@@ -33,22 +33,28 @@ class ecotourismsController extends Controller
     
     public function Hotel($Hotels)
     {
-    if (request()->input('DateFrom') == null) {
-        $from = "";
-        $to = "";
-    }else{
-        $from = request()->input('DateFrom');
-        $to = request()->input('DateEnd');
-    }
+        if (request()->input('DateFrom') == null) {
+            $from = "";
+            $to = "";
+        }else{
+            $from = request()->input('DateFrom');
+            $to = request()->input('DateEnd');
+        }
+    
+        if (is_numeric($Hotels)) {
+            $dataHotel ="?hotel_id=". $Hotels.
+                        '&from='. $from.
+                        '&to='. $to.
+                        '&token=mzoc1CEq401565108119FTd7QvbGea';
+        } else {
+            $dataHotel ="?name_en=". $Hotels.
+                        '&from='. $from.
+                        '&to='. $to.
+                        '&token=mzoc1CEq401565108119FTd7QvbGea';
+        }
 
     $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/boomgardi/rooms");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
-            'name_en' => $Hotels,
-            'from' => $from,
-            'to' => $to,
-            'token' => 'mzoc1CEq401565108119FTd7QvbGea',
-        )));
+        curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/boomgardi/rooms".$dataHotel);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

@@ -13,10 +13,8 @@ function city() {
 	}
 
 	$ch = curl_init();
+	// curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/cities?token=mzoc1CEq401565108119FTd7QvbGea");
 	curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/cities");
-	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
-		'token' => 'mzoc1CEq401565108119FTd7QvbGea',
-	)));
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -46,9 +44,9 @@ function hotelTypes() {
 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/hotelTypes");
-	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
-		'token' => 'mzoc1CEq401565108119FTd7QvbGea',
-	)));
+	// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
+	// 	'token' => 'mzoc1CEq401565108119FTd7QvbGea',
+	// )));
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -79,9 +77,9 @@ function hotelSpecifications() {
 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/hotelSpecifications");
-	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
-		'token' => 'mzoc1CEq401565108119FTd7QvbGea',
-	)));
+	// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
+	// 	'token' => 'mzoc1CEq401565108119FTd7QvbGea',
+	// )));
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

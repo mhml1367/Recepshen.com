@@ -42,15 +42,15 @@ class hotelsController extends Controller
 
     if (is_numeric($Hotels)) {
         $dataHotel ="?hotel_id=". $Hotels.
-                    'from='. $from.
-                    'to='. $to.
-                    'token=mzoc1CEq401565108119FTd7QvbGea';
-} else {
-    $dataHotel ="?name_en=". $Hotels.
-                'from='. $from.
-                'to='. $to.
-                'token=mzoc1CEq401565108119FTd7QvbGea';
-}
+                    '&from='. $from.
+                    '&to='. $to.
+                    '&token=mzoc1CEq401565108119FTd7QvbGea';
+    } else {
+        $dataHotel ="?name_en=". $Hotels.
+                    '&from='. $from.
+                    '&to='. $to.
+                    '&token=mzoc1CEq401565108119FTd7QvbGea';
+    }
 // dd($dataHotel);
     $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, "http://recepshen.ir/api/fetchRooms".$dataHotel);
