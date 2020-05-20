@@ -135,6 +135,19 @@
       <script src="{{ asset('asset/js/persian-datepicker.js') }}"></script>
       @yield ("js")
       <script>
+	  
+		$(document).ready(function() {
+			
+			$("#loginMenu, #logoutMenu").hide(0);
+			
+			if(window.localStorage.getItem('RecepshenToken'))
+				$("#logoutMenu").show(0);
+			else 
+				$("#loginMenu").show(0);
+				
+			
+		});
+	  
         $("#subRegister").click(function () {
         $.ajax({
             type: 'POST',

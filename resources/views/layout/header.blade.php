@@ -20,8 +20,8 @@
              <div class="header-top-right">
                 <ul>
                    {{-- <li><a href="#">رزرو آنلاین <span class="ti-comments"></span></a></li> --}}
-                   <li><a href="#" data-toggle="modal" data-target="#register">عضویت</a></li>
-                   <li><a href="#"  data-toggle="modal" data-target="#login">ورود </a></li>
+                   <li id="loginMenu"><a href="{{ url('login') }}">عضویت/ورود</a></li>
+				   <li id="logoutMenu"><a href="{{ url('logout') }}">خروج</a></li>
                 </ul>
              </div>
           </div>
