@@ -5,7 +5,7 @@
              <div class="col-lg-3 col-md-12 col-12">
                 <div class="footer-single-item">
                    <div class="logo">
-                      <a href="/"><img src="/asset/img/logo/logo.png" alt="logo"></a>
+                      <a href="/"><img src="{{ asset('asset/img/logo/logo.png') }}" alt="logo"></a>
                    </div>
                    <p>سیستم مدیریت رسپشن</p>
                    <p class="contact-info"><span>موبایل:</span><a href="tel:09152040749">09152040749</a></p>
@@ -26,7 +26,7 @@
              </div>
              <div class="col-lg-3 col-md-12 col-12 ">
                 <div class="text-center">
-                   <a href="/Recepshen-Android.apk"><img src="/image/Android.png" style="height: 250px"></a>
+                   <a href="/Recepshen-Android.apk"><img src="{{ asset('image/Android.png') }}" style="height: 250px"></a>
                    <h2>اندروید رسپشن</h2>
                 </div>
              </div>
@@ -55,15 +55,15 @@
           <div class="row">
              <div class="col-md-6 col-sm-6 col-xs-12 ">
                 <div class="offer-left">
-                   <p>پرداخت آنلاین و پشتیبانی 24 ساعته انجام می شود 
+                   <p>پرداخت آنلاین و پشتیبانی 24 ساعته انجام می شود
                       <br>
-                      
+
                    </p>
                 </div>
              </div>
              <div class="col-md-6 col-sm-6 col-xs-12 ">
                 <div class="payment-getway text-right">
-                   <img src="/asset/img/bg/footer-bottom.png" alt="payment-icon">
+                   <img src="{{ asset('asset/img/bg/footer-bottom.png') }}" alt="payment-icon">
                 </div>
              </div>
           </div>

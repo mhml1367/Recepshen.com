@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-md-2">
                 <div class="logo">
-                    <a href="/"><img src="/asset/img/logo/logo.png" alt="logo"></a>
+                    <a href="/"><img src={{ asset('asset/img/logo/logo.png') }} alt="logo"></a>
                 </div>
             </div>
             <div class="col-md-10">
