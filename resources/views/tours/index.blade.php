@@ -525,7 +525,7 @@ function DataHotel(dataSend) {
                 );
             }
             if (Data["status"] == 1) {
-                window.location.replace(Data["data"]["payLink"]);
+                window.location = Data["payLink"];
             }
         }
     });
