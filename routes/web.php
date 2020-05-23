@@ -19,6 +19,10 @@ Route::get ('/flight'   , 'flightController@index')->name('index.flight');
 Route::POST('/flight/reserve/'   , 'flightController@reserve')->name('post.flight.reserve');
 Route::get ('/flight/reserve/confirmation'   , 'flightController@confirmation')->name('flight.confirmation');
 
+Route::get ('/tours', 'ToursController@index')->name('index.tours');
+Route::POST('/tours/reserve/', 'ToursController@reserve')->name('post.tours.reserve');
+Route::get ('/tours/reserve/confirmation', 'ToursController@confirmation')->name('tours.confirmation');
+
 Route::get('login', 'UsersController@login');
 Route::get('logout', 'UsersController@logout');
 
