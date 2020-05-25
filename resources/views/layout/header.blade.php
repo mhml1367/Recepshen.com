@@ -43,6 +43,7 @@
                         <li><a href="/ecotourisms/">رزرو بوم گردی</a></li>
                         <li><a href="/trains/">بلیط قطار</a></li>
                         <li><a href="/flight/">بلیط پرواز</a></li>
+                        <li><a href="/tours/">تور</a></li>
                         <li><a href="#">تماس باما</a></li>
                     </ul>
                 </div>
