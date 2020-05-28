@@ -12,7 +12,7 @@
                <div class="row slider-content-area">
                    <div class="col">
                        <div class="cover">
-                           <h2>جستجو قطار</h2>
+                           <h2>جستجو تور پکیجی</h2>
                            <div class="flex-form row ">
                             <div class="col">
                                <select id="fromCity" name="option">
