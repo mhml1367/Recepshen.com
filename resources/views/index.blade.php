@@ -62,7 +62,7 @@
                     </div>
                     <div class="brand-single-item">
                       <div class="brand-single-item-cell">
-                       <img src="/image/Hotels/ّFarazHotel.png" alt="هتل فراز">
+                       <img src="/image/Hotels/FarazHotel.png" alt="هتل فراز">
                     </div>
                     </div>
                     <div class="brand-single-item">
