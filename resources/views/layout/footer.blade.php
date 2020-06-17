@@ -10,7 +10,7 @@
                    <p>سیستم مدیریت رسپشن</p>
                    <p class="contact-info"><span>موبایل:</span><a href="tel:09152040749">09152040749</a></p>
                    <p class="contact-info"><span>ایمیل:</span><a>info[@]Recepshen.com</a> </p>
-                   <p class="contact-info"><span>آدرس:</span><a>مشهد - بلوار پیروزی</a></p>
+                   <p class="contact-info"><span>آدرس:</span><a>مشهد - میدان 15 خرداد - جنب بانک سینا</a></p>
                 </div>
              </div>
              <div class="col-lg-3 col-md-12 col-12 ">
@@ -34,17 +34,14 @@
                 <div class="single-footer ml">
                    <h2>پست های جدید</h2>
                    <div class="bpws-wrapper footer-sideber">
+
                       <div class="footer-single-sideber">
                          <a href="#"><span>20 Oct. 2019</span></a>
-                         <a href="#">Best Shared Hosting Provider in the World</a>
+                         <a href="#">بهترین نرخ هتل های مشهد</a>
                       </div>
                       <div class="footer-single-sideber">
                          <a href="#"><span>20 Oct. 2019</span></a>
-                         <a href="#">Best Shared Hosting Provider in the World</a>
-                      </div>
-                      <div class="footer-single-sideber">
-                         <a href="#"><span>20 Oct. 2019</span></a>
-                         <a href="#">Best Shared Hosting Provider in the World</a>
+                         <a href="#">رزرو آنلاین بوم گردی ها </a>
                       </div>
                    </div>
                 </div>
@@ -55,7 +52,7 @@
           <div class="row">
              <div class="col-md-6 col-sm-6 col-xs-12 ">
                 <div class="offer-left">
-                   <p>پرداخت آنلاین و پشتیبانی 24 ساعته انجام می شود
+                   <p>پرداخت آنلاین با کارت های عضو شتاب و پشتیبانی 24 ساعته انجام می شود
                       <br>
 
                    </p>
@@ -72,11 +69,11 @@
        <div class="foter-botom">
           <div class="row">
              <div class="col-md-6 col-sm-6 col-xs-12 ">
-                <p> &copy; 2020<a href="http://Recepshen.com/">رسپشن </a>تمام حقوق محفوص است</p>
+                <p> &copy; کلیه حقوق این سایت محفوظ و متعلق به شرکت داده پردازان نفیس رستاک می‌باشد</p>
              </div>
              <div class="col-md-6 col-sm-6 col-xs-12 text-right ">
                 <div class="social-links">
-                   <a href="#" target="_blank"><span class="ti-facebook"></span></a>
+                   <a href="https://www.instagram.com/iranreception/" target="_blank"><span class="ti-instagram"></span></a>
                    <a href="#" target="_blank"><span class="ti-twitter-alt"></span></a>
                    <a href="#" target="_blank"><span class="ti-pinterest"></span></a>
                    <a href="#" target="_blank"><span class="ti-google"></span></a>
